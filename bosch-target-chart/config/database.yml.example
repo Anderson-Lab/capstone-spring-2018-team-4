@@ -1,3 +1,6 @@
+# Copy contents of this file to database.yml and add
+# custom usernames and passwords
+
 development:
   username: root
   adapter: mysql2
