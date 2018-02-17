@@ -7,6 +7,7 @@ end
 
 gem 'bootstrap-sass'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
+gem 'devise' # Used for login authentication
 gem 'haml' # Use HAML for .haml views
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease
 gem 'jquery-rails'
@@ -17,6 +18,7 @@ gem 'sass-rails', '~> 5.0' # Use SCSS for .scss stylesheets
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
+  gem 'faker' # Allow us to create fake data for tests
   gem 'pry-byebug' # Use pry and byebug commands for debugging
   gem 'rspec-rails' # Use the rspec test framework
 end
