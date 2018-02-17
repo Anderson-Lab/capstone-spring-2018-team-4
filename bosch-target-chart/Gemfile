@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'haml' # Use HAML for .haml views
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease
