@@ -7,14 +7,14 @@
     = link_to root_path, class: 'navbar-brand display-1' do
       - if ENV['company_logo']
         = image_tag ENV['company_logo'], class: 'company-logo'
-      = 'Target Charts'
+      = t(:site_header)
     .collapse.navbar-collapse#navbarLinks
       %ul.navbar-nav
         %li.nav-item
-          = link_to 'LOGIN', 'javascript:void(0)', class: 'nav-link'
+          = link_to t(:navigation_links)[:login], 'javascript:void(0)', class: 'nav-link'
         %li.nav-item
-          = link_to 'REGISTER', 'javascript:void(0)', class: 'nav-link'
+          = link_to t(:navigation_links)[:register], 'javascript:void(0)', class: 'nav-link'
         %li.nav-item
-          = link_to 'ABOUT', 'javascript:void(0)', class: 'nav-link'
+          = link_to t(:navigation_links)[:about], 'javascript:void(0)', class: 'nav-link'
         %li.nav-item
-          = link_to 'CONTACT US', 'javascript:void(0)', class: 'nav-link'
+          = link_to t(:navigation_links)[:contact], 'javascript:void(0)', class: 'nav-link'

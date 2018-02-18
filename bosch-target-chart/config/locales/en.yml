@@ -1,2 +1,7 @@
 en:
   site_header: "Target Charts"
+  navigation_links:
+    login: "LOGIN"
+    register: "REGISTER"
+    about: "ABOUT"
+    contact: "CONTACT US"
