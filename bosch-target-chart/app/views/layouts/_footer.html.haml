@@ -1,0 +1,12 @@
+%footer.footer
+  - if ENV['copyright_nav_links']
+    %ul.copyright-navigation.list-unstyled
+      - ENV['copyright_nav_links'].split(',').each do |hash|
+        - text, url = hash.split(' => ')
+        %li.copyright-navigation-item.list-inline-item
+          = link_to text, url
+  - if ENV['copyright_statement']
+    .copyright-heading
+      = ENV['copyright_statement']
+  - if ENV['banner_image']
+    = image_tag ENV['banner_image'], class: 'banner'

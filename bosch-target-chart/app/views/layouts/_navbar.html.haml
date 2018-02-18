@@ -1,0 +1,20 @@
+- if ENV['banner_image']
+  = image_tag ENV['banner_image'], class: 'banner'
+%nav.navbar.navbar-expand-lg.navbar-light
+  .container
+    %button.navbar-toggler.navbar-toggler-right{ type: 'button', aria: { controls: 'navbarLinks', expanded: 'false', label: 'Toggle navigation' }, data: { toggle: 'collapse', target: '#navbarLinks' } }
+      %span.navbar-toggler-icon
+    = link_to root_path, class: 'navbar-brand display-1' do
+      - if ENV['company_logo']
+        = image_tag ENV['company_logo'], class: 'company-logo'
+      = 'Target Charts'
+    .collapse.navbar-collapse#navbarLinks
+      %ul.navbar-nav
+        %li.nav-item
+          = link_to 'LOGIN', 'javascript:void(0)', class: 'nav-link'
+        %li.nav-item
+          = link_to 'REGISTER', 'javascript:void(0)', class: 'nav-link'
+        %li.nav-item
+          = link_to 'ABOUT', 'javascript:void(0)', class: 'nav-link'
+        %li.nav-item
+          = link_to 'CONTACT US', 'javascript:void(0)', class: 'nav-link'

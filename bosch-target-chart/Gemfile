@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0' # Use SCSS for .scss stylesheets
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug' # Use pry and byebug commands for debugging
   gem 'rspec-rails' # Use the rspec test framework
 end

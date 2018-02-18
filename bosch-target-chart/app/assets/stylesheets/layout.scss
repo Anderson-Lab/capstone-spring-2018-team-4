@@ -1,0 +1,100 @@
+.banner {
+  height: 16px;
+  width: 100%;
+  display: block;
+}
+
+.navbar {
+  #navbarLinks {
+    justify-content: flex-end;
+  }
+
+  a {
+    color: black !important;
+    transition: color cubic-bezier(.38,.04,.35,.96) 400ms;
+  }
+
+  a:hover, a:active {
+    color: #005691 !important;
+  }
+
+  @media(min-width:768px) {
+    .navbar-brand {
+      font-size: 3rem !important;
+
+      .company-logo {
+        width: 170px;
+      }
+    }
+    
+    .nav-link {
+      font-size: 1.5em;
+      font-weight: 300;
+      padding: 0 20px !important;
+    }
+  }
+
+  @media(max-width:767px) {
+    .navbar-brand {
+      font-size: 1.5rem !important;
+      margin: 0;
+
+      .company-logo {
+        width: 85px;
+      }
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  .copyright-heading {
+    margin-left: 15px;
+    font-weight: 700;
+    font-size: .875rem;
+  }
+
+  @media(min-width:768px) {
+    .copyright-heading {
+      float: left;
+    }
+
+    .copyright-heading, .copyright-navigation {
+      display: inline-block;
+    }
+  }
+
+  @media(max-width:767px) {
+    .copyright-navigation-item {
+      display: block;
+      margin-left: 15px;
+    }
+  }
+
+  .copyright-navigation {
+    margin-bottom: 0;
+  }
+
+  .copyright-heading, .copyright-navigation-item {
+    margin-right: 30px !important;
+    margin-bottom: 20px;
+  }
+}
+
+a {
+  text-decoration: none !important;
+  color: #005691 !important;
+  font-weight: 200;
+}
+
+a:active, a:hover {
+  color: black !important;
+}
+
+a:hover, a:active, a:visited {
+  text-decoration: none;
+  outline: 0;
+}
