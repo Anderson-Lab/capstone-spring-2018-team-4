@@ -1,0 +1,15 @@
+# This file contains data for configuring your Target Charts application
+# All iamge files should be place in app/assets/images
+
+# Optional banner image appears above the Navbar
+banner_image = 'banner.png'
+
+# Company logo image file
+company_logo = 'bosch_logo_res_340x111.png'
+
+# Copyright statement
+copyright_statement = 'Not copyrighted'
+
+# Copyright navigation links
+# Format: 'link text => link url, link text 2 => link url 2'
+copyright_nav_links = 'Terms of use => https://www.bosch.de/en/terms-of-use/terms-of-use/provider/, Legal notice => https://www.bosch.de/en/terms-of-use/terms-of-use/legal-notice/, Privacy Statement => https://www.bosch.de/en/terms-of-use/terms-of-use/privacy-statement/'
