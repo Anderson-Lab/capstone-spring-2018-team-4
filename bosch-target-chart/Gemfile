@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'haml' # Use HAML for .haml views
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease
@@ -17,6 +17,7 @@ gem 'sass-rails', '~> 5.0' # Use SCSS for .scss stylesheets
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug' # Use pry and byebug commands for debugging
   gem 'rspec-rails' # Use the rspec test framework
 end
