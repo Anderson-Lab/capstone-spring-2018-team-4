@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180217174840) do
+ActiveRecord::Schema.define(version: 20180217184151) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "first_name", default: "", null: false
@@ -38,4 +38,42 @@ ActiveRecord::Schema.define(version: 20180217174840) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "indicators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "target_id"
+    t.string "name"
+    t.decimal "value", precision: 22, scale: 10
+    t.decimal "vs_value", precision: 22, scale: 10
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["target_id"], name: "index_indicators_on_target_id"
+  end
+
+  create_table "targets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "department_id"
+    t.bigint "category_id"
+    t.string "unit", limit: 32
+    t.string "update_frequency"
+    t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_targets_on_category_id"
+    t.index ["department_id"], name: "index_targets_on_department_id"
+  end
+
+  add_foreign_key "indicators", "targets"
+  add_foreign_key "targets", "categories"
+  add_foreign_key "targets", "departments"
 end
