@@ -11,7 +11,7 @@
     .collapse.navbar-collapse#navbarLinks
       %ul.navbar-nav
         %li.nav-item
-          = link_to t(:navigation_links)[:login], new_session_path(resource_name), class: 'nav-link'
+          = link_to t(:navigation_links)[:login], new_user_session_path, class: 'nav-link'
         %li.nav-item
           = link_to t(:navigation_links)[:register], new_user_registration_path, class: 'nav-link'
         %li.nav-item

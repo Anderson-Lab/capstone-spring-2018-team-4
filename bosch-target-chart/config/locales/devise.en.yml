@@ -20,6 +20,8 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        instructions1: "You can confirm your account email through the link below:"
+        confirm: "Confirm my account"
       reset_password_instructions:
         subject: "Reset password instructions"
       unlock_instructions:
