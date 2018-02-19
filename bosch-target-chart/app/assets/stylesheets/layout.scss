@@ -92,7 +92,7 @@ html {
       }
     }
 
-    a {
+    a:not(.btn) {
       text-decoration: none !important;
       color: #005691 !important;
       font-weight: 200;
@@ -105,6 +105,10 @@ html {
     a:hover, a:active, a:visited {
       text-decoration: none;
       outline: 0;
+    }
+
+    .required:after {
+      content: ' *';
     }
   }
 }

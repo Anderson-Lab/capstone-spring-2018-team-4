@@ -4,4 +4,7 @@ en:
     login: "LOGIN"
     register: "REGISTER"
     about: "ABOUT"
-    contact: "CONTACT US"
+    contact: "CONTACT"
+
+  actions:
+    close: 'Close'
