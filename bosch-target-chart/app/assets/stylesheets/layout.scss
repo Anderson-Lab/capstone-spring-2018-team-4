@@ -17,8 +17,11 @@ html {
       }
 
       a {
-        color: black !important;
         transition: color cubic-bezier(.38,.04,.35,.96) 400ms;
+      }
+
+      a:not(#logoutLink):not(:hover):not(:active) {
+        color: black !important;
       }
 
       a:hover, a:active {
@@ -33,11 +36,11 @@ html {
             width: 170px;
           }
         }
-        
+          
         .nav-link {
-          font-size: 1.5em;
+          font-size: 1.5rem;
           font-weight: 300;
-          padding: 0 20px !important;
+          padding: 0 1.2rem !important;
         }
       }
 
@@ -92,23 +95,25 @@ html {
       }
     }
 
-    a:not(.btn) {
-      text-decoration: none !important;
-      color: #005691 !important;
-      font-weight: 200;
-    }
+    main {
+      a:not(.btn) {
+        text-decoration: none !important;
+        color: #005691 !important;
+        font-weight: 200;
+      }
 
-    a:active, a:hover {
-      color: black !important;
-    }
+      a:active, a:hover {
+        color: black !important;
+      }
 
-    a:hover, a:active, a:visited {
-      text-decoration: none;
-      outline: 0;
-    }
+      a:hover, a:active, a:visited {
+        text-decoration: none;
+        outline: 0;
+      }
 
-    .required:after {
-      content: ' *';
+      .required:after {
+        content: ' *';
+      }
     }
   }
 }

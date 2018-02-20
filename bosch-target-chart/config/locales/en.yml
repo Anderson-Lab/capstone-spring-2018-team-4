@@ -3,6 +3,7 @@ en:
   navigation_links:
     login: "LOGIN"
     register: "REGISTER"
+    logout: "LOGOUT"
     about: "ABOUT"
     contact: "CONTACT"
 
