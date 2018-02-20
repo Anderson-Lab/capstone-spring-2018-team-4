@@ -1,0 +1,11 @@
+%p
+  = "Hello #{@resouce.full_name}"
+
+%p
+  = t(:devise)[:mailer][:unlock_instructions][:instructions1]
+
+%p
+  = t(:devise)[:mailer][:unlock_instructions][:instructions2]
+
+%p
+  = link_to t(:devise)[:mailer][:unlock_instructions][:confirm], unlock_url(@resource, unlock_token: @token)

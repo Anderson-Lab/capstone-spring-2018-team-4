@@ -3,6 +3,8 @@
 en:
   devise:
     confirmations:
+      header: 'Resend confirmation instructions'
+      submit: 'Resend confirmation instructions'
       lost: "Didn't receive confirmation instructions?"
       confirmed: "Your email address has been successfully confirmed."
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
@@ -24,18 +26,34 @@ en:
         confirm: "Confirm my account"
       reset_password_instructions:
         subject: "Reset password instructions"
+        instructions1: "Someone has requested a link to change your password. You can do this through the link below."
+        instructions2: "If you didn't request this, please ignore this email."
+        instructions3: ""
+        confirm: 'Change my password'
       unlock_instructions:
         subject: "Unlock instructions"
+        instructions1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        instructions2: "Click the link below to unlock your account:"
+        confirm: 'Unlock my account'
       email_changed:
         subject: "Email Changed"
       password_change:
         subject: "Password Changed"
+        instructions1: "We're contacting you to notify you that your password has been changed."
     omniauth: "Sign in with %{provider}"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
     passwords:
-      forgot: "Forgot your password?"
+      new:
+        header: "Forgot your password?"
+        forgot: "Forgot your password?"
+        submit: 'Send me reset password instructions'
+      edit:
+        header: "Change your password"
+        password: "New Password"
+        confirmation: "Confirm new password"
+        submit: "Change my password"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
@@ -58,6 +76,8 @@ en:
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
     unlocks:
+      header: 'Resend unlock instructions'
+      submit: 'Resend unlock instructions'
       lost: "Didn't receive unlock instructions?"
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
