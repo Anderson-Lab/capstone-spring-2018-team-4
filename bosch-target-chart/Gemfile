@@ -8,7 +8,7 @@ end
 gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'devise' # Used for login authentication
-gem 'haml' # Use HAML for .haml views
+gem 'haml-rails' # Use HAML for .haml views
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease
 gem 'jquery-rails'
 gem 'mysql2' # Use MySQL2 for the database
