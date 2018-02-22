@@ -24,5 +24,10 @@ class User < ApplicationRecord
   validates :password,
             presence: true,
             confirmation: true,
-            length: { within: Devise::password_length }
+            length: { within: Devise::password_length },
+            on: :create
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
