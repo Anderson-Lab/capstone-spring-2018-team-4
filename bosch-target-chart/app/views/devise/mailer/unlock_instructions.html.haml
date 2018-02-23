@@ -1,5 +1,5 @@
 %p
-  = "Hello #{@resouce.full_name}"
+  = t('devise.mailer.unlock_instructions.introduction', name: @resource.full_name)
 
 %p
   = t(:devise)[:mailer][:unlock_instructions][:instructions1]

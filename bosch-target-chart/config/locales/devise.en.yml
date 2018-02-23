@@ -22,10 +22,12 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        introduction: "Welcome %{name}"
         instructions1: "You can confirm your account email through the link below:"
         confirm: "Confirm my account"
       reset_password_instructions:
         subject: "Reset password instructions"
+        introduction: "Hello %{name}"
         instructions1: "Someone has requested a link to change your password. You can do this through the link below."
         instructions2: "If you didn't request this, please ignore this email."
         instructions3: ""
@@ -39,6 +41,7 @@ en:
         subject: "Email Changed"
       password_change:
         subject: "Password Changed"
+        introduction: "Hello %{name}"
         instructions1: "We're contacting you to notify you that your password has been changed."
     omniauth: "Sign in with %{provider}"
     omniauth_callbacks:
@@ -54,6 +57,7 @@ en:
         password: "New Password"
         confirmation: "Confirm new password"
         submit: "Change my password"
+      characters_minimum: "%{minimum_password_length} characters minimum"
       no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
       send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
