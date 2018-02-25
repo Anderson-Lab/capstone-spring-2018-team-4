@@ -15,6 +15,7 @@ class DepartmentsController < ApplicationController
   end
 
   def index
+    @departments = Department.all
   end
 
   def destroy
