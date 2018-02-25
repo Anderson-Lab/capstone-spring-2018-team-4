@@ -1,1 +1,5 @@
-# https-github.com-Anderson-Lab-capstone-spring-2018-team-4
+Bosch Target Chart 
+
+We are creating a target chart via web app for Bosch to keep track of their annual company goals. Allows Bosch managers to 
+input data then the target chart will figure out if Bosch is on track to meet its goals. 
+

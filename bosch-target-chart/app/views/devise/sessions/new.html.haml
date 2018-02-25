@@ -1,0 +1,22 @@
+.card.offset-lg-3.col-lg-6
+  .card-body
+    %h2.text-center
+      = t(:devise)[:sessions][:header]
+
+    = form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+      - if flash[:alert]
+        .alert.alert-danger#errorMessages
+          %ul.list-unstyled.mb-0
+            %li
+              = flash[:alert]
+
+      .form-group
+        = f.label :email, class: 'required'
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      .form-group
+        = f.label :password, class: 'required'
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+
+      = f.submit t(:devise)[:sessions][:submit], class: 'btn btn-block btn-outline-success'
+
+    = render 'devise/shared/links'

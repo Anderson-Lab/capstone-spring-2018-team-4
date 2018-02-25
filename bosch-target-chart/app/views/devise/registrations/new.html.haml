@@ -1,0 +1,30 @@
+.card.offset-lg-3.col-lg-6
+  .card-body
+    %h2.text-center
+      = t(:devise)[:registrations][:header]
+
+    = form_for resource, as: resource_name, url: registration_path(resource_name)  do |f|
+      = devise_error_messages!
+      
+      .form-group
+        = f.label :first_name, class: 'required'
+        = f.text_field :first_name, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :last_name, class: 'required'
+        = f.text_field :last_name, autofocus: true, class: 'form-control'
+      .form-group
+        = f.label :email, class: 'required'
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      .form-group
+        = f.label :password, class: 'required'
+        - if @minimum_password_length
+          %em
+            = "#{@minimum_password_length} characters minimum"
+        = f.password_field :password, autocomplete: "off", class: 'form-control'
+      .form-group
+        = f.label :password_confirmation, class: 'required'
+        = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
+
+      = f.submit t(:devise)[:registrations][:submit], class: 'btn btn-block btn-outline-success'
+
+    = render 'devise/shared/links'
