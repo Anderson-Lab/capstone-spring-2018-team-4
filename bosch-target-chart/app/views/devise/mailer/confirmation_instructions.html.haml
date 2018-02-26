@@ -1,5 +1,5 @@
 %p
-  = "Welcome #{@resource.full_name}"
+  = t('devise.mailer.confirmation_instructions.introduction', name: @resource.full_name)
 
 %p
   = t(:devise)[:mailer][:confirmation_instructions][:instructions1]

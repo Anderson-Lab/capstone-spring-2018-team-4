@@ -12,7 +12,8 @@ class User < ApplicationRecord
   # :validatable              - provides validations of email and password. It's optional and can be customized, so you're able to define your own validations.
   # :lockable                 - locks an account after a specified number of failed sign-in attempts. Can unlock via email or after a specified time period.
   devise :database_authenticatable, :confirmable, :recoverable,
-          :registerable, :trackable, :timeoutable, :lockable
+          :registerable, :trackable, :timeoutable, :lockable,
+          :validatable, password_length: Devise.password_length
 
   validates_presence_of :first_name, :last_name
   
