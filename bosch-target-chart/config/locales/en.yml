@@ -9,3 +9,6 @@ en:
 
   actions:
     close: 'Close'
+
+  departments:
+    header: "BOSCH Departments"
