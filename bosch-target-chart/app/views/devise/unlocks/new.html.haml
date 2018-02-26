@@ -1,0 +1,15 @@
+.card.offset-lg-3.col-lg-6
+  .card-body
+    %h2.text-center
+      = t(:devise)[:unlocks][:header]
+
+    = form_for resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post } do |f|
+      = devise_error_messages!
+
+      .form-group
+        = f.label :email, class: 'required'
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+      
+      = f.submit t(:devise)[:unlocks][:submit], class: 'btn btn-block btn-outline-success'
+
+    = render 'devise/shared/links'

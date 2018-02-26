@@ -17,10 +17,11 @@
         = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
       .form-group
         = f.label :password, class: 'required'
-        - if @minimum_password_length
-          %em
-            = "#{@minimum_password_length} characters minimum"
         = f.password_field :password, autocomplete: "off", class: 'form-control'
+        - if @minimum_password_length
+          %small.form-text.text-muted
+            %em
+              = t('devise.passwords.characters_minimum', minimum_password_length: @minimum_password_length)
       .form-group
         = f.label :password_confirmation, class: 'required'
         = f.password_field :password_confirmation, autocomplete: "off", class: 'form-control'
