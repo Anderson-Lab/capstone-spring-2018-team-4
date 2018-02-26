@@ -9,6 +9,8 @@ describe "GET #new" do
 
     it { is_expected.to respond_with :ok }
 
+    it { is_expected.to render_template :new }
+
     it 'should assign @target' do
       expect(assigns(:target)).to be_a(Target)
       expect(assigns(:target).new_record?).to eq(true)

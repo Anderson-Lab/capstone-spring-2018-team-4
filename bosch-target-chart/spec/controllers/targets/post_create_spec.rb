@@ -21,6 +21,8 @@ RSpec.describe TargetsController, type: :controller do
 
       it { is_expected.to respond_with :ok }
 
+      it { is_expected.to render_template :create }
+
       it 'should save the target' do
         expect(Target.count).to eq(1)
       end
@@ -41,6 +43,8 @@ RSpec.describe TargetsController, type: :controller do
       end
 
       it { is_expected.to respond_with :ok }
+
+      it { is_expected.to render_template :create }
 
       it 'should not save the target' do
         expect(Target.count).to eq(0)
