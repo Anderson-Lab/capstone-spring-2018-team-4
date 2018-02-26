@@ -1,0 +1,16 @@
+$theme-colors: (
+  "primary": $theme_primary,
+  "secondary": $theme_secondary,
+  "success": $theme_success,
+  "danger": $theme_danger,
+  "warning": $theme_warning,
+  "info": $theme_info,
+  "light": $theme_light,
+  "dark": $theme_dark,
+  "muted": $theme_muted,
+  "white": $theme_white
+);
+
+.btn-success {
+  color: $theme_white !important;
+}
