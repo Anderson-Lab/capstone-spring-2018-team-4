@@ -9,3 +9,10 @@ en:
 
   actions:
     close: 'Close'
+    submit: 'Submit'
+
+  targets:
+    create_target: 'Create a new Target'
+    unit: 'Unit of Measure'
+    monthly: 'Monthly'
+    yearly: 'Yearly'
