@@ -13,6 +13,11 @@ en:
 
   targets:
     create_target: 'Create a new Target'
+    name: 'Name'
+    department: 'Department'
+    category: 'Category'
     unit: 'Unit of Measure'
+    update_frequency: 'Update Frequency'
+    comments: 'Comments'
     monthly: 'Monthly'
     yearly: 'Yearly'
