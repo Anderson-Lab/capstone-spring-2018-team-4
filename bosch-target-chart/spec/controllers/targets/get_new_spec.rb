@@ -2,21 +2,27 @@ require 'rails_helper'
 
 RSpec.describe TargetsController, type: :controller do
 
-  describe "GET #new" do
+describe "GET #new" do
+    before :each do
+      get :new
+    end
+
+    it { is_expected.to respond_with :ok }
+
+    it 'should assign @target' do
+      expect(assigns(:target)).to be_a(Target)
+      expect(assigns(:target).new_record?).to eq(true)
+    end
+
     it "should assign @departments" do
       FactoryBot.create(:department)
-      get :new
       expect(assigns(:departments)).to eq(Department.all)
     end
 
     it "should assign @categories" do
       FactoryBot.create(:category)
-      get :new
       expect(assigns(:categories)).to eq(Category.all)
     end
-  end
-
-  describe "GET #create" do
   end
 
 end
