@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219173608) do
+ActiveRecord::Schema.define(version: 20180225221311) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon_name"
   end
 
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -28,7 +29,7 @@ ActiveRecord::Schema.define(version: 20180219173608) do
     t.bigint "target_id"
     t.string "name"
     t.decimal "value", precision: 22, scale: 10
-    t.decimal "vs_value", precision: 22, scale: 10
+    t.decimal "compare_to_value", precision: 22, scale: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["target_id"], name: "index_indicators_on_target_id"
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20180219173608) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "unconfirmed_email"
+    t.boolean "is_admin"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
