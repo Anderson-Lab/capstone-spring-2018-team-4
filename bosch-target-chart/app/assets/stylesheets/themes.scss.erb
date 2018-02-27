@@ -1,0 +1,61 @@
+<% require 'application_helper' %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_primary']) %>
+$theme_primary: <%= ENV['theme_color_primary'] %>;
+<% else %>
+$theme_primary: theme-color("primary");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_secondary']) %>
+$theme_secondary: <%= ENV['theme_color_secondary'] %>;
+<% else %>
+$theme_secondary: theme-color("secondary");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_success']) %>
+$theme_success: <%= ENV['theme_color_success'] %>;
+<% else %>
+$theme_success: theme-color("success");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_danger']) %>
+$theme_danger: <%= ENV['theme_color_danger'] %>;
+<% else %>
+$theme_danger: theme-color("danger");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_warning']) %>
+$theme_warning: <%= ENV['theme_color_warning'] %>;
+<% else %>
+$theme_warning: theme-color("warning");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_info']) %>
+$theme_info: <%= ENV['theme_color_info'] %>;
+<% else %>
+$theme_info: theme-color("info");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_light']) %>
+$theme_light: <%= ENV['theme_color_light'] %>;
+<% else %>
+$theme_light: theme-color("light");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_dark']) %>
+$theme_dark: <%= ENV['theme_color_dark'] %>;
+<% else %>
+$theme_dark: theme-color("dark");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_muted']) %>
+$theme_muted: <%= ENV['theme_color_muted'] %>;
+<% else %>
+$theme_muted: theme-color("muted");
+<% end %>
+
+<% if ApplicationHelper.valid_hex?(ENV['theme_color_white']) %>
+$theme_white: <%= ENV['theme_color_white'] %>;
+<% else %>
+$theme_white: theme-color("white");
+<% end %>

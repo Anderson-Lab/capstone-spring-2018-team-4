@@ -1,5 +1,9 @@
 # This file contains data for configuring your Target Charts application
-# All iamge files should be place in app/assets/images
+# All image files should be place in app/assets/images
+
+##########
+# IMAGES #
+##########
 
 # Optional banner image appears above the Navbar
 banner_image = 'banner.png'
@@ -7,9 +11,48 @@ banner_image = 'banner.png'
 # Company logo image file
 company_logo = 'bosch_logo_res_340x111.png'
 
+################
+# TEXT CONTENT #
+################
 # Copyright statement
 copyright_statement = 'Not copyrighted'
 
 # Copyright navigation links
 # Format: 'link text => link url, link text 2 => link url 2'
 copyright_nav_links = 'Terms of use => https://www.bosch.de/en/terms-of-use/terms-of-use/provider/, Legal notice => https://www.bosch.de/en/terms-of-use/terms-of-use/legal-notice/, Privacy Statement => https://www.bosch.de/en/terms-of-use/terms-of-use/privacy-statement/'
+
+################
+# Color Scheme #
+################
+# See the Bootstrap 4.0 docs for more information about how the color scheme works:
+# https://getbootstrap.com/docs/4.0/utilities/colors/
+
+# Blue "Primary" theme
+theme_color_primary = '#005691'
+
+# Grey "Secondary" theme
+theme_color_secondary = '#525f6b'
+
+# Green "Success" theme
+theme_color_success = '#78be20'
+
+# Red "Danger" theme
+theme_color_danger = '#e20015'
+
+# Yellow "Warning" theme
+theme_color_warning = '#fcaf17'
+
+# Light Blue "Info" theme
+theme_color_info = '#008ecf'
+
+# Silverish-White "Light" theme
+theme_color_light = '#dfdfe0'
+
+# Greyish-Black "Dark" theme
+theme_color_dark = '#000000'
+
+# Grey "Muted" theme - Same as "Secondary" by default
+theme_color_muted = '#525f6b'
+
+# White "White" theme
+theme_color_white = '#ffffff'
