@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  resources :departments, only: [:index, :show]
   resources :targets, only: [:new, :create]
 end

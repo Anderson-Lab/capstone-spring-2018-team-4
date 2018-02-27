@@ -11,6 +11,9 @@ en:
     close: 'Close'
     submit: 'Submit'
 
+  departments:
+    header: "BOSCH Departments"
+
   targets:
     create_target: 'Create a new Target'
     name: 'Name'
