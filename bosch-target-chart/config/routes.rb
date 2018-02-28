@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :departments, only: [:index, :show]
   resources :targets, only: [:new, :create]
-  resources :dashboard, only: [:index]
-  
+  resources :users, only: [:show]
+
+  get 'dashboard' => 'users#show'
+
   root to: 'home#index'
 end

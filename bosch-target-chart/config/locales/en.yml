@@ -1,5 +1,6 @@
 en:
   site_header: "Target Charts"
+
   navigation_links:
     login: "LOGIN"
     register: "REGISTER"
@@ -10,6 +11,9 @@ en:
   actions:
     close: 'Close'
     submit: 'Submit'
+
+  dashboard:
+    select_department: "Select a Department"
 
   departments:
     header: "BOSCH Departments"
