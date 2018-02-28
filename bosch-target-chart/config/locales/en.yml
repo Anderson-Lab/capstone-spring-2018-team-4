@@ -5,6 +5,7 @@ en:
     login: "LOGIN"
     register: "REGISTER"
     logout: "LOGOUT"
+    dashboard: "DASHBOARD"
     about: "ABOUT"
     contact: "CONTACT"
 
