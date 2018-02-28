@@ -1,2 +1,13 @@
-.text-center
-	= @department.name
+= stylesheet_link_tag 'departments'
+
+%h2
+  = "#{@department.name} "
+  %br.d-md-none.d-lg-none.d-xl-none
+  = "(<Abbrev>)"
+
+.card
+  .card-body
+    %h2.text-center
+      = "CHART PLACEHOLDER"
+
+= render 'targets/table', department: @department
