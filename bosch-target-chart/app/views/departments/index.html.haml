@@ -1,0 +1,7 @@
+.col-lg-8.offset.lg-2
+	%h1.text-center
+		= t(:departments)[:header]
+
+	- @departments.each do |department|
+		.text-center
+			= department.name

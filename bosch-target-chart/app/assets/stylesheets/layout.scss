@@ -25,7 +25,7 @@ html {
       }
 
       a:hover, a:active {
-        color: #005691 !important;
+        color: $theme_primary !important;
       }
 
       @media(min-width:768px) {
@@ -98,7 +98,7 @@ html {
     main {
       a:not(.btn) {
         text-decoration: none !important;
-        color: #005691 !important;
+        color: $theme_primary !important;
         font-weight: 200;
       }
 
