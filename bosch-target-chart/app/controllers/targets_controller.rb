@@ -15,7 +15,27 @@ class TargetsController < ApplicationController
     end
   end
 
+  def update
+    @target = Target.find(params[:id])
+    
+    if @target.update_attributes(target_params)
+      assign_attribute_and_value
+    else
+      @errors = @target.errors
+    end
+  end
+
   private
+
+  def assign_attribute_and_value
+    @attribute = target_params.keys.first.gsub('_id', '')
+    
+    if @attribute == 'category'
+      @value = Category.find(target_params.values.first).name
+    else
+      @value = target_params.values.first
+    end
+  end
 
   def target_params
     params.require(:target).permit(
