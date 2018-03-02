@@ -16,6 +16,8 @@
           = link_to t(:navigation_links)[:contact], 'javascript:void(0)', id: 'contactLink', class: 'nav-link'
         - if current_user
           %li.nav-item
+            = link_to t(:navigation_links)[:dashboard], dashboard_path, id: 'dashboardLink', class: 'nav-link'
+          %li.nav-item
             = link_to t(:navigation_links)[:logout], destroy_user_session_path, method: 'delete', id: 'logoutLink', class: 'nav-link text-danger'
         - else
           %li.nav-item
