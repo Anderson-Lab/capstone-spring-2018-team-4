@@ -24,13 +24,13 @@
         - department.targets.eager_load(:category).each do |target|
           %tr
             %td.text-center.align-middle
-              = link_to target.name, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:name], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
+              = link_to target.name, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:name], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
             %td.text-center.align-middle.d-none.d-md-table-cell
-              = link_to target.category.name, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:category], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
+              = link_to target.category.name, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:category], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
             %td.text-center.align-middle.d-none.d-md-table-cell
-              = link_to target.unit, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:unit], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
+              = link_to target.unit, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:unit], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
             %td.text-center.align-middle
-              = link_to target.update_frequency, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:update_frequency][:field], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', animation: 'false', html: 'true', content: render('targets/forms/update_frequency_form', target: target) }
+              = link_to target.update_frequency, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:update_frequency][:field], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/update_frequency_form', target: target) }
             %td.text-center.align-middle
               .container
                 .row
