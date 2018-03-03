@@ -1,4 +1,7 @@
 class TargetsController < ApplicationController
+  
+  before_action :authenticate_user!
+
   def new
     @target = Target.new
     @departments = Department.all
