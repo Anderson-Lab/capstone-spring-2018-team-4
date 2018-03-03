@@ -11,6 +11,8 @@ en:
 
   actions:
     close: 'Close'
+    delete: "Delete"
+    edit: "Edit"
     submit: 'Submit'
 
   dashboard:
@@ -20,6 +22,7 @@ en:
     header: "BOSCH Departments"
 
   targets:
+    new: "New Target"
     create_target: 'Create a new Target'
     name: 'Name'
     department: 'Department'
@@ -29,3 +32,11 @@ en:
     comments: 'Comments'
     monthly: 'Monthly'
     yearly: 'Yearly'
+    table:
+      header: "Targets"
+      name: "Name"
+      category: "Category"
+      unit: "Unit"
+      update_frequency: "Update"
+      indicators: "Stop Lights"
+      actions: "Actions"
