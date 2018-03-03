@@ -18,7 +18,7 @@
             = t(:targets)[:table][:update_frequency]
           %th.col-3.col-md-3
             = t(:targets)[:table][:indicators]
-          %th.col-3.col-md-2
+          %th.col-3.col-md-2.d-none.d-md-table-cell
             = t(:targets)[:table][:actions]
       %body
         - department.targets.eager_load(:category).each do |target|
@@ -38,5 +38,5 @@
                   = positive_indicator
                   = neutral_indicator
                   = negative_indicator
-            %td.text-center.align-middle
+            %td.text-center.align-middle.d-none.d-md-table-cell
               = delete_target_button(target)

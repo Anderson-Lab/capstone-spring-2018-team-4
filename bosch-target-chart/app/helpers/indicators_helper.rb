@@ -7,7 +7,7 @@ module IndicatorsHelper
         fa_icon('check-circle')
       end
       ),
-      class: 'col-sm-4'
+      class: 'col-sm-4 px-0'
     )
   end
 
@@ -19,7 +19,7 @@ module IndicatorsHelper
         fa_icon('minus-circle')
       end
       ),
-      class: 'col-sm-4'
+      class: 'col-sm-4 px-0'
     )
   end
 
@@ -31,7 +31,7 @@ module IndicatorsHelper
         fa_icon('times-circle')
       end
       ),
-      class: 'col-sm-4'
+      class: 'col-sm-4 px-0'
     )
   end
 end
