@@ -15,6 +15,11 @@ $theme-colors: (
   color: $theme_white !important;
 }
 
+/*
+There appears to be an issue with Bootstrap 4's flexbox grid in Google Chrome and Safari
+which causes column widths to be incorrectly applied. I have documented the issue on
+Bootstrap's Issue Tracker here: https://github.com/twbs/bootstrap/issues/25775
+*/
 .col-1 {
   width: 100%*(1/12) !important;
 }
