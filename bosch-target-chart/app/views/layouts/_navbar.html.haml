@@ -16,7 +16,7 @@
           = link_to t(:navigation_links)[:contact], 'javascript:void(0)', id: 'contactLink', class: 'nav-link', tabindex: -1
         - if current_user
           %li.nav-item
-            = link_to t(:navigation_links)[:dashboard], dashboard_path, id: 'dashboardLink', class: 'nav-link'
+            = link_to t(:navigation_links)[:dashboard], dashboard_path, id: 'dashboardLink', class: 'nav-link', tabindex: -1
           %li.nav-item
             = link_to t(:navigation_links)[:logout], destroy_user_session_path, method: 'delete', id: 'logoutLink', class: 'nav-link text-danger', tabindex: -1
         - else
