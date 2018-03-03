@@ -1,6 +1,8 @@
 require 'database_cleaner'
 
 RSpec.configure do |config|
+  config.use_transactional_fixtures = true
+
   config.before(:suite) do
     # Use the truncation strategy for tests
     DatabaseCleaner.strategy = :transaction
