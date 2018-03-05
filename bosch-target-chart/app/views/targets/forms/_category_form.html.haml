@@ -1,0 +1,8 @@
+= form_for target, url: target_path, method: :put, remote: true do |f|
+  #targetErrors
+  .form-group
+    .input-group
+      = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, target.category_id), { include_blank: true }, class: 'form-control'
+      .input-group-append
+        = f.button class: 'btn btn-primary' do
+          = fa_icon 'check'

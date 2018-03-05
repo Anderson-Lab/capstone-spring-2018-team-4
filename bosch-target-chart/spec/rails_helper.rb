@@ -7,3 +7,8 @@ require 'rspec/rails'
 
 # Require any support files (these typically handle gem imports)
 Dir[Rails.root.join('spec/support/**/*.rb')].each{ |file| require file }
+
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+  config.include Rails.application.routes.url_helpers
+end

@@ -1,42 +1,46 @@
-%h2.mt-5
-  = t(:targets)[:table][:header]
-= link_to t(:targets)[:new], 'javascript:void(0)', class: 'btn btn-success text-white mb-1'
-%table.table.table-bordered.table-sm#targetsTable
-  %thead.bg-secondary.text-white.text-center
-    %tr
-      %th.col-3.col-md-2
-        = t(:targets)[:table][:name]
-      %th.col-3.col-md-2
-        = t(:targets)[:table][:category]
-      %th.col-md-2.d-none.d-md-table-cell
-        = t(:targets)[:table][:unit]
-      %th.col-md-1.d-none.d-md-table-cell
-        = t(:targets)[:table][:update_frequency]
-      %th.col-3.col-md-3
-        = t(:targets)[:table][:indicators]
-      %th.col-3.col-md-2
-        = t(:targets)[:table][:actions]
-  %body
-    - department.targets.eager_load(:category).each do |target|
-      %tr
-        %td.text-center
-          = target.name
-        %td.text-center.d-none.d-md-table-cell
-          = target.category.name
-        %td.text-center.d-none.d-md-table-cell
-          = target.unit
-        %td.text-center
-          = target.update_frequency
-        %td.text-center.align-middle
-          .container
-            .row
-              -# Placeholders
-              = positive_indicator
-              = neutral_indicator
-              = negative_indicator
-        %td.text-center.align-middle
-          = edit_target_button(target)
-          = delete_target_button(target)
-
-:coffeescript
-  $("[data-toggle='tooltip']").tooltip()
+.row#targetsContainer
+  .col-lg-10
+    %h2.mt-5
+      = t(:targets)[:table][:header]
+  .col-lg-2.d-flex.justify-content-end.align-items-end
+    = link_to t(:targets)[:new], 'javascript:void(0)', class: 'btn btn-block btn-success text-white mb-1'
+  .col-lg-12
+    %table.table.table-bordered.table-sm#targetsTable
+      %thead.bg-secondary.text-white.text-center
+        %tr.d-flex
+          %th.col-4.col-md-2
+            = t(:targets)[:table][:name]
+          %th.col-4.col-md-2
+            = t(:targets)[:table][:category]
+          %th.col-md-2.d-none.d-md-table-cell
+            = t(:targets)[:table][:unit]
+          %th.col-md-1.d-none.d-md-table-cell
+            = t(:targets)[:table][:update_frequency]
+          %th.col-4.col-md-3
+            = t(:targets)[:table][:indicators]
+          %th.col-md-2.d-none.d-md-table-cell
+            = t(:targets)[:table][:actions]
+      %body
+        - department.targets.eager_load(:category).each do |target|
+          %tr.d-flex
+            %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
+              = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:name], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
+              %span.d-md-none
+                = target.name
+            %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
+              = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:category], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
+              %span.d-md-none
+                = target.category.name
+            %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
+              = link_to target.unit, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:unit], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
+            %td.col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
+              = link_to target.update_frequency, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:update_frequency][:field], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/update_frequency_form', target: target) }
+            %td.col-4.col-md-3.d-flex.justify-content-center.align-items-center
+              .container
+                .row.text-center
+                  -# Placeholders
+                  = positive_indicator
+                  = neutral_indicator
+                  = negative_indicator
+            %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
+              = delete_target_button(target)
