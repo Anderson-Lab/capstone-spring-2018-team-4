@@ -1,10 +1,12 @@
 class DepartmentsController < ApplicationController
-def index 
-	@departments = Department.all
 
-end 
-def show 
-	@department = Department.find(params[:id])
-end
+  before_action :authenticate_user!
 
+  def index 
+	 @departments = Department.all
+  end 
+  
+  def show 
+	 @department = Department.find(params[:id])
+  end
 end
