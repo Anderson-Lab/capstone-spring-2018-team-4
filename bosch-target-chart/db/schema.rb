@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225221311) do
+ActiveRecord::Schema.define(version: 20180303035735) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -19,10 +19,27 @@ ActiveRecord::Schema.define(version: 20180225221311) do
     t.string "icon_name"
   end
 
+  create_table "charts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.bigint "department_id"
+    t.integer "year"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_charts_on_department_id"
+  end
+
+  create_table "charts_targets", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "chart_id"
+    t.bigint "target_id"
+    t.index ["chart_id"], name: "index_charts_targets_on_chart_id"
+    t.index ["target_id"], name: "index_charts_targets_on_target_id"
+  end
+
   create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "abbreviation"
   end
 
   create_table "indicators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,6 +61,8 @@ ActiveRecord::Schema.define(version: 20180225221311) do
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
+    t.string "unit_type"
     t.index ["category_id"], name: "index_targets_on_category_id"
     t.index ["department_id"], name: "index_targets_on_department_id"
   end
@@ -76,6 +95,9 @@ ActiveRecord::Schema.define(version: 20180225221311) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "charts", "departments"
+  add_foreign_key "charts_targets", "charts"
+  add_foreign_key "charts_targets", "targets"
   add_foreign_key "indicators", "targets"
   add_foreign_key "targets", "categories"
   add_foreign_key "targets", "departments"
