@@ -28,7 +28,8 @@ en:
       category: 'Category'
       unit: 'Unit of Measure'
       unit_type:
-        quantitative: 'Quantitative'
+        numerical: 'Numerical'
+        percentage: 'Percentage'
         qualitative: 'Qualitative'
       update_frequency:
         field: 'Update Frequency'
