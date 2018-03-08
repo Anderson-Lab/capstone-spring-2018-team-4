@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe TargetsController, type: :controller do
 
-describe "GET #new" do
+  login_user(FactoryBot.create(:user))
+
+  describe "GET #new" do
     before :each do
       get :new
     end
