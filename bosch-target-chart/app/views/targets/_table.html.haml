@@ -8,17 +8,17 @@
     %table.table.table-bordered.table-sm#targetsTable
       %thead.bg-secondary.text-white.text-center
         %tr.d-flex
-          %th.col-4.col-md-2
+          %th.col-4.col-md-2.d-flex.justify-content-center
             = t(:targets)[:table][:name]
-          %th.col-4.col-md-2
+          %th.col-4.col-md-2.d-flex.justify-content-center
             = t(:targets)[:table][:category]
-          %th.col-md-2.d-none.d-md-table-cell
+          %th.col-md-2.d-none.d-md-flex.justify-content-center
             = t(:targets)[:table][:unit]
-          %th.col-md-1.d-none.d-md-table-cell
+          %th.col-md-1.d-none.d-md-flex.justify-content-center
             = t(:targets)[:table][:update_frequency]
-          %th.col-4.col-md-3
+          %th.col-4.col-md-3.d-flex.justify-content-center
             = t(:targets)[:table][:indicators]
-          %th.col-md-2.d-none.d-md-table-cell
+          %th.col-md-2.d-none.d-md-flex.justify-content-center
             = t(:targets)[:table][:actions]
       %body
         - department.targets.eager_load(:category).each do |target|

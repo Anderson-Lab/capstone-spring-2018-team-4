@@ -41,6 +41,8 @@ RSpec.describe "User edits a target", js: true do
   it 'should update unit' do
     visit department_path(@department)
 
+    execute_script("$('.d-none').removeClass('d-none')")
+
     find("a[data-original-title='#{I18n.t(:targets)[:fields][:unit]}']").click
     fill_in 'target_unit', with: 'EuroDollars'
     find('button[type=submit]').click
@@ -52,6 +54,8 @@ RSpec.describe "User edits a target", js: true do
   it 'should update update frequency' do
     visit department_path(@department)
 
+    execute_script("$('.d-none').removeClass('d-none')")
+    
     find("a[data-original-title='#{I18n.t(:targets)[:fields][:update_frequency][:field]}']").click
     frequency = I18n.t(:targets)[:fields][:update_frequency][:monthly]
     select frequency, from: 'target_update_frequency'
