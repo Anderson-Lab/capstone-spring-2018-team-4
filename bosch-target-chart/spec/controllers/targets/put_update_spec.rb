@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe TargetsController, type: :controller do
 
-describe "PUT #update" do
+  login_user(FactoryBot.create(:user))
+
+  describe "PUT #update" do
     before :each do
       @target = FactoryBot.create(:target)
     end

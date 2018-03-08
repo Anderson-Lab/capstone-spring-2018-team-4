@@ -9,8 +9,8 @@ class Target < ApplicationRecord
   validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   UNIT_TYPES = [
-    t(:targets)[:fields][:unit_type][:numerical],
-    t(:targets)[:fields][:unit_type][:percentage],
-    t(:targets)[:fields][:unit_type][:qualitative],
+    I18n.t(:targets)[:fields][:unit_type][:numerical],
+    I18n.t(:targets)[:fields][:unit_type][:percentage],
+    I18n.t(:targets)[:fields][:unit_type][:qualitative],
   ]
 end

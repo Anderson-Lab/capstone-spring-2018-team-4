@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe DepartmentsController, type: :controller do
 
+  login_user(FactoryBot.create(:user))
+
 	describe "GET #index" do
     before :each do
       FactoryBot.create(:department)
