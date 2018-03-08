@@ -5,7 +5,7 @@ RSpec.configure do |config|
 
   config.before(:suite) do
     # Use the truncation strategy for tests
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.strategy = :truncation
     # Truncate tables before the suite to clear all data
     DatabaseCleaner.clean_with(:truncation)
   end
