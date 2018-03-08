@@ -27,6 +27,9 @@ en:
       name: 'Name'
       category: 'Category'
       unit: 'Unit of Measure'
+      unit_type:
+        quantitative: 'Quantitative'
+        qualitative: 'Qualitative'
       update_frequency:
         field: 'Update Frequency'
         monthly: 'Monthly'
