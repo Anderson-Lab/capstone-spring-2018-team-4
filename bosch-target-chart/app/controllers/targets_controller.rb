@@ -28,6 +28,14 @@ class TargetsController < ApplicationController
     end
   end
 
+  def destroy
+    @target = Target.find(params[:id])
+    @department = @target.department
+
+    @target.destroy
+    #TODO: Add flash message
+  end
+
   private
 
   def assign_attribute_and_value

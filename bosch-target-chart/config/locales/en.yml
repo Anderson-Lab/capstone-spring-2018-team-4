@@ -24,6 +24,8 @@ en:
   targets:
     new: "New Target"
     new_header: "Create a New Target"
+    delete_header: "Delete Target"
+    delete_confirm: "Are you sure?"
     fields:
       name: 'Name'
       category:
@@ -48,4 +50,3 @@ en:
       unit: "Unit"
       update_frequency: "Update"
       indicators: "Stop Lights"
-      actions: "Actions"
