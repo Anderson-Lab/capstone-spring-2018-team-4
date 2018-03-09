@@ -6,27 +6,22 @@ RSpec.describe TargetsController, type: :controller do
 
   describe "GET #new" do
     before :each do
-      get :new
+      @department = FactoryBot.create(:department)
+
+      get :new, params: { department_id: @department.id }, format: :js, xhr: true
     end
 
     it { is_expected.to respond_with :ok }
 
     it { is_expected.to render_template :new }
 
+    it 'should assign @department' do
+      expect(assigns(:department)).to eq (@department)
+    end
+
     it 'should assign @target' do
       expect(assigns(:target)).to be_a(Target)
       expect(assigns(:target).new_record?).to eq(true)
     end
-
-    it "should assign @departments" do
-      FactoryBot.create(:department)
-      expect(assigns(:departments)).to eq(Department.all)
-    end
-
-    it "should assign @categories" do
-      FactoryBot.create(:category)
-      expect(assigns(:categories)).to eq(Category.all)
-    end
   end
-
 end
