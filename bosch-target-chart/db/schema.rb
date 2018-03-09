@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180303035735) do
+ActiveRecord::Schema.define(version: 20180309002740) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 20180303035735) do
     t.bigint "target_id"
     t.string "name"
     t.decimal "value", precision: 22, scale: 10
-    t.decimal "compare_to_value", precision: 22, scale: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["target_id"], name: "index_indicators_on_target_id"
@@ -63,6 +62,7 @@ ActiveRecord::Schema.define(version: 20180303035735) do
     t.datetime "updated_at", null: false
     t.integer "year"
     t.string "unit_type"
+    t.decimal "compare_to_value", precision: 22, scale: 10
     t.index ["category_id"], name: "index_targets_on_category_id"
     t.index ["department_id"], name: "index_targets_on_department_id"
   end
