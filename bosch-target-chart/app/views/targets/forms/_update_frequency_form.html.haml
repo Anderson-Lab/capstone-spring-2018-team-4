@@ -1,8 +1,0 @@
-= form_for target, url: target_path(target), method: :put, remote: true do |f|
-  #targetErrors
-  .form-group
-    .input-group
-      = f.select :update_frequency, options_for_select(update_frequency_select, target.update_frequency), { include_blank: true }, class: 'form-control'
-      .input-group-append
-        = f.button class: 'btn btn-primary' do
-          = fa_icon 'check'
