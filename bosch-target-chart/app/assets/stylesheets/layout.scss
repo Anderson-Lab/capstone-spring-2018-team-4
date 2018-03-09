@@ -99,30 +99,28 @@ html {
       }
     }
 
-    main {
-      a:not(.btn) {
-        text-decoration: none !important;
-        color: $theme_primary !important;
-        font-weight: 200;
-      }
+    a:not(.btn) {
+      text-decoration: none !important;
+      color: $theme_primary !important;
+      font-weight: 200;
+    }
 
-      a:active, a:hover {
-        color: black !important;
-      }
+    a:active, a:hover {
+      color: black !important;
+    }
 
-      a:hover, a:active, a:visited {
-        text-decoration: none;
-        outline: 0;
-      }
+    a:hover, a:active, a:visited {
+      text-decoration: none;
+      outline: 0;
+    }
 
-      .required:after {
-        content: ' *';
-      }
+    .required:after {
+      content: ' *';
+    }
 
-      .dropdown-item.active, .dropdown-item:active {
-        background: $theme_info;
-        color: white !important;
-      }
+    .dropdown-item.active, .dropdown-item:active {
+      background: $theme_info;
+      color: white !important;
     }
   }
 }

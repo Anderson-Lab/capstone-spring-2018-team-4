@@ -1,5 +1,6 @@
 <% if @errors %>
-$('#form-errors').html("<%= j render 'shared/form_errors', errors: @errors %>")
+$('#formErrors').html("<%= j render 'shared/form_errors', errors: @errors %>")
 <% else %>
-window.location = '/'
+$('#targetsContainer').replaceWith("<%= j render 'targets/table', department: @department %>")
+$('#modalContainer').modal('hide')
 <% end %>

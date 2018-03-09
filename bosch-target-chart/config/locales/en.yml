@@ -23,11 +23,16 @@ en:
 
   targets:
     new: "New Target"
+    new_header: "Create a New Target"
     fields:
       name: 'Name'
-      category: 'Category'
+      category:
+        field: 'Category'
+        select: 'Select a Category'
       unit: 'Unit of Measure'
       unit_type:
+        field: 'Unit Type'
+        select: 'Select a Unit Type'
         numerical: 'Numerical'
         percentage: 'Percentage'
         qualitative: 'Qualitative'
