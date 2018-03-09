@@ -19,7 +19,7 @@
           %th.col-4.col-md-3.d-flex.justify-content-center
             = t(:targets)[:table][:indicators]
           %th.col-md-1.d-none.d-md-flex.justify-content-center
-            = t(:targets)[:table][:actions]
+            = t(:actions)[:delete]
       %body
         - department.targets.eager_load(:category).each do |target|
           %tr.d-flex

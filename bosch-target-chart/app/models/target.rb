@@ -2,7 +2,7 @@ class Target < ApplicationRecord
   belongs_to :department
   belongs_to :category
 
-  has_many :indicators
+  has_many :indicators, dependent: :destroy
   has_and_belongs_to_many :charts
 
   validates :name, :department_id, :category_id, :unit, :unit_type, presence: true
