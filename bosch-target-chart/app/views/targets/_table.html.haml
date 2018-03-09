@@ -3,7 +3,7 @@
     %h2.mt-5
       = t(:targets)[:table][:header]
   .col-lg-2.d-flex.justify-content-end.align-items-end
-    = link_to t(:targets)[:new], 'javascript:void(0)', class: 'btn btn-block btn-success text-white mb-1'
+    = link_to t(:targets)[:new], new_target_path(department_id: department.id), remote: true, class: 'btn btn-block btn-success text-white mb-1'
   .col-lg-12
     %table.table.table-bordered.table-sm#targetsTable
       %thead.bg-secondary.text-white.text-center

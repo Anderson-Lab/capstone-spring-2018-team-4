@@ -3,7 +3,8 @@ class TargetsController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @target = Target.new
+    @department = Department.find(params[:department_id])
+    @target = @department.targets.new 
     @departments = Department.all
     @categories  = Category.all
   end
@@ -13,6 +14,7 @@ class TargetsController < ApplicationController
 
     if target.save
       #TODO: Add flash message
+      @department = target.department
     else
       @errors = target.errors
     end
