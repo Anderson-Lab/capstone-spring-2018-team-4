@@ -19,3 +19,17 @@ $ ->
   $(document).on 'click focus', 'html', (e) ->
     if !$("[data-toggle='popover']").is(e.target) and $('.popover').has(e.target).length == 0
       $("[data-toggle='popover']").popover('hide')
+
+  $(document).on 'click', '.delete-target-button', ->
+    target_id = $(this).data('target-id')
+
+    swal {
+      title: I18n.targets.delete_header
+      text: I18n.targets.delete_confirm
+      type: 'warning'
+      showCancelButton: true
+      closeOnConfirm: true
+    }, ->
+      $.ajax
+        type: 'delete'
+        url: "/targets/#{target_id}.js"
