@@ -48,8 +48,10 @@ class TargetsController < ApplicationController
         :department_id,
         :category_id,
         :unit,
+        :unit_type,
         :update_frequency,
-        :comments
+        :comments,
+        :year
       )
   end
 end

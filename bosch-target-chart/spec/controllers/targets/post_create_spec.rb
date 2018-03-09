@@ -2,19 +2,22 @@ require 'rails_helper'
 
 RSpec.describe TargetsController, type: :controller do
 
+  login_user(FactoryBot.create(:user))
+
   describe "GET #create" do
     context 'with valid inputs' do
       before :each do
-        department = FactoryBot.create(:department)
-        category = FactoryBot.create(:category)
+        target = FactoryBot.build(:target)
         post :create, params: {
           target: {
-            name: 'Target name',
-            department_id: department.id,
-            category_id: category.id,
-            unit: '%',
-            update_frequency: 'Monthly',
-            comments: 'some comments'
+            name: target.name,
+            department_id: target.department_id,
+            category_id: target.category_id,
+            unit: target.unit,
+            unit_type: target.unit_type,
+            update_frequency: target.update_frequency,
+            comments: target.comments,
+            year: target.year
           }
         }, format: :js
       end
@@ -36,8 +39,10 @@ RSpec.describe TargetsController, type: :controller do
             department_id: nil,
             category_id: nil,
             unit: nil,
+            unit_type: nil,
             update_frequency: nil,
-            comments: nil
+            comments: nil,
+            year: nil
           }
         }, format: :js
       end
@@ -55,5 +60,4 @@ RSpec.describe TargetsController, type: :controller do
       end
     end
   end
-
 end
