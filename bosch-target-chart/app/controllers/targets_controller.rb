@@ -5,8 +5,6 @@ class TargetsController < ApplicationController
   def new
     @department = Department.find(params[:department_id])
     @target = @department.targets.new 
-    @departments = Department.all
-    @categories  = Category.all
   end
 
   def create

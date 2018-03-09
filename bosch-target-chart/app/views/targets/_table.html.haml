@@ -28,7 +28,7 @@
               %span.d-md-none
                 = target.name
             %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
-              = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:category], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
+              = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:category][:field], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
               %span.d-md-none
                 = target.category.name
             %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center

@@ -2,36 +2,43 @@
   .modal-content
     = form_for @target, url: targets_path, remote: true do |f|
       .modal-header
-        %h4.modal-title.text-center
-          = 'Create a new Target'
+        %h4.modal-title
+          = t(:targets)[:new_header]
         %button.close{ type: 'button', aria: { label: 'Close' }, data: { dismiss: 'modal' } }
           %span{ aria: { hidden: 'true' } } &times;
       .modal-body
         #formErrors
         = f.hidden_field :department_id
         .form-group
-          = f.label :name, t(:targets)[:name], class: 'required'
+          = f.label :name, t(:targets)[:fields][:name], class: 'required'
           = f.text_field :name, class: 'form-control'
         .form-group
-          = f.label :category_id, t(:targets)[:category], class: 'required'
-          = f.select :category_id, options_from_collection_for_select(categories, :id, :name), {}, class: 'form-control'
+          = f.label :category_id, t(:targets)[:fields][:category][:field], class: 'required'
+          = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { include_blank: t(:targets)[:fields][:category][:select] }, class: 'form-control'
         .form-group
-          = f.label :unit, t(:targets)[:unit], class: 'required'
+          = f.label :unit, t(:targets)[:fields][:unit], class: 'required'
           = f.text_field :unit, class: 'form-control'
         .form-group
-          = f.label :update_frequency, t(:targets)[:update_frequency], class: 'required'
-          .form-check
-            = f.label :update_frequency, class: 'form-check-label' do
-              = f.radio_button :update_frequency, t(:targets)[:monthly], class: 'form-check-input'
-              = t(:targets)[:monthly]
-          .form-check
-            = f.label :update_frequency, class: 'form-check-label' do
-              = f.radio_button :update_frequency, t(:targets)[:yearly], class: 'form-check-input'
-              = t(:targets)[:yearly]
+          = f.label :unit_type, t(:targets)[:fields][:unit_type][:field], class: 'required'
+          = f.select :unit_type, options_for_select(Target::UNIT_TYPES), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'
         .form-group
-          = f.label :comments, t(:targets)[:comments]
+          = f.label :update_frequency, t(:targets)[:fields][:update_frequency][:field], class: 'required'
+          .form-check
+            = f.label :update_frequency, class: 'form-check-label' do
+              = f.radio_button :update_frequency, t(:targets)[:fields][:update_frequency][:monthly], class: 'form-check-input'
+              = t(:targets)[:fields][:update_frequency][:monthly]
+          .form-check
+            = f.label :update_frequency, class: 'form-check-label' do
+              = f.radio_button :update_frequency, t(:targets)[:fields][:update_frequency][:yearly], class: 'form-check-input'
+              = t(:targets)[:fields][:update_frequency][:yearly]
+        .form-group
+          -# This is temporary until we implement selecting a year
+          = f.label :year, "YEAR (TEMPORARY)", class: 'required'
+          = f.text_field :year, class: 'form-control'
+        .form-group
+          = f.label :comments, t(:targets)[:fields][:comments]
           = f.text_area :comments, rows: 3, class: 'form-control'
       .modal-footer
         %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal' } }
-          = 'Close'
+          = t(:actions)[:close]
         = f.submit t(:actions)[:submit], class: 'btn btn-primary'
