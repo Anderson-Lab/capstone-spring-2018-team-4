@@ -1,0 +1,14 @@
+= stylesheet_link_tag 'charts'
+
+
+
+.card
+  .card-body
+    %h2
+      = Chart.where(department_id: nil, year:2017).first.name
+
+- @charts.each do |chart|
+  .card
+    .card-body
+      .text-center
+        = departement.name

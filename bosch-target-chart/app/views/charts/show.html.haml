@@ -1,0 +1,17 @@
+= stylesheet_link_tag 'charts'
+
+.row
+  .col-lg-3.order-lg-last
+  .col-lg-9
+    %h2#fullPlantChart
+      = "PLANT CHART"
+.card
+  .card-body
+    %h2
+      = "PLANT CHART PLACEHOLDER"
+
+  - @charts.each do |chart|
+    .card
+      .card-body
+        .text-center
+          = departement.name
