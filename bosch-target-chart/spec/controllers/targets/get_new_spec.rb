@@ -7,8 +7,12 @@ RSpec.describe TargetsController, type: :controller do
   describe "GET #new" do
     before :each do
       @department = FactoryBot.create(:department)
+      @year = Time.now.year
 
-      get :new, params: { department_id: @department.id }, format: :js, xhr: true
+      get :new, params: {
+        department_id: @department.id,
+        year: @year
+      }, format: :js, xhr: true
     end
 
     it { is_expected.to respond_with :ok }
@@ -17,6 +21,10 @@ RSpec.describe TargetsController, type: :controller do
 
     it 'should assign @department' do
       expect(assigns(:department)).to eq (@department)
+    end
+
+    it 'should assign @year' do
+      expect(assigns(:year)).to eq(@year)
     end
 
     it 'should assign @target' do

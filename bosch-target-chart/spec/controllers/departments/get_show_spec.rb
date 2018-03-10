@@ -6,9 +6,13 @@ RSpec.describe DepartmentsController, type: :controller do
 
 	describe "GET #show" do
     before :each do
+      @year       = Time.now.year
       @department = FactoryBot.create(:department)
+      @chart      = FactoryBot.create(:chart, department: @department)
+
       get :show, params: {
-      	id: @department.id
+      	id: @department.id,
+        year: @year
       }
     end
 
@@ -19,6 +23,13 @@ RSpec.describe DepartmentsController, type: :controller do
     it 'should assign @department' do
       expect(assigns(:department)).to eq(@department)
     end
-  end
 
+    it 'should assign @year' do
+      expect(assigns(:year)).to eq(@year)
+    end
+
+    it 'should assign @chart' do
+      expect(assigns(:chart)).to eq(@chart)
+    end
+  end
 end

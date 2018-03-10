@@ -8,11 +8,13 @@ RSpec.describe "User deletes a target", js: true do
     current_user.confirm
     sign_in(current_user)
 
-    @target = FactoryBot.create(:target)
+    @department = FactoryBot.create(:department)
+    @chart      = FactoryBot.create(:chart, department: @department)
+    @target     = FactoryBot.create(:target, name: "Target Inc", department: @department)
   end
 
   it 'should rerender the targets table' do
-    visit department_path(@target.department)
+    visit department_path(@department)
 
     execute_script("$('.d-none').removeClass('d-none')")
 

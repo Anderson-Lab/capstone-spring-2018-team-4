@@ -24,13 +24,13 @@ class Chart < ApplicationRecord
   def self.years_for_select(department=nil)
     return department.charts.order(:year).pluck(:year) if department
     
-    existing_years  = Chart.all.order(:year).pluck(:year).uniq
-    next_year       = Time.now.year + 1
+    years     = Chart.all.order(:year).pluck(:year).uniq
+    this_year = Time.now.year
+    next_year = this_year + 1
 
-    if existing_years.include?(next_year)
-      existing_years
-    else
-      existing_years << next_year
-    end
+    years << this_year unless years.include?(this_year)
+    years << next_year unless years.include?(next_year)
+  
+    years    
   end
 end

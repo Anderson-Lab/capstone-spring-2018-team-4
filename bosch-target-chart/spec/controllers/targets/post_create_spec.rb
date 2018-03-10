@@ -7,17 +7,18 @@ RSpec.describe TargetsController, type: :controller do
   describe "GET #create" do
     context 'with valid inputs' do
       before :each do
-        target = FactoryBot.build(:target)
+        @target = FactoryBot.build(:target)
+
         post :create, params: {
           target: {
-            name: target.name,
-            department_id: target.department_id,
-            category_id: target.category_id,
-            unit: target.unit,
-            unit_type: target.unit_type,
-            update_frequency: target.update_frequency,
-            comments: target.comments,
-            year: target.year
+            name: @target.name,
+            department_id: @target.department_id,
+            category_id: @target.category_id,
+            unit: @target.unit,
+            unit_type: @target.unit_type,
+            update_frequency: @target.update_frequency,
+            comments: @target.comments,
+            year: @target.year
           }
         }, format: :js
       end
@@ -25,6 +26,10 @@ RSpec.describe TargetsController, type: :controller do
       it { is_expected.to respond_with :ok }
 
       it { is_expected.to render_template :create }
+
+      it 'should assign @year' do
+        expect(assigns(:year)).to eq(@target.year)
+      end
 
       it 'should save the target' do
         expect(Target.count).to eq(1)
