@@ -9,6 +9,7 @@
       .modal-body
         #formErrors
         = f.hidden_field :department_id
+        = f.hidden_field :year, value: year
         .form-group
           = f.label :name, t(:targets)[:fields][:name], class: 'required'
           = f.text_field :name, class: 'form-control'
@@ -31,10 +32,6 @@
             = f.label :update_frequency, class: 'form-check-label' do
               = f.radio_button :update_frequency, t(:targets)[:fields][:update_frequency][:yearly], class: 'form-check-input'
               = t(:targets)[:fields][:update_frequency][:yearly]
-        .form-group
-          -# This is temporary until we implement selecting a year
-          = f.label :year, "YEAR (TEMPORARY)", class: 'required'
-          = f.text_field :year, class: 'form-control'
         .form-group
           = f.label :comments, t(:targets)[:fields][:comments]
           = f.text_area :comments, rows: 3, class: 'form-control'

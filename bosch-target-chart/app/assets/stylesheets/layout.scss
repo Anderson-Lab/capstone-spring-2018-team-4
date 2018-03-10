@@ -122,5 +122,10 @@ html {
       background: $theme_info;
       color: white !important;
     }
+
+    .dropdown-item.selected {
+      background: $theme_success;
+      color: white !important;
+    }
   }
 }

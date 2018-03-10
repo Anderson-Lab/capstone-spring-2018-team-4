@@ -1,9 +1,21 @@
-@media(max-width:767px) {
-  #departmentSelect {
-    margin-bottom: 1rem;
+.chart-header {
+  font-weight: 200;
+
+  @media(max-width:767px) {
+    font-size: 2rem;
+  }
+}
+
+.category-row {
+  &:not(:last-child) {
+    border-bottom: .25rem solid white;
   }
 
-  #fullPlantChart {
-    text-align: center;
+  .category-icon {
+    padding: 8px;
+
+    &[src=''] {
+      visibility: hidden;
+    }
   }
 }

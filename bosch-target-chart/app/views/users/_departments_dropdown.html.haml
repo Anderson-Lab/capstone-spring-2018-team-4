@@ -1,6 +1,0 @@
-.dropdown#departmentSelect
-  %button.btn.btn-block.dropdown-toggle#departmentSelectButton{ type: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } }
-    = t(:dashboard)[:select_department]
-  .dropdown-menu{ aria: { labelledby: 'departmentSelectButton' } }
-    - Department.all.each do |department|
-      = link_to department.name, department_path(department), class: 'dropdown-item'

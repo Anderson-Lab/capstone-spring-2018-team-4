@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   resources :departments, only: [:index, :show]
   resources :targets, only: [:new, :create, :update, :destroy]
-  resources :users, only: [:show]
 
   get 'dashboard' => 'charts#index'
 

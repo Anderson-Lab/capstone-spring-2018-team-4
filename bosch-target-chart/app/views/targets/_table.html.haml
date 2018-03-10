@@ -1,9 +1,9 @@
 .row#targetsContainer
   .col-lg-10
-    %h2.mt-5
+    %h2
       = t(:targets)[:table][:header]
   .col-lg-2.d-flex.justify-content-end.align-items-end
-    = link_to t(:targets)[:new], new_target_path(department_id: department.id), remote: true, class: 'btn btn-block btn-success text-white mb-1'
+    = link_to t(:targets)[:new], new_target_path(department_id: department.id, year: year), remote: true, class: 'btn btn-block btn-success text-white mb-1'
   .col-lg-12
     %table.table.table-bordered.table-sm#targetsTable
       %thead.bg-secondary.text-white.text-center
@@ -21,7 +21,7 @@
           %th.col-md-1.d-none.d-md-flex.justify-content-center
             = t(:actions)[:delete]
       %body
-        - department.targets.eager_load(:category).each do |target|
+        - department.targets.where(year: year).each do |target|
           %tr.d-flex
             %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
               = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:name], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }

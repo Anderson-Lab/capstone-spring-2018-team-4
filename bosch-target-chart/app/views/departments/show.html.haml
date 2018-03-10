@@ -1,14 +1,6 @@
 = stylesheet_link_tag 'departments'
 = javascript_include_tag 'departments'
 
-%h2
-  = "#{@department.name} "
-  %br.d-md-none.d-lg-none.d-xl-none
-  = "(<Abbrev>)"
+= render 'charts/chart', header: I18n.t('charts.department_chart_header', department_abbreviation: @chart.department.abbreviation || @chart.department.name, chart_name: @chart.name, chart_year: @year), chart: @chart, year: @year, show_year_dropdown: true, department: @department
 
-.card
-  .card-body
-    %h2.text-center
-      = "CHART PLACEHOLDER"
-
-= render 'targets/table', department: @department
+= render 'targets/table', department: @department, year: @year

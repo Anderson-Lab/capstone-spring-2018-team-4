@@ -4,11 +4,13 @@ class TargetsController < ApplicationController
 
   def new
     @department = Department.find(params[:department_id])
-    @target = @department.targets.new 
+    @year       = get_year
+    @target     = @department.targets.new 
   end
 
   def create
-    target = Target.new(target_params)
+    target  = Target.new(target_params)
+    @year   = target.year
 
     if target.save
       #TODO: Add flash message
@@ -29,8 +31,9 @@ class TargetsController < ApplicationController
   end
 
   def destroy
-    @target = Target.find(params[:id])
+    @target     = Target.find(params[:id])
     @department = @target.department
+    @year       = @target.year
 
     @target.destroy
     #TODO: Add flash message
