@@ -31,7 +31,7 @@ RSpec.describe "User edits a target", js: true do
 
     visit department_path(@department)
 
-    find("a[data-original-title='#{I18n.t(:targets)[:fields][:category]}']").click
+    find("a[data-original-title='#{I18n.t(:targets)[:fields][:category][:field]}']").click
     select @category.name, from: 'target_category_id'
     find('button[type=submit]').click
     wait_for_ajax
