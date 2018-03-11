@@ -16,6 +16,7 @@ RSpec.describe TargetsController, type: :controller do
             category_id: @target.category_id,
             unit: @target.unit,
             unit_type: @target.unit_type,
+            compare_to_value: @target.compare_to_value,
             comments: @target.comments,
             year: @target.year
           }
@@ -44,6 +45,7 @@ RSpec.describe TargetsController, type: :controller do
             category_id: nil,
             unit: nil,
             unit_type: nil,
+            compare_to_value: nil,
             comments: nil,
             year: nil
           }

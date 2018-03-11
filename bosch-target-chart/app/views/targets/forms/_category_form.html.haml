@@ -1,8 +1,4 @@
-= form_for target, url: target_path(target), method: :put, remote: true do |f|
+= form_for target, url: target_path(target), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
   #targetErrors
   .form-group
-    .input-group
-      = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, target.category_id), { include_blank: true }, class: 'form-control'
-      .input-group-append
-        = f.button class: 'btn btn-primary' do
-          = fa_icon 'check'
+    = f.select :category_id, options_for_select(Category.all.map{ |c| [c.name, c.id] },target.category_id), { include_blank: t(:targets)[:fields][:category][:select] }, class: 'form-control'

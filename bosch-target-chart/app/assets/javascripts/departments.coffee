@@ -1,5 +1,15 @@
 $ ->
-  $("[data-toggle='popover']").popover()
+  $("[data-toggle='popover']").popover(
+    template: "<div class='popover' role='tooltip'>
+                <div class='arrow'></div>
+                <h3 class='popover-header'></h3>
+                <div class='popover-body'></div>
+                <div class='popover-footer'>
+                  <input class='btn btn-sm btn-primary pull-right' value='#{I18n.actions.submit}' type='submit' form='updateForm' />
+                  <div class='clearfix'></div>
+                </div>
+              </div>"
+  )
   
   # Credit to https://stackoverflow.com/a/9440580
   # for binding events to allow clicks / focuses correctly
@@ -17,7 +27,7 @@ $ ->
       $(this).popover('toggle')
 
   $(document).on 'click focus', 'html', (e) ->
-    if !$("[data-toggle='popover']").is(e.target) and $('.popover').has(e.target).length == 0
+    if !$("[data-toggle='popover']").is(e.target) and $("[data-toggle='popover']").has(e.target).length == 0 and $('.popover').has(e.target).length == 0
       $("[data-toggle='popover']").popover('hide')
 
   $(document).on 'click', '.delete-target-button', ->

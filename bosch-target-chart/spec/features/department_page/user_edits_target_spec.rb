@@ -12,15 +12,16 @@ RSpec.describe "User edits a target", js: true do
                   FactoryBot.create(:chart, department: @department)
     @target     = FactoryBot.create(:target, department: @department,
                     category: FactoryBot.create(:category), name: 'target acquired',
-                    unit: 'hours')
+                    unit: 'hours', compare_to_value: 100,
+                    unit_type: I18n.t(:targets)[:fields][:unit_type][:qualitative])
   end
 
   it 'should update name' do
     visit department_path(@department)
     
-    find("a[data-original-title='#{I18n.t(:targets)[:fields][:name]}']").click
+    first("a.target-name").click
     fill_in 'target_name', with: 'Targetted'
-    find('button[type=submit]').click
+    click_button 'Submit'
     wait_for_ajax
     
     expect(@target.reload.name).to eq('Targetted')
@@ -31,9 +32,9 @@ RSpec.describe "User edits a target", js: true do
 
     visit department_path(@department)
 
-    find("a[data-original-title='#{I18n.t(:targets)[:fields][:category][:field]}']").click
+    first("a.target-category").click
     select @category.name, from: 'target_category_id'
-    find('button[type=submit]').click
+    click_button 'Submit'
     wait_for_ajax
 
     expect(@target.reload.category).to eq(@category)
@@ -44,11 +45,37 @@ RSpec.describe "User edits a target", js: true do
 
     execute_script("$('.d-none').removeClass('d-none')")
 
-    find("a[data-original-title='#{I18n.t(:targets)[:fields][:unit]}']").click
+    first("a.target-unit").click
     fill_in 'target_unit', with: 'EuroDollars'
-    find('button[type=submit]').click
+    click_button 'Submit'
     wait_for_ajax
 
     expect(@target.reload.unit).to eq('EuroDollars')
+  end
+
+  it 'should update unit_type' do
+    visit department_path(@department)
+
+    execute_script("$('.d-none').removeClass('d-none')")
+
+    first("a.target-unit").click
+    select I18n.t(:targets)[:fields][:unit_type][:numerical], from: 'target_unit_type'
+    click_button 'Submit'
+    wait_for_ajax
+
+    expect(@target.reload.unit_type).to eq(I18n.t(:targets)[:fields][:unit_type][:numerical])
+  end
+
+  it 'should update compare_to_value' do
+    visit department_path(@department)
+
+    execute_script("$('.d-none').removeClass('d-none')")
+
+    first("a.target-compare-to-value").click
+    fill_in 'target_compare_to_value', with: '5'
+    click_button 'Submit'
+    wait_for_ajax
+
+    expect(@target.reload.compare_to_value).to eq(5)
   end
 end

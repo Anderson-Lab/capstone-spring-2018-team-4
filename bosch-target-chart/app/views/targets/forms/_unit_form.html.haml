@@ -1,8 +1,6 @@
-= form_for target, url: target_path(target), method: :put, remote: true do |f|
+= form_for target, url: target_path(target), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
   #targetErrors
   .form-group
-    .input-group
-      = f.text_field :unit, class: 'form-control'
-      .input-group-append
-        = f.button class: 'btn btn-primary' do
-          = fa_icon 'check'
+    = f.text_field :unit, class: 'form-control', placeholder: t(:targets)[:fields][:unit]
+  .form-group
+    = f.select :unit_type, options_for_select(Target::UNIT_TYPES, target.unit_type), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'

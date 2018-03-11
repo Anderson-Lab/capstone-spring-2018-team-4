@@ -1,4 +1,4 @@
 = form_for target, url: target_path(target), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
   #targetErrors
   .form-group
-    = f.text_field :name, class: 'form-control', placeholder: t(:targets)[:fields][:name]
+    = f.text_field :compare_to_value, class: 'form-control', placeholder: t(:targets)[:fields][:compare_to_value]

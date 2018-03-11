@@ -17,7 +17,19 @@
 }
 
 .popover {
-  .input-group {
+  .form-group {
     min-width: 250px;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .popover-footer {
+    padding: 0 14px 8px 14px;
   }
 }
