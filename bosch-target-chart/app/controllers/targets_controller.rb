@@ -55,7 +55,6 @@ class TargetsController < ApplicationController
         :category_id,
         :unit,
         :unit_type,
-        :update_frequency,
         :comments,
         :year
       )

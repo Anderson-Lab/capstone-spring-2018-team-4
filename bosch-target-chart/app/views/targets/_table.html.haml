@@ -15,7 +15,7 @@
           %th.col-md-2.d-none.d-md-flex.justify-content-center
             = t(:targets)[:table][:unit]
           %th.col-md-2.d-none.d-md-flex.justify-content-center
-            = t(:targets)[:table][:update_frequency]
+            PLACEHOLDER
           %th.col-4.col-md-3.d-flex.justify-content-center
             = t(:targets)[:table][:indicators]
           %th.col-md-1.d-none.d-md-flex.justify-content-center
@@ -34,7 +34,7 @@
             %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
               = link_to target.unit, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:unit], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
             %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
-              = link_to target.update_frequency, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:update_frequency][:field], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/update_frequency_form', target: target) }
+              PLACEHOLDER
             %td.col-4.col-md-3.d-flex.justify-content-center.align-items-center
               .container
                 .row.text-center

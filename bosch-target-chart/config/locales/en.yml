@@ -38,15 +38,10 @@ en:
         numerical: 'Numerical'
         percentage: 'Percentage'
         qualitative: 'Qualitative'
-      update_frequency:
-        field: 'Update Frequency'
-        monthly: 'Monthly'
-        yearly: 'Yearly'
       comments: 'Comments'
     table:
       header: "Targets"
       name: "Name"
       category: "Category"
       unit: "Unit"
-      update_frequency: "Update"
       indicators: "Stop Lights"

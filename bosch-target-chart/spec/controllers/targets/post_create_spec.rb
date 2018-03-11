@@ -15,7 +15,6 @@ RSpec.describe TargetsController, type: :controller do
             category_id: target.category_id,
             unit: target.unit,
             unit_type: target.unit_type,
-            update_frequency: target.update_frequency,
             comments: target.comments,
             year: target.year
           }
@@ -40,7 +39,6 @@ RSpec.describe TargetsController, type: :controller do
             category_id: nil,
             unit: nil,
             unit_type: nil,
-            update_frequency: nil,
             comments: nil,
             year: nil
           }
