@@ -23,16 +23,6 @@
           = f.label :unit_type, t(:targets)[:fields][:unit_type][:field], class: 'required'
           = f.select :unit_type, options_for_select(Target::UNIT_TYPES), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'
         .form-group
-          = f.label :update_frequency, t(:targets)[:fields][:update_frequency][:field], class: 'required'
-          .form-check
-            = f.label :update_frequency, class: 'form-check-label' do
-              = f.radio_button :update_frequency, t(:targets)[:fields][:update_frequency][:monthly], class: 'form-check-input'
-              = t(:targets)[:fields][:update_frequency][:monthly]
-          .form-check
-            = f.label :update_frequency, class: 'form-check-label' do
-              = f.radio_button :update_frequency, t(:targets)[:fields][:update_frequency][:yearly], class: 'form-check-input'
-              = t(:targets)[:fields][:update_frequency][:yearly]
-        .form-group
           = f.label :comments, t(:targets)[:fields][:comments]
           = f.text_area :comments, rows: 3, class: 'form-control'
       .modal-footer

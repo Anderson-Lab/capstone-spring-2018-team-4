@@ -5,7 +5,6 @@ FactoryBot.define do
     category_id       { FactoryBot.create(:category).id }
     unit              { Faker::Lorem.word }
     unit_type         { Target::UNIT_TYPES[1] }
-    update_frequency  { [I18n.t(:targets)[:fields][:update_frequency][:monthly], I18n.t(:targets)[:fields][:update_frequency][:yearly]].sample }
     comments          { Faker::Lorem.sentence }
     year              { Time.now.year }
 
