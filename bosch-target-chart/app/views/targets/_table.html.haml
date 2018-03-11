@@ -8,34 +8,34 @@
     %table.table.table-bordered.table-sm#targetsTable
       %thead.bg-secondary.text-white.text-center
         %tr.d-flex
-          %th.col-4.col-md-2.d-flex.justify-content-center
+          %th.col-3.col-md-2.d-flex.justify-content-center
             = t(:targets)[:table][:name]
           %th.col-4.col-md-2.d-flex.justify-content-center
             = t(:targets)[:table][:category]
           %th.col-md-2.d-none.d-md-flex.justify-content-center
             = t(:targets)[:table][:unit]
-          %th.col-md-2.d-none.d-md-flex.justify-content-center
+          %th.col-3.col-md-2.d-flex.justify-content-center
             PLACEHOLDER
-          %th.col-4.col-md-3.d-flex.justify-content-center
+          %th.col-2.col-md-3.d-flex.justify-content-center
             = t(:targets)[:table][:indicators]
-          %th.col-md-1.d-none.d-md-flex.justify-content-center
+          %th.col-md-1.d-none.d-md-table-cell
             = t(:actions)[:delete]
-      %body
+      %tbody
         - department.targets.where(year: year).each do |target|
           %tr.d-flex
-            %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
-              = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:name], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
+            %td.col-3.col-md-2.d-flex.justify-content-center.align-items-center
+              = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block target-name', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
               %span.d-md-none
                 = target.name
             %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
-              = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block', role: 'button', title: t(:targets)[:fields][:category][:field], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
+              = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block target-category', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
               %span.d-md-none
                 = target.category.name
             %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
-              = link_to target.unit, 'javascript:void(0)', role: 'button', title: t(:targets)[:fields][:unit], tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
-            %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
+              = link_to raw("#{target.unit}<br>(#{target.unit_type})"), 'javascript:void(0)', class: 'text-center target-unit', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
+            %td.col-3.col-md-2.d-flex.justify-content-center.align-items-center
               PLACEHOLDER
-            %td.col-4.col-md-3.d-flex.justify-content-center.align-items-center
+            %td.col-2.col-md-3.d-flex.justify-content-center.align-items-center
               .container
                 .row.text-center
                   -# Placeholders

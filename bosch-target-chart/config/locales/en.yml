@@ -39,7 +39,6 @@ en:
         field: 'Unit Type'
         select: 'Select a Unit Type'
         numerical: 'Numerical'
-        percentage: 'Percentage'
         qualitative: 'Qualitative'
       comments: 'Comments'
     table:
