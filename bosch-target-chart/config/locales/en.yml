@@ -40,10 +40,12 @@ en:
         select: 'Select a Unit Type'
         numerical: 'Numerical'
         qualitative: 'Qualitative'
+      compare_to_value: "Compare-To Value"
       comments: 'Comments'
     table:
       header: "Targets"
       name: "Name"
       category: "Category"
       unit: "Unit"
+      compare_to_value: "Compare-To"
       indicators: "Stop Lights"
