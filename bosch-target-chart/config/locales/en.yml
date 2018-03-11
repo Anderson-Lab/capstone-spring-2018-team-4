@@ -15,8 +15,11 @@ en:
     edit: "Edit"
     submit: 'Submit'
 
-  dashboard:
-    select_department: "Select a Department"
+  charts:
+    plant_chart_header: "%{chart_name} - %{chart_year}"
+    department_chart_header: "%{department_abbreviation} - %{chart_name} - %{chart_year}"
+    new_year_header: "There are no charts for %{year}"
+    create: "Create Charts for %{year}"
 
   departments:
     header: "BOSCH Departments"

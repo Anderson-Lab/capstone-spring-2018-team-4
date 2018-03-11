@@ -1,0 +1,21 @@
+.chart-header {
+  font-weight: 200;
+
+  @media(max-width:767px) {
+    font-size: 2rem;
+  }
+}
+
+.category-row {
+  &:not(:last-child) {
+    border-bottom: .25rem solid white;
+  }
+
+  .category-icon {
+    padding: 8px;
+
+    &[src=''] {
+      visibility: hidden;
+    }
+  }
+}

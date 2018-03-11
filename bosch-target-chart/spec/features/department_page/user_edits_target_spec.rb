@@ -9,6 +9,7 @@ RSpec.describe "User edits a target", js: true do
     sign_in(current_user)
 
     @department = FactoryBot.create(:department)
+                  FactoryBot.create(:chart, department: @department)
     @target     = FactoryBot.create(:target, department: @department,
                     category: FactoryBot.create(:category), name: 'target acquired',
                     unit: 'hours')

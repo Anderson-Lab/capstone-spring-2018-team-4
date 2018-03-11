@@ -9,6 +9,7 @@
       .modal-body
         #formErrors
         = f.hidden_field :department_id
+        = f.hidden_field :year, value: year
         .form-group
           = f.label :name, t(:targets)[:fields][:name], class: 'required'
           = f.text_field :name, class: 'form-control'
@@ -21,10 +22,6 @@
         .form-group
           = f.label :unit_type, t(:targets)[:fields][:unit_type][:field], class: 'required'
           = f.select :unit_type, options_for_select(Target::UNIT_TYPES), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'
-        .form-group
-          -# This is temporary until we implement selecting a year
-          = f.label :year, "YEAR (TEMPORARY)", class: 'required'
-          = f.text_field :year, class: 'form-control'
         .form-group
           = f.label :comments, t(:targets)[:fields][:comments]
           = f.text_area :comments, rows: 3, class: 'form-control'

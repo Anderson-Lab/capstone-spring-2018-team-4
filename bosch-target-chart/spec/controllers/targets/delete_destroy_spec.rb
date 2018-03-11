@@ -15,6 +15,14 @@ RSpec.describe TargetsController, type: :controller do
       expect(assigns(:target)).to eq(@target)
     end
 
+    it 'should assign @department' do
+      expect(assigns(:department)).to eq(@target.department)
+    end
+
+    it 'should assign @year' do
+      expect(assigns(:year)).to eq(@target.year)
+    end
+
     it 'should destroy the target' do
       expect(Target.count).to eq(0)
     end

@@ -6,7 +6,7 @@ FactoryBot.define do
     unit              { Faker::Lorem.word }
     unit_type         { Target::UNIT_TYPES[1] }
     comments          { Faker::Lorem.sentence }
-    year              { 1970 + Random.rand(100) }
+    year              { Time.now.year }
 
     trait :numerical do
       unit_type { Target::UNIT_TYPES[0] }
