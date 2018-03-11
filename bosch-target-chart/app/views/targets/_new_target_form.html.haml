@@ -23,6 +23,9 @@
           = f.label :unit_type, t(:targets)[:fields][:unit_type][:field], class: 'required'
           = f.select :unit_type, options_for_select(Target::UNIT_TYPES), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'
         .form-group
+          = f.label :compare_to_value, t(:targets)[:fields][:compare_to_value], class: 'required'
+          = f.text_field :compare_to_value, class: 'form-control'
+        .form-group
           = f.label :comments, t(:targets)[:fields][:comments]
           = f.text_area :comments, rows: 3, class: 'form-control'
       .modal-footer

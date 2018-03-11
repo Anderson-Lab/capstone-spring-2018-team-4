@@ -58,6 +58,7 @@ class TargetsController < ApplicationController
         :category_id,
         :unit,
         :unit_type,
+        :compare_to_value,
         :comments,
         :year
       )
