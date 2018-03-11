@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   end
 
   def get_year
-    (params[:year] && Chart.years_for_select(@department).include?(params[:year].to_i)) ?
-      params[:year].to_i : Time.now.year
+    if params[:year] && Chart.years_for_select(@department).include?(params[:year].to_i)
+      params[:year].to_i
+    else
+      Time.now.year
+    end
   end
 end

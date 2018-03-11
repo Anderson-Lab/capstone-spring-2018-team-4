@@ -118,14 +118,18 @@ html {
       content: ' *';
     }
 
-    .dropdown-item.active, .dropdown-item:active {
-      background: $theme_info;
-      color: white !important;
-    }
+    .dropdown-menu {
+      width: 100%;
 
-    .dropdown-item.selected {
-      background: $theme_success;
-      color: white !important;
+      .dropdown-item.active, .dropdown-item:active {
+        background: $theme_info;
+        color: white !important;
+      }
+
+      .dropdown-item.selected {
+        background: $theme_success;
+        color: white !important;
+      }
     }
   }
 }
