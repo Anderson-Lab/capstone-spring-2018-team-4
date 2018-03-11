@@ -5,6 +5,7 @@ FactoryBot.define do
     category_id       { FactoryBot.create(:category).id }
     unit              { Faker::Lorem.word }
     unit_type         { Target::UNIT_TYPES[1] }
+    compare_to_value  { Random.rand(2) }
     comments          { Faker::Lorem.sentence }
     year              { Time.now.year }
 
@@ -12,6 +13,5 @@ FactoryBot.define do
       unit_type { Target::UNIT_TYPES[0] }
       compare_to_value { Random.rand(100) }
     end
-
   end
 end
