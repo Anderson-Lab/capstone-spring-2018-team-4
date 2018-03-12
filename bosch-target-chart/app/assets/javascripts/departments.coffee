@@ -1,15 +1,6 @@
 $ ->
-  $("[data-toggle='popover']").popover(
-    template: "<div class='popover' role='tooltip'>
-                <div class='arrow'></div>
-                <h3 class='popover-header'></h3>
-                <div class='popover-body'></div>
-                <div class='popover-footer'>
-                  <input class='btn btn-sm btn-primary pull-right' value='#{I18n.actions.submit}' type='submit' form='updateForm' />
-                  <div class='clearfix'></div>
-                </div>
-              </div>"
-  )
+  
+  initializePopovers()
   
   # Credit to https://stackoverflow.com/a/9440580
   # for binding events to allow clicks / focuses correctly
@@ -43,3 +34,16 @@ $ ->
       $.ajax
         type: 'delete'
         url: "/targets/#{target_id}.js"
+
+(exports ? this).initializePopovers = () ->
+  $("[data-toggle='popover']").popover(
+    template: "<div class='popover' role='tooltip'>
+                <div class='arrow'></div>
+                <h3 class='popover-header'></h3>
+                <div class='popover-body'></div>
+                <div class='popover-footer'>
+                  <input class='btn btn-sm btn-primary pull-right' value='#{I18n.actions.submit}' type='submit' form='updateForm' />
+                  <div class='clearfix'></div>
+                </div>
+              </div>"
+  )
