@@ -7,6 +7,9 @@ class Indicator < ApplicationRecord
     I18n.t(:indicators)[:fields][:color][:red],
   ]
 
+  validates :name, presence: true
+  validates :value, numericality: true, presence: true
+  
   def is_positive?
     if self.target.is_qualitative?
       self.value == 0
