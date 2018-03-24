@@ -12,7 +12,7 @@ FactoryBot.define do
     trait :numerical do
       unit_type        { Target::UNIT_TYPES[0] }
       compare_to_value { Random.rand(100) }
-      rule             { Random.rand(2) }
+      rule             { Target::RULES.sample }
     end
   end
 end

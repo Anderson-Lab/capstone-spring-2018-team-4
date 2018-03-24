@@ -59,6 +59,7 @@ class TargetsController < ApplicationController
         :unit,
         :unit_type,
         :compare_to_value,
+        :rule,
         :comments,
         :year
       )

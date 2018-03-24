@@ -18,22 +18,20 @@ RSpec.describe Target, type: :model do
     it { is_expected.to validate_numericality_of(:year).only_integer }
     it { is_expected.to validate_numericality_of(:year).is_greater_than_or_equal_to(0) }
 
-    it { is_expected.to validate_numericality_of(:rule).only_integer }
-    it { is_expected.to validate_numericality_of(:rule).is_greater_than_or_equal_to(0) }
-    it { is_expected.to validate_numericality_of(:rule).is_less_than_or_equal_to(1) }
-
     it { is_expected.to validate_inclusion_of(:unit_type).in_array(Target::UNIT_TYPES) }
 
     context 'is numerical' do
       before { allow(subject).to receive(:is_qualitative?).and_return(false) }
       it { is_expected.to validate_presence_of(:compare_to_value) }
       it { is_expected.to validate_presence_of(:rule) }
+      it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
     end
 
     context 'is qualitative' do
       before { allow(subject).to receive(:is_qualitative?).and_return(true) }
       it { is_expected.to_not validate_presence_of(:compare_to_value) }
       it { is_expected.to_not validate_presence_of(:rule) }
+      it { should allow_value(nil).for(:rule) }
     end
   end
 end
