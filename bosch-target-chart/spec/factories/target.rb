@@ -10,8 +10,9 @@ FactoryBot.define do
     year              { Time.now.year }
 
     trait :numerical do
-      unit_type { Target::UNIT_TYPES[0] }
+      unit_type        { Target::UNIT_TYPES[0] }
       compare_to_value { Random.rand(100) }
+      rule             { Random.rand(2) }
     end
   end
 end

@@ -11,7 +11,8 @@ class Target < ApplicationRecord
   ]
 
   validates :name, :department_id, :category_id, :unit, :unit_type, presence: true
-  validates :compare_to_value, presence: true, unless: :is_qualitative?
+  validates :compare_to_value, :rule, presence: true, unless: :is_qualitative?
+  validates :rule, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 1 }
   validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates_inclusion_of :unit_type, in: UNIT_TYPES
 
