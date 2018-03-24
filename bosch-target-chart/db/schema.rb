@@ -48,15 +48,7 @@ ActiveRecord::Schema.define(version: 20180324154025) do
     t.decimal "value", precision: 22, scale: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "rule_id"
-    t.index ["rule_id"], name: "index_indicators_on_rule_id"
     t.index ["target_id"], name: "index_indicators_on_target_id"
-  end
-
-  create_table "rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "operator"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "targets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -106,7 +98,6 @@ ActiveRecord::Schema.define(version: 20180324154025) do
   add_foreign_key "charts", "departments"
   add_foreign_key "charts_targets", "charts"
   add_foreign_key "charts_targets", "targets"
-  add_foreign_key "indicators", "rules"
   add_foreign_key "indicators", "targets"
   add_foreign_key "targets", "categories"
   add_foreign_key "targets", "departments"
