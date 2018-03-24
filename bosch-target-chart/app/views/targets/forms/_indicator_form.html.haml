@@ -19,4 +19,4 @@
             = fa_icon('times-circle')
   - else
     .form-group
-      = f.select :value, color_select(indicator), { include_blank: t(:indicators)[:fields][:color][:select] }, class: ['form-control color-select', determine_select_classes(indicator)]
+      = f.select :color, options_for_select(Indicator::COLORS, indicator.color), { include_blank: t(:indicators)[:fields][:color][:select] }, class: ['form-control color-select', determine_select_classes(indicator)]

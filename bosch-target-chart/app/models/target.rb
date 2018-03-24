@@ -28,9 +28,10 @@ class Target < ApplicationRecord
   private
 
   def blank_out_indicator_values
-    self.indicators.each do |indicator|
-      indicator.value = nil
-      indicator.save(validate: false)
+    if self.unit_type == Target::UNIT_TYPES[0]
+      self.indicators.each{ |i| i.update_attributes(value: 0, color: nil) }
+    else
+      self.indicators.each{ |i| i.update_attribute(:value, nil) }
     end
   end
 end

@@ -9,17 +9,6 @@ module IndicatorsHelper
     )
   end
 
-  def color_select(indicator)
-    index = 0
-    options_for_select(
-      Indicator::COLORS.map do |color|
-        index += 1
-        [color, (index - 1).to_d]
-      end,
-      indicator.value
-    )
-  end
-
   def determine_button_icon(indicator)
     if indicator.is_positive?
       fa_icon('check-circle')

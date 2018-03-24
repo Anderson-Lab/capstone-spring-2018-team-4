@@ -8,11 +8,12 @@ class Indicator < ApplicationRecord
   ]
 
   validates :name, presence: true
-  validates :value, numericality: true, presence: true
-  
+  validates :value, numericality: true, presence: true, if: Proc.new{ |i| i.target.is_numerical? }
+  validates :color, inclusion: { in: COLORS }, presence: true, if: Proc.new{ |i| i.target.is_qualitative? }
+
   def is_positive?
     if self.target.is_qualitative?
-      self.value == 0
+      self.color == Indicator::COLORS[0]
     else
       self.value && self.value >= self.target.compare_to_value
     end
@@ -20,7 +21,7 @@ class Indicator < ApplicationRecord
 
   def is_neutral?
     if self.target.is_qualitative?
-      self.value == 1
+      self.color == Indicator::COLORS[1]
     else
       false
     end
@@ -28,7 +29,7 @@ class Indicator < ApplicationRecord
 
   def is_negative?
     if self.target.is_qualitative?
-      self.value == 2
+      self.color == Indicator::COLORS[2]
     else
       self.value && self.value < self.target.compare_to_value
     end

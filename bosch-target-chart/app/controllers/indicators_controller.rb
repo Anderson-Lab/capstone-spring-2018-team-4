@@ -13,7 +13,8 @@ class IndicatorsController < ApplicationController
   def indicator_params
     params.require(:indicator).permit(
       :name,
-      :value
+      :value,
+      :color
     )
   end
 end
