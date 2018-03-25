@@ -2,7 +2,7 @@
 $("#targetErrors").html("<%= j render 'shared/form_errors', errors: @errors %>")
 <% else %>
 id    = $('.popover').prop('id')
-$link = $("[aria-describedby='#{id}'")
+$link = $("[aria-describedby='#{id}']")
 
 <% if @attribute == 'unit' %>
 $link.html('<%= raw("#{@value}<br>(#{@target.unit_type})") %>')

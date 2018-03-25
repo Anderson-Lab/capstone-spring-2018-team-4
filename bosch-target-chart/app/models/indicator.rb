@@ -8,8 +8,8 @@ class Indicator < ApplicationRecord
   ]
 
   validates :name, presence: true
-  validates :value, numericality: true, presence: true, if: Proc.new{ |i| i.target.is_numerical? }
-  validates :color, inclusion: { in: COLORS }, presence: true, if: Proc.new{ |i| i.target.is_qualitative? }
+  validates :value, numericality: true, presence: true, if: Proc.new{ |i| i.target && i.target.is_numerical? }
+  validates :color, inclusion: { in: COLORS }, presence: true, if: Proc.new{ |i| i.target && i.target.is_qualitative? }
 
   def is_positive?
     if self.target.is_qualitative?

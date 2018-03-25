@@ -15,7 +15,7 @@ class Target < ApplicationRecord
   validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates_inclusion_of :unit_type, in: UNIT_TYPES
 
-  before_update :blank_out_indicator_values, if: :unit_type_changed?
+  before_update :reset_indicator_values, if: :unit_type_changed?
 
   def is_numerical?
     self.unit_type == Target::UNIT_TYPES[0]
@@ -27,7 +27,7 @@ class Target < ApplicationRecord
 
   private
 
-  def blank_out_indicator_values
+  def reset_indicator_values
     if self.unit_type == Target::UNIT_TYPES[0]
       self.indicators.each{ |i| i.update_attributes(value: 0, color: nil) }
     else

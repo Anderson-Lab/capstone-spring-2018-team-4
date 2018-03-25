@@ -21,11 +21,11 @@ module IndicatorsHelper
 
   def determine_button_classes(indicator)
     if indicator.is_positive?
-      'btn btn-success text-white positive-indicator'
+      'btn btn-success text-white indicator positive-indicator'
     elsif indicator.is_neutral?
-      'btn btn-warning text-white neutral-indicator'
+      'btn btn-warning text-white indicator neutral-indicator'
     else
-      'btn btn-danger text-white negative-indicator'
+      'btn btn-danger text-white indicator negative-indicator'
     end
   end
 
