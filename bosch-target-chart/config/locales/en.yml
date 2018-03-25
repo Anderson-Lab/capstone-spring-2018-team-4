@@ -51,6 +51,10 @@ en:
         select: 'Select a Unit Type'
         numerical: 'Numerical'
         qualitative: 'Qualitative'
+      rule:
+        select: 'N/A'
+        greater_than_or_equal: '≥'
+        less_than_or_equal: '≤'
       compare_to_value: "Compare-To Value"
       comments: 'Comments'
     table:

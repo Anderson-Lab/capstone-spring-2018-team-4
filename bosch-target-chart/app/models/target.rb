@@ -7,11 +7,17 @@ class Target < ApplicationRecord
 
   UNIT_TYPES = [
     I18n.t(:targets)[:fields][:unit_type][:numerical],
-    I18n.t(:targets)[:fields][:unit_type][:qualitative],
+    I18n.t(:targets)[:fields][:unit_type][:qualitative]
+  ]
+
+  RULES = [
+    I18n.t(:targets)[:fields][:rule][:greater_than_or_equal],
+    I18n.t(:targets)[:fields][:rule][:less_than_or_equal]
   ]
 
   validates :name, :department_id, :category_id, :unit, :unit_type, presence: true
   validates :compare_to_value, presence: true, unless: :is_qualitative?
+  validates :rule, presence: true, inclusion: { in: RULES }, unless: :is_qualitative?
   validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates_inclusion_of :unit_type, in: UNIT_TYPES
 

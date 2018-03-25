@@ -56,11 +56,15 @@ RSpec.describe Target, type: :model do
     context 'is numerical' do
       before { allow(subject).to receive(:is_qualitative?).and_return(false) }
       it { is_expected.to validate_presence_of(:compare_to_value) }
+      it { is_expected.to validate_presence_of(:rule) }
+      it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
     end
 
     context 'is qualitative' do
       before { allow(subject).to receive(:is_qualitative?).and_return(true) }
       it { is_expected.to_not validate_presence_of(:compare_to_value) }
+      it { is_expected.to_not validate_presence_of(:rule) }
+      it { should allow_value(nil).for(:rule) }
     end
   end
 end

@@ -7,7 +7,7 @@ RSpec.describe TargetsController, type: :controller do
   describe "GET #create" do
     context 'with valid inputs' do
       before :each do
-        @target = FactoryBot.build(:target)
+        @target = FactoryBot.build(:target, :numerical)
 
         post :create, params: {
           target: {
@@ -16,6 +16,7 @@ RSpec.describe TargetsController, type: :controller do
             category_id: @target.category_id,
             unit: @target.unit,
             unit_type: @target.unit_type,
+            rule: @target.rule,
             compare_to_value: @target.compare_to_value,
             comments: @target.comments,
             year: @target.year
@@ -45,6 +46,7 @@ RSpec.describe TargetsController, type: :controller do
             category_id: nil,
             unit: nil,
             unit_type: nil,
+            rule: nil,
             compare_to_value: nil,
             comments: nil,
             year: nil

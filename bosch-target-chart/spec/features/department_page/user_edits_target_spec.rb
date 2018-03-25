@@ -10,10 +10,11 @@ RSpec.describe "User edits a target", js: true do
 
     @department = FactoryBot.create(:department)
                   FactoryBot.create(:chart, department: @department)
-    @target     = FactoryBot.create(:target, department: @department,
+    @target     = FactoryBot.create(:target, :numerical, department: @department,
                     category: FactoryBot.create(:category), name: 'target acquired',
                     unit: 'hours', compare_to_value: 100,
-                    unit_type: Target::UNIT_TYPES[1])
+                    unit_type: Target::UNIT_TYPES[1],
+                    rule: Target::RULES[0])
   end
 
   context 'name' do
@@ -101,6 +102,19 @@ RSpec.describe "User edits a target", js: true do
       wait_for_ajax
 
       expect(@target.reload.compare_to_value).to eq(5)
+    end
+
+    it 'should update rule' do
+      visit department_path(@department)
+
+      execute_script("$('.d-none').removeClass('d-none')")
+
+      first("a.target-compare-to-value").click
+      select Target::RULES[1], from: 'target_rule'
+      click_button t(:actions)[:submit]
+      wait_for_ajax
+
+      expect(@target.reload.rule).to eq(Target::RULES[1])
     end
   end
 end
