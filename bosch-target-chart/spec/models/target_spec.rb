@@ -66,5 +66,12 @@ RSpec.describe Target, type: :model do
       it { is_expected.to_not validate_presence_of(:rule) }
       it { should allow_value(nil).for(:rule) }
     end
+
+    context 'changed from qualitative to numerical' do
+      before { allow(subject).to receive(:unit_type_changed?).and_return(true) }
+      it { is_expected.to_not validate_presence_of(:compare_to_value) }
+      it { is_expected.to_not validate_presence_of(:rule) }
+      it { should allow_value(nil).for(:rule) }
+    end
   end
 end

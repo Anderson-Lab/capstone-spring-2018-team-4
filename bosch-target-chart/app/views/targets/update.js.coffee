@@ -6,6 +6,8 @@ $link = $("[aria-describedby='#{id}']")
 
 <% if @attribute == 'unit' %>
 $link.html('<%= raw("#{@value}<br>(#{@target.unit_type})") %>')
+<% elsif @attribute == 'compare_to_value' %>
+$link.html('<%= "#{@target.rule} #{@value}" %>')
 <% else %>
 $link.text("<%= @value %>")
 <% end %>
