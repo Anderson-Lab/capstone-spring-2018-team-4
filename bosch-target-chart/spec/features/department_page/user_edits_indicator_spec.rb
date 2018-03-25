@@ -32,7 +32,7 @@ RSpec.describe "User edits an indicator", js: true do
 
   context 'for a Qualitative target' do
     before :each do
-      @target     = FactoryBot.create(:target, department: @department, compare_to_value: 50)
+      @target     = FactoryBot.create(:target, department: @department)
       @indicator  = FactoryBot.create(:indicator, target: @target)
 
       visit department_path(@department)
