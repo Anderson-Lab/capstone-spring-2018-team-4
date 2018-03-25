@@ -1,7 +1,7 @@
 class Category < ApplicationRecord
   has_many :targets
 
-  validates_presence_of :name
+  validates_presence_of :name, :color
 
   # TODO: Before delete, unassign category from targets?
 

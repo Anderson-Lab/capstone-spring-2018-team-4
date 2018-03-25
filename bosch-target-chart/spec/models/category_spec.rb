@@ -4,6 +4,7 @@ RSpec.describe Category, type: :model do
   it { is_expected.to have_many(:targets) }
 
   it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:color) }
 
   describe 'image_name' do
     it 'should return an appropriate image name' do
