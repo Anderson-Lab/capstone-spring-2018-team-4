@@ -13,7 +13,7 @@ $ ->
       compare_to_val = compare_to_val.toFixed(1)
   
     if !isNaN(val) && !isNaN(compare_to_val)
-      difference = compare_to_val - val
+      difference = roundDifference(val, compare_to_val)
 
       if Number.isInteger(difference)
         difference = difference.toFixed(1)
@@ -40,3 +40,28 @@ $ ->
       $(this).removeClass('bg-success bg-warning').addClass('bg-danger text-white')
     else
       $(this).removeClass('bg-success bg-warning bg-danger text-white')
+
+# Because of the way that JavaScript handles floating point numbers, we have to
+# use some fancy math to convert the numbers into a format that prevents
+# weird decimals like 5.00000000001 from displaying.
+#
+# We must calculate the largest number of decimals so that we can multiply both
+# values into whole numbers. We can then divide the sum by the same multiplier
+# to get an accurate floating point number.
+#
+# Sources:
+# https://stackoverflow.com/a/5037927
+# https://stackoverflow.com/a/44949594
+roundDifference = (val, compare_to_val) ->
+  val_decimals            = getDecimalPlaces(val)
+  compare_to_val_decimals = getDecimalPlaces(compare_to_val)
+  num_decimals            = Math.max(val_decimals, compare_to_val_decimals)
+  multiplier              = Math.pow(10, num_decimals)
+
+  return ((val * multiplier) - (compare_to_val * multiplier)) / multiplier
+
+# Source: https://stackoverflow.com/a/17369384
+getDecimalPlaces = (num) ->
+  if (num % 1) != 0
+    return num.toString().split(".")[1].length
+  return 0
