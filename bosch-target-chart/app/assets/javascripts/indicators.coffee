@@ -29,7 +29,7 @@ $ ->
         $('#indicatorIcon').removeClass('text-danger').addClass('text-success')
         $('#indicatorIcon i').removeClass('fa-times-circle').addClass('fa-check-circle')
 
-  $(document).on 'change', '#indicator_value.color-select', ->
+  $(document).on 'change', '#indicator_color', ->
     color = $(this).find('option:selected').text()
 
     if color == I18n.indicators.fields.color.green
