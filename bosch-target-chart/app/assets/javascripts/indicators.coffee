@@ -58,7 +58,7 @@ roundDifference = (val, compare_to_val) ->
   num_decimals            = Math.max(val_decimals, compare_to_val_decimals)
   multiplier              = Math.pow(10, num_decimals)
 
-  return ((val * multiplier) - (compare_to_val * multiplier)) / multiplier
+  return ((compare_to_val * multiplier) - (val * multiplier)) / multiplier
 
 # Source: https://stackoverflow.com/a/17369384
 getDecimalPlaces = (num) ->
