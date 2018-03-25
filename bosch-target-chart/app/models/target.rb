@@ -37,9 +37,9 @@ class Target < ApplicationRecord
 
   def reset_indicator_values
     if self.unit_type == Target::UNIT_TYPES[0]
-      self.indicators.each{ |i| i.update_attributes(value: 0, color: nil) }
+      self.indicators.update_all(value: 0, color: nil)
     else
-      self.indicators.each{ |i| i.update_attribute(:value, nil) }
+      self.indicators.update_all(value: nil)
     end
   end
 end
