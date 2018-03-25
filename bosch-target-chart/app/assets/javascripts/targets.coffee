@@ -33,13 +33,25 @@ $ ->
         url: "/targets/#{target_id}.js"
 
 (exports ? this).initializePopovers = () ->
-  $("[data-toggle='popover']").popover(
+  $("[data-toggle='popover']:not(.new-indicator)").popover(
     template: "<div class='popover' role='tooltip'>
                 <div class='arrow'></div>
                 <h3 class='popover-header'></h3>
                 <div class='popover-body'></div>
                 <div class='popover-footer'>
                   <input class='btn btn-sm btn-primary pull-right' value='#{I18n.actions.submit}' type='submit' form='updateForm' />
+                  <div class='clearfix'></div>
+                </div>
+              </div>"
+  )
+
+  $("[data-toggle='popover'].new-indicator").popover(
+    template: "<div class='popover' role='tooltip'>
+                <div class='arrow'></div>
+                <h3 class='popover-header'></h3>
+                <div class='popover-body'></div>
+                <div class='popover-footer'>
+                  <input class='btn btn-sm btn-success pull-right' value='#{I18n.actions.create}' type='submit' form='createForm' />
                   <div class='clearfix'></div>
                 </div>
               </div>"

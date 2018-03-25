@@ -4,7 +4,7 @@ module IndicatorsHelper
       class: determine_button_classes(indicator), role: 'button', tabindex: 0,
       data: {
         toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false',
-        html: 'true', content: render('targets/forms/indicator_form', indicator: indicator)
+        html: 'true', content: render('indicators/forms/indicator_form', indicator: indicator)
       }
     )
   end
@@ -14,8 +14,10 @@ module IndicatorsHelper
       fa_icon('check-circle')
     elsif indicator.is_neutral?
       fa_icon('minus-circle')
-    else
+    elsif indicator.is_negative?
       fa_icon('times-circle')
+    else
+      fa_icon('plus-circle')
     end
   end
 
@@ -24,8 +26,10 @@ module IndicatorsHelper
       'btn btn-success text-white indicator positive-indicator'
     elsif indicator.is_neutral?
       'btn btn-warning text-white indicator neutral-indicator'
-    else
+    elsif indicator.is_negative?
       'btn btn-danger text-white indicator negative-indicator'
+    else
+      'btn btn-secondary text-white indicator new-indicator'
     end
   end
 

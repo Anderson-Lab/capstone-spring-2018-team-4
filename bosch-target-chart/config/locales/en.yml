@@ -11,6 +11,7 @@ en:
 
   actions:
     close: 'Close'
+    create: "Create"
     delete: "Delete"
     edit: "Edit"
     submit: 'Submit'

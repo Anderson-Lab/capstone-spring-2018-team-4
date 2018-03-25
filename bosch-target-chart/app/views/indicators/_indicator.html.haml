@@ -1,5 +1,10 @@
-%div{ id: "indicator#{indicator.id}" }
-  %span
-    = indicator.name
-  %br
-  = indicator_display(indicator)
+- if indicator.new_record?
+  .col-md-4.px-0{ class: 'new-indicator-container' }
+    %br
+    = indicator_display(indicator)
+- else
+  .col-md-4.px-0{ id: "indicator#{indicator.id}" }
+    %span
+      = indicator.name
+    %br
+    = indicator_display(indicator)

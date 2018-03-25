@@ -41,7 +41,8 @@
               .container
                 .row.text-center
                   - target.indicators.each do |indicator|
-                    .col-md-4.px-0
-                      = render 'indicators/indicator', indicator: indicator
+                    = render 'indicators/indicator', indicator: indicator
+                  - (Target::MAX_INDICATORS - target.indicators.count).times do
+                    = render 'indicators/indicator', indicator: target.indicators.new
             %td.col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
               = delete_target_button(target)
