@@ -1,10 +1,7 @@
-- if target.is_qualitative?
-  FOR NUMERICAL TARGETS ONLY
-- else
-  = form_for target, url: target_path(target), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
-    #targetErrors
-    .form-group
-      .input-group
-        .input-group-prepend.col-sm-3.px-0
-          = f.select :rule, options_for_select(Target::RULES, target.rule), { include_blank: t(:targets)[:fields][:rule][:select] }, class: 'input-group-text rule-prepend'
-        = f.text_field :compare_to_value, class: 'form-control', placeholder: t(:targets)[:fields][:compare_to_value]
+= form_for target, url: target_path(target), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
+  #targetErrors
+  .form-group
+    .input-group
+      .input-group-prepend.col-sm-3.px-0
+        = f.select :rule, options_for_select(Target::RULES, target.rule), { include_blank: t(:targets)[:fields][:rule][:select] }, class: 'input-group-text rule-prepend'
+      = f.text_field :compare_to_value, class: 'form-control', placeholder: t(:targets)[:fields][:compare_to_value]
