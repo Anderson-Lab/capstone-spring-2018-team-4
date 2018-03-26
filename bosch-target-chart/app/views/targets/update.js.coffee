@@ -6,9 +6,6 @@ $link = $("[aria-describedby='#{id}']")
 
 <% if @attribute == 'unit' %>
 $link.html('<%= raw("#{@value}<br>(#{@target.unit_type})") %>')
-<% @target.indicators.each do |indicator| %>
-$("#indicator<%= indicator.id %>").attr('data-content', '<%= j render "indicators/forms/indicator_form", indicator: indicator %>')
-<% end %>
 <% elsif @attribute == 'compare_to_value' %>
 $link.html('<%= "#{@target.rule} #{@value}" %>')
 <% else %>
