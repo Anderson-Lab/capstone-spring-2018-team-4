@@ -13,7 +13,7 @@ RSpec.describe "User edits a target", js: true do
     @target     = FactoryBot.create(:target, :numerical, department: @department,
                     category: FactoryBot.create(:category), name: 'target acquired',
                     unit: 'hours', compare_to_value: 100,
-                    rule: I18n.t(:targets)[:fields][:rule][:greater_than_or_equal])
+                    rule: I18n.t(:targets)[:fields][:rule][:greater_than_or_equal],
                     unit_type: Target::UNIT_TYPES[1])
   end
 
