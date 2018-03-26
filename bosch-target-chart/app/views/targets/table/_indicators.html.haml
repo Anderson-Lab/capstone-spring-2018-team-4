@@ -1,0 +1,6 @@
+.container{ id: "target#{target.id}Indicators" }
+  .row.text-center
+    - target.indicators.each do |indicator|
+      = render 'indicators/indicator', indicator: indicator
+    - (Target::MAX_INDICATORS - target.indicators.count).times do
+      = render 'indicators/indicator', indicator: target.indicators.new
