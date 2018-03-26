@@ -24,6 +24,17 @@ en:
   departments:
     header: "BOSCH Departments"
 
+  indicators:
+    fields:
+      name: "Name"
+      value: "Value"
+      versus: "vs"
+      color:
+        select: "Select a Color"
+        green: "Green"
+        yellow: "Yellow"
+        red: "Red"
+
   targets:
     new: "New Target"
     new_header: "Create a New Target"
