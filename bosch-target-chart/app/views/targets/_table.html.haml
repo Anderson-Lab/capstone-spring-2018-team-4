@@ -40,9 +40,8 @@
             %td.col-2.col-md-3.d-flex.justify-content-center.align-items-center
               .container
                 .row.text-center
-                  -# Placeholders
-                  = positive_indicator
-                  = neutral_indicator
-                  = negative_indicator
+                  - target.indicators.each do |indicator|
+                    .col-md-4.px-0
+                      = render 'indicators/indicator', indicator: indicator
             %td.col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
               = delete_target_button(target)

@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  
+
   before_action :authenticate_user!
 
   def new
@@ -47,7 +47,7 @@ class TargetsController < ApplicationController
     if @attribute == 'category'
       @value = Category.find(target_params.values.first).name
     else
-      @value = target_params.values.first
+      @value = Float(target_params.values.first) rescue target_params.values.first
     end
   end
 

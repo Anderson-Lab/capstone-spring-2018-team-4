@@ -3,3 +3,6 @@
 //= require popper
 //= require bootstrap
 //= require sweetalert
+//= require targets
+//= require indicators
+//= require departments

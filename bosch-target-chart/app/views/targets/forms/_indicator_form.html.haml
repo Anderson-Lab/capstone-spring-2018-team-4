@@ -1,0 +1,22 @@
+= hidden_field_tag :compare_to_value, indicator.target.compare_to_value
+= form_for indicator, url: indicator_path(indicator), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
+  #targetErrors
+  .form-group
+    = f.text_field :name, class: 'form-control', placeholder: t(:indicators)[:fields][:name]
+  - if indicator.target.is_numerical?
+    .form-group
+      = f.text_field :value, class: 'form-control', placeholder: t(:indicators)[:fields][:value]
+    .form-group
+      %h6
+        %span#indicatorDifferenceLabel
+          = "#{t(:indicators)[:fields][:versus]} #{indicator.name}:"
+        %span#indicatorDifference{ class: indicator.is_positive? ? 'text-success' : 'text-danger' }
+          = indicator.target.compare_to_value - (indicator.value || 0)
+        %span.ml-2#indicatorIcon{ class: indicator.is_positive? ? 'text-success' : 'text-danger' }
+          - if indicator.is_positive?
+            = fa_icon('check-circle')
+          - else
+            = fa_icon('times-circle')
+  - else
+    .form-group
+      = f.select :color, options_for_select(Indicator::COLORS, indicator.color), { include_blank: t(:indicators)[:fields][:color][:select] }, class: ['form-control', determine_select_classes(indicator)]
