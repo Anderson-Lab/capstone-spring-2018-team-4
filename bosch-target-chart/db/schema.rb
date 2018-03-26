@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180324201035) do
     t.integer "year"
     t.string "unit_type"
     t.decimal "compare_to_value", precision: 22, scale: 10
+    t.string "rule"
     t.index ["category_id"], name: "index_targets_on_category_id"
     t.index ["department_id"], name: "index_targets_on_department_id"
   end
