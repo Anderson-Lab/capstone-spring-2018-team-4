@@ -111,7 +111,7 @@ RSpec.describe "User edits a target", js: true do
 
       first("a.target-compare-to-value").click
       select Target::RULES[1], from: 'target_rule'
-      click_button t(:actions)[:submit]
+      click_button I18n.t(:actions)[:submit]
       wait_for_ajax
 
       expect(@target.reload.rule).to eq(Target::RULES[1])
