@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180325234622) do
+ActiveRecord::Schema.define(version: 20180325235736) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -18,6 +18,10 @@ ActiveRecord::Schema.define(version: 20180325234622) do
     t.datetime "updated_at", null: false
     t.string "icon_name"
     t.string "color"
+    t.string "icon_file_name"
+    t.string "icon_content_type"
+    t.integer "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
   create_table "charts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -49,6 +53,7 @@ ActiveRecord::Schema.define(version: 20180325234622) do
     t.decimal "value", precision: 22, scale: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color"
     t.index ["target_id"], name: "index_indicators_on_target_id"
   end
 
@@ -63,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180325234622) do
     t.integer "year"
     t.string "unit_type"
     t.decimal "compare_to_value", precision: 22, scale: 10
+    t.string "rule"
     t.index ["category_id"], name: "index_targets_on_category_id"
     t.index ["department_id"], name: "index_targets_on_department_id"
   end

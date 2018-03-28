@@ -1,5 +1,6 @@
 class Category < ApplicationRecord
   has_many :targets
+  has_attached_file :icon, default_url: "app/assets/images/categories/default_category_icon.png"
 
   validates_presence_of :name, :color
 
