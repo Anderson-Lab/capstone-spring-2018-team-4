@@ -1,5 +1,11 @@
+- path    = indicator.new_record? ? indicators_path : indicator_path(indicator)
+- method  = indicator.new_record? ? :post : :put
+- id      = indicator.new_record? ? 'createForm' : 'updateForm'
+
 = hidden_field_tag :compare_to_value, indicator.target.compare_to_value
-= form_for indicator, url: indicator_path(indicator), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
+= form_for indicator, url: path, method: method, remote: true, html: { id: id, autocomplete: 'off' } do |f|
+  - if indicator.new_record?
+    = hidden_field_tag :target_id, indicator.target_id
   #targetErrors
   .form-group
     = f.text_field :name, class: 'form-control', placeholder: t(:indicators)[:fields][:name]

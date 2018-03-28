@@ -13,10 +13,8 @@ $link.text("<%= @value %>")
 <% end %>
 
 <% if @attribute == 'unit' || @attribute == 'compare_to_value' %>
-<% @target.indicators.each do |indicator| %>
-$("#indicator<%= indicator.id %>").replaceWith("<%= j render 'indicators/indicator', indicator: indicator %>")
+$("#target<%= @target.id %>Indicators").replaceWith("<%= j render 'targets/table/indicators', target: @target %>")
 initializePopovers()
-<% end %>
 <% end %>
 
 $link.attr('data-content', '<%= j render "targets/forms/#{@attribute}_form", target: @target %>')

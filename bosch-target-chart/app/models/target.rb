@@ -5,6 +5,8 @@ class Target < ApplicationRecord
   has_many :indicators, dependent: :destroy
   has_and_belongs_to_many :charts
 
+  MAX_INDICATORS = 3
+
   UNIT_TYPES = [
     I18n.t(:targets)[:fields][:unit_type][:numerical],
     I18n.t(:targets)[:fields][:unit_type][:qualitative]
