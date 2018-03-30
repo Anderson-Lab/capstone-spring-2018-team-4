@@ -26,6 +26,8 @@ en:
     header: "BOSCH Departments"
 
   indicators:
+    delete_header: "Delete Stop Light"
+    delete_confirm: "Are you sure?"
     fields:
       name: "Name"
       value: "Value"
