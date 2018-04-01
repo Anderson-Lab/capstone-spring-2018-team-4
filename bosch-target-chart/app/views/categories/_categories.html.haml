@@ -1,0 +1,9 @@
+.col-md-12.row#categoriesContainer
+  - Category.all.each do |category|
+    .col-md-12.card.mt-2.mb-2{ style: "background: #{category.color}" }
+      .card-body
+        .row.category-row
+          .category-header-container.d-flex.align-self-start.align-items-center
+            = image_tag category.icon.url, class: 'category-icon', height: 56, width: 56
+            %h6.text-white
+              = category.name

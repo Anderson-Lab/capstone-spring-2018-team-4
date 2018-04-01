@@ -1,22 +1,6 @@
 en:
   site_header: "Target Charts"
 
-  chart_colors:
-    light_blue: 'Light Blue'
-    light_blue_50: 'Light Blue 50%'
-    light_green: 'Light Green'
-    light_green_50: 'Light Green 50%'
-    torquoise: 'Torquoise'
-    torquoise_50: 'Torquoise 50%'
-    violet: 'Violet'
-    violet_50: 'Violet 50%'
-    fuchsia: 'Fuchsia'
-    fuchsia_50: 'Fuchsia 50%'
-    light_gray: 'Light Gray'
-    light_gray_50: 'Light Gray 50%'
-    dark_blue: 'Dark Blue'
-    dark_blue_50: 'Dark Blue 50%'
-
   navigation_links:
     login: "LOGIN"
     register: "REGISTER"
@@ -36,6 +20,24 @@ en:
     department_chart_header: "%{department_abbreviation} - %{chart_name} - %{chart_year}"
     new_year_header: "There are no charts for %{year}"
     create: "Create Charts for %{year}"
+
+  categories:
+    select: 'Select a color'
+    chart_colors:
+      light_blue: 'Light Blue'
+      light_blue_50: 'Light Blue 50%'
+      light_green: 'Light Green'
+      light_green_50: 'Light Green 50%'
+      torquoise: 'Torquoise'
+      torquoise_50: 'Torquoise 50%'
+      violet: 'Violet'
+      violet_50: 'Violet 50%'
+      fuchsia: 'Fuchsia'
+      fuchsia_50: 'Fuchsia 50%'
+      light_gray: 'Light Gray'
+      light_gray_50: 'Light Gray 50%'
+      dark_blue: 'Dark Blue'
+      dark_blue_50: 'Dark Blue 50%'
 
   departments:
     header: "BOSCH Departments"

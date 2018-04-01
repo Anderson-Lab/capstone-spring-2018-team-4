@@ -1,9 +1,11 @@
 .row
   - if show_year_dropdown
     .col-md-3.order-md-last
+      = link_to 'Manage Categories', categories_path, class: 'btn btn-info float-right'
+    .col-md-2.order-md-last
       - department ||= nil
       = render 'charts/year_dropdown', year: year, department: department
-    %h1.chart-header.col-md-9
+    %h1.chart-header.col-md-7
       = header
   - else
     %h1.chart-header.col-md-12
