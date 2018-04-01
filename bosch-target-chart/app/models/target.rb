@@ -35,6 +35,10 @@ class Target < ApplicationRecord
     self.unit_type == Target::UNIT_TYPES[1]
   end
 
+  def codified_rule
+    self.rule == I18n.t(:targets)[:fields][:rule][:greater_than_or_equal] ? ">=" : "<="
+  end
+
   private
 
   def reset_indicator_values

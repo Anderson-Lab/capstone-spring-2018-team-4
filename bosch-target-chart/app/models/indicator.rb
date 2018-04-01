@@ -15,7 +15,7 @@ class Indicator < ApplicationRecord
     if self.target.is_qualitative?
       self.color == Indicator::COLORS[0]
     else
-      self.value && self.value >= self.target.compare_to_value
+      eval("!(#{self.difference} #{self.target.codified_rule} 0)")
     end
   end
 
@@ -31,7 +31,11 @@ class Indicator < ApplicationRecord
     if self.target.is_qualitative?
       self.color == Indicator::COLORS[2]
     else
-      self.value && self.value < self.target.compare_to_value
+      eval("#{self.difference} #{self.target.codified_rule} 0")
     end
+  end
+
+  def difference
+    self.target.compare_to_value - (self.value || 0)
   end
 end

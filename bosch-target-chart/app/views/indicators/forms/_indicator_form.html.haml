@@ -3,6 +3,7 @@
 - id      = indicator.new_record? ? 'createForm' : 'updateForm'
 
 = hidden_field_tag :compare_to_value, indicator.target.compare_to_value
+= hidden_field_tag :rule, indicator.target.codified_rule
 = form_for indicator, url: path, method: method, remote: true, html: { id: id, autocomplete: 'off' } do |f|
   - if indicator.new_record?
     = hidden_field_tag :target_id, indicator.target_id
@@ -17,7 +18,7 @@
         %span#indicatorDifferenceLabel
           = "#{t(:indicators)[:fields][:versus]} #{indicator.name}:"
         %span#indicatorDifference{ class: indicator.is_positive? ? 'text-success' : 'text-danger' }
-          = indicator.target.compare_to_value - (indicator.value || 0)
+          = indicator.difference
         %span.ml-2#indicatorIcon{ class: indicator.is_positive? ? 'text-success' : 'text-danger' }
           - if indicator.is_positive?
             = fa_icon('check-circle')
