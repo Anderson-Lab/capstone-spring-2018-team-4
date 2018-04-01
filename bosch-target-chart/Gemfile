@@ -16,7 +16,7 @@ gem 'mysql2' # Use MySQL2 for the database
 gem 'paperclip' #for storing files in the database
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
-gem 'remotipart', '~> 1.2'
+gem 'remotipart', github: 'spdawson/remotipart'
 gem 'sass-rails', '~> 5.0' # Use SCSS for .scss stylesheets
 gem 'turbolinks', '~> 5'
 
