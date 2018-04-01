@@ -4,7 +4,7 @@ RSpec.describe TargetsController, type: :controller do
 
   login_user(FactoryBot.create(:user))
 
-  describe "GET #create" do
+  describe "POST #create" do
     context 'with valid inputs' do
       before :each do
         @target = FactoryBot.build(:target)

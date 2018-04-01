@@ -9,8 +9,4 @@ class Category < ApplicationRecord
   validates_attachment :icon, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 
   # TODO: Before delete, unassign category from targets?
-
-  def image_name
-    self.name.downcase.gsub(" ", "_")
-  end
 end
