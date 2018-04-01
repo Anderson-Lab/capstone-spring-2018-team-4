@@ -22,7 +22,15 @@ en:
     create: "Create Charts for %{year}"
 
   categories:
-    select: 'Select a color'
+    manage_categories: 'Manage Categories'
+    new: 'New Category'
+    new_header: 'Create a New Category'
+    fields:
+      name: 'Name'
+      color: 'Color'
+      icon: 'Icon'
+      icon_help_text: 'Must be one of the following: .jpg, .jpeg, .png, .gif'
+      select: 'Select a Color'
     chart_colors:
       light_blue: 'Light Blue'
       light_blue_50: 'Light Blue 50%'

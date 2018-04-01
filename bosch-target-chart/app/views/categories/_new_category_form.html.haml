@@ -4,20 +4,22 @@
       
       .modal-header
         %h4.modal-title
-          NEW CATEGORY
+          = t(:categories)[:new_header]
         %button.close{ type: 'button', aria: { label: 'Close' }, data: { dismiss: 'modal' } }
           %span{ aria: { hidden: 'true' } } &times;
       .modal-body
         #formErrors
         .form-group
-          = f.label :name, 'NAME', class: 'required'
+          = f.label :name, t(:categories)[:fields][:name], class: 'required'
           = f.text_field :name, class: 'form-control'
         .form-group
-          = f.label :color, 'COLOR', class: 'required'
-          = f.select :color, options_for_select(color_select_options), { include_blank: t(:categories)[:select] }, class: 'form-control'
+          = f.label :color, t(:categories)[:fields][:color], class: 'required'
+          = f.select :color, options_for_select(color_select_options), { include_blank: t(:categories)[:fields][:select] }, class: 'form-control'
         .form-group
-          = f.label :icon, 'ICON'
-          = f.file_field :icon, accept: 'image/png,image/jpeg', class: 'col-md-12 px-0'
+          = f.label :icon, t(:categories)[:fields][:icon]
+          = f.file_field :icon, accept: 'image/jpeg,image/jpg,image/png,image/gif', class: 'col-md-12 px-0'
+          %small.form-text.text-muted
+            = t(:categories)[:fields][:icon_help_text]
       .modal-footer
         %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal' } }
           = t(:actions)[:close]

@@ -1,7 +1,7 @@
 .col-md-12.row
   .col-md-2.order-md-last.px-0.d-flex.align-items-center
-    = link_to 'New Category', new_category_path, class: 'btn btn-success btn-block', remote: true
+    = link_to t(:categories)[:new], new_category_path, class: 'btn btn-success btn-block', remote: true
   .col-md-10.px-0
     %h1
-      CATEGORIES
+      = t(:categories)[:manage_categories]
 = render 'categories/categories'
