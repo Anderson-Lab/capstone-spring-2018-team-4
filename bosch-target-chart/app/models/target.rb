@@ -3,6 +3,7 @@ class Target < ApplicationRecord
   belongs_to :category
 
   has_many :indicators, dependent: :destroy
+  
   has_and_belongs_to_many :charts
 
   MAX_INDICATORS = 3
@@ -18,12 +19,18 @@ class Target < ApplicationRecord
   ]
 
   validates :name, :department_id, :category_id, :unit, :unit_type, presence: true
+  # Skip valiation if updating a different attribute
   validates :compare_to_value, presence: true,
-            unless: Proc.new{ |t| t.is_qualitative? || t.unit_type_changed? }
+            if: Proc.new{ |t| (t.new_record? && t.is_numerical?) || t.compare_to_value_changed? }
+  # Skip valiation if updating a different attribute
   validates :rule, presence: true, inclusion: { in: RULES },
-            unless: Proc.new{ |t| t.is_qualitative? || t.unit_type_changed? }
+            if: Proc.new{ |t| (t.new_record? && t.is_numerical?) || t.rule_changed? }
   validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates_inclusion_of :unit_type, in: UNIT_TYPES
+
+  scope :for_year, -> (year) {
+    where(year: year)
+  }
 
   before_update :reset_indicator_values, if: :unit_type_changed?
 
