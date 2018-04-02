@@ -40,7 +40,7 @@ html {
             width: 170px;
           }
         }
-          
+
         .nav-link {
           font-size: 1.5rem;
           font-weight: 300;
@@ -101,7 +101,7 @@ html {
 
     a:not(.btn) {
       text-decoration: none !important;
-      color: $theme_primary !important;
+      color: $theme_primary;
       font-weight: 200;
     }
 

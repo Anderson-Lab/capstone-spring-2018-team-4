@@ -8,6 +8,8 @@ RSpec.describe Target, type: :model do
 
     it { is_expected.to have_many(:indicators) }
 
+    it { is_expected.to have_and_belong_to_many(:charts) }
+
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:department_id) }
     it { is_expected.to validate_presence_of(:category_id) }
@@ -19,6 +21,58 @@ RSpec.describe Target, type: :model do
     it { is_expected.to validate_numericality_of(:year).is_greater_than_or_equal_to(0) }
 
     it { is_expected.to validate_inclusion_of(:unit_type).in_array(Target::UNIT_TYPES) }
+
+    describe 'compare_to_value and rule' do
+      context 'is_qualitative' do
+        before { allow(subject).to receive(:new_record?).and_return(true) }
+        before { allow(subject).to receive(:is_numerical?).and_return(false) }
+        it { is_expected.to_not validate_presence_of(:compare_to_value) }
+        it { is_expected.to_not validate_presence_of(:rule) }
+        it { should allow_value(nil).for(:rule) }
+      end
+
+      context 'new_record and is_numerical' do
+        before { allow(subject).to receive(:new_record?).and_return(true) }
+        before { allow(subject).to receive(:is_numerical?).and_return(true) }
+        it { is_expected.to validate_presence_of(:compare_to_value) }
+        it { is_expected.to validate_presence_of(:rule) }
+        it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
+      end
+
+      context 'compare_to_value changed' do
+        before { allow(subject).to receive(:compare_to_value_changed?).and_return(true) }
+        it { is_expected.to validate_presence_of(:compare_to_value) }
+      end
+
+      context 'compare_to_value not changed' do
+        before { allow(subject).to receive(:compare_to_value_changed?).and_return(false) }
+        it { is_expected.to_not validate_presence_of(:compare_to_value) }
+      end
+
+      context 'rule changed' do
+        before { allow(subject).to receive(:rule_changed?).and_return(true) }
+        it { is_expected.to validate_presence_of(:rule) }
+        it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
+      end
+
+      context 'rule not changed' do
+        before { allow(subject).to receive(:rule_changed?).and_return(false) }
+        it { is_expected.to_not validate_presence_of(:rule) }
+        it { should allow_value(nil).for(:rule) }
+      end
+    end
+  end
+
+  describe 'scopes' do
+    describe 'for_year' do
+      it 'should return targets for the given year' do
+        tar17 = FactoryBot.create(:target, year: 2017)
+        tar18 = FactoryBot.create(:target, year: 2018)
+        tar19 = FactoryBot.create(:target, year: 2019)
+
+        expect(Target.for_year(2018).to_a).to eq([tar18])
+      end
+    end
   end
 
   describe 'callbacks' do
@@ -64,29 +118,6 @@ RSpec.describe Target, type: :model do
           expect(i.reload.value).to eq(nil)
         end
       end
-    end
-  end
-
-  describe 'instance methods' do
-    context 'is numerical' do
-      before { allow(subject).to receive(:is_qualitative?).and_return(false) }
-      it { is_expected.to validate_presence_of(:compare_to_value) }
-      it { is_expected.to validate_presence_of(:rule) }
-      it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
-    end
-
-    context 'is qualitative' do
-      before { allow(subject).to receive(:is_qualitative?).and_return(true) }
-      it { is_expected.to_not validate_presence_of(:compare_to_value) }
-      it { is_expected.to_not validate_presence_of(:rule) }
-      it { should allow_value(nil).for(:rule) }
-    end
-
-    context 'changed from qualitative to numerical' do
-      before { allow(subject).to receive(:unit_type_changed?).and_return(true) }
-      it { is_expected.to_not validate_presence_of(:compare_to_value) }
-      it { is_expected.to_not validate_presence_of(:rule) }
-      it { should allow_value(nil).for(:rule) }
     end
   end
 end

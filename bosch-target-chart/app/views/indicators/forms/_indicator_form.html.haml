@@ -2,6 +2,8 @@
 - method  = indicator.new_record? ? :post : :put
 - id      = indicator.new_record? ? 'createForm' : 'updateForm'
 
+- unless indicator.new_record?
+  = hidden_field_tag :indicator_id, indicator.id
 = hidden_field_tag :compare_to_value, indicator.target.compare_to_value
 = hidden_field_tag :rule, indicator.target.codified_rule
 = form_for indicator, url: path, method: method, remote: true, html: { id: id, autocomplete: 'off' } do |f|

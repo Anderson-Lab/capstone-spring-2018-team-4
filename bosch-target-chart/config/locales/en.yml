@@ -17,15 +17,22 @@ en:
     submit: 'Submit'
 
   charts:
-    plant_chart_header: "%{chart_name} - %{chart_year}"
-    department_chart_header: "%{department_abbreviation} - %{chart_name} - %{chart_year}"
-    new_year_header: "There are no charts for %{year}"
-    create: "Create Charts for %{year}"
+    plant_chart:
+      header: "%{chart_name} - %{year}"
+      default_name: "PM"
+    department_chart:
+      header: "%{department} - %{chart_name} - %{year}"
+      default_name: "Chart 1"
+    new_year:
+      header: "There are no charts for %{year}"
+      start_button: "Create Charts for %{year}"
 
   departments:
     header: "BOSCH Departments"
 
   indicators:
+    delete_header: "Delete Stop Light"
+    delete_confirm: "Are you sure?"
     fields:
       name: "Name"
       value: "Value"
