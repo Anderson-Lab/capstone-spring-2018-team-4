@@ -43,9 +43,7 @@ class Target < ApplicationRecord
   private
 
   def reset_compare_to_value
-    if self.is_qualitative?
-      self.compare_to_value = nil
-    end
+    self.compare_to_value = nil if self.is_qualitative?
   end
 
   def reset_indicator_values
