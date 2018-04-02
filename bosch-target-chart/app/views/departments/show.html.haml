@@ -1,6 +1,3 @@
-= stylesheet_link_tag 'departments'
-= javascript_include_tag 'departments'
-
 = render 'charts/chart', header: I18n.t('charts.department_chart_header', department_abbreviation: @chart.department.abbreviation || @chart.department.name, chart_name: @chart.name, chart_year: @year), chart: @chart, year: @year, show_year_dropdown: true, department: @department
 
 = render 'targets/table', department: @department, year: @year

@@ -5,3 +5,6 @@
 //= require bootstrap
 //= require sweetalert
 //= require categories
+//= require targets
+//= require indicators
+//= require departments

@@ -24,11 +24,14 @@
           = f.select :unit_type, options_for_select(Target::UNIT_TYPES), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'
         .form-group
           = f.label :compare_to_value, t(:targets)[:fields][:compare_to_value], class: 'required'
-          = f.text_field :compare_to_value, class: 'form-control'
+          .input-group
+            .input-group-prepend.col-sm-2.px-0
+              = f.select :rule, options_for_select(Target::RULES), { include_blank: t(:targets)[:fields][:rule][:select] }, class: 'input-group-text rule-prepend'
+            = f.text_field :compare_to_value, class: 'form-control'
         .form-group
           = f.label :comments, t(:targets)[:fields][:comments]
           = f.text_area :comments, rows: 3, class: 'form-control'
       .modal-footer
         %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal' } }
           = t(:actions)[:close]
-        = f.submit t(:actions)[:submit], class: 'btn btn-primary'
+        = f.submit t(:actions)[:create], class: 'btn btn-success'

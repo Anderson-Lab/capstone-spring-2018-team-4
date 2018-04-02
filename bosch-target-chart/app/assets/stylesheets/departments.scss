@@ -3,8 +3,7 @@
     word-break: break-all;
   }
 
-  .positive-indicator,.neutral-indicator, .negative-indicator,
-  .edit-target-button, .delete-target-button {
+  .indicator, .delete-target-button {
     font-size: 24px;
     padding: 0 8px;
   }
@@ -31,5 +30,12 @@
 
   .popover-footer {
     padding: 0 14px 8px 14px;
+  }
+
+  #indicator_color {
+    option {
+      background: white;
+      color: black;
+    }
   }
 }

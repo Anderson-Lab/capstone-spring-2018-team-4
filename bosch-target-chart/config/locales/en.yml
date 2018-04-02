@@ -11,6 +11,7 @@ en:
 
   actions:
     close: 'Close'
+    create: "Create"
     delete: "Delete"
     edit: "Edit"
     submit: 'Submit'
@@ -50,6 +51,17 @@ en:
   departments:
     header: "BOSCH Departments"
 
+  indicators:
+    fields:
+      name: "Name"
+      value: "Value"
+      versus: "vs"
+      color:
+        select: "Select a Color"
+        green: "Green"
+        yellow: "Yellow"
+        red: "Red"
+
   targets:
     new: "New Target"
     new_header: "Create a New Target"
@@ -66,6 +78,10 @@ en:
         select: 'Select a Unit Type'
         numerical: 'Numerical'
         qualitative: 'Qualitative'
+      rule:
+        select: 'N/A'
+        greater_than_or_equal: '≥'
+        less_than_or_equal: '≤'
       compare_to_value: "Compare-To Value"
       comments: 'Comments'
     table:
