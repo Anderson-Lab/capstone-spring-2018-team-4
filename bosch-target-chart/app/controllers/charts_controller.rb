@@ -44,7 +44,7 @@ class ChartsController < ApplicationController
         category: target.category,
         unit: target.unit,
         unit_type: target.unit_type,
-        compare_to_value: 0.0,
+        compare_to_value: nil,
         rule: nil,
         comments: target.comments,
         year: @year
