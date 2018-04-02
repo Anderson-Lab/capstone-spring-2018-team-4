@@ -4,5 +4,5 @@
   .col-md-2.order-md-last
     = render 'charts/year_dropdown', year: year, department: nil
   %h1.col-md-7
-    = I18n.t('charts.new_year_header', year: year)
-= link_to I18n.t('charts.create', year: year), 'javascript:void(0)', class: 'btn btn-lg btn-block btn-outline-success'
+    = I18n.t('charts.new_year.header', year: year)
+= link_to I18n.t('charts.new_year.start_button', year: year), charts_path, method: :post, class: 'btn btn-lg btn-block btn-outline-success'

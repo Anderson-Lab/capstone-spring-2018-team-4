@@ -30,7 +30,7 @@ RSpec.describe "User changes the year", js: true do
       find('a.dropdown-item', text: Time.now.year + 1).click
       wait_for_ajax
 
-      expect(page).to have_content(I18n.t('charts.new_year_header', year: Time.now.year + 1))
+      expect(page).to have_content(I18n.t('charts.new_year.header', year: Time.now.year + 1))
     end
   end
 end

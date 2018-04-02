@@ -5,6 +5,7 @@ $ ->
   $(document).on 'keyup', '#indicator_value:not(.color-select)', ->
     val             = parseFloat($(this).val()) || 0
     compare_to_val  = parseFloat($('#compare_to_value').val())
+    rule            = $('#rule').val()
 
     if Number.isInteger(val)
       val = val.toFixed(1)
@@ -20,7 +21,7 @@ $ ->
       
       $('#indicatorDifference').text(difference)
 
-      if difference > 0
+      if eval("#{difference} #{rule} 0")
         $('#indicatorDifference').removeClass('text-success').addClass('text-danger')
         $('#indicatorIcon').removeClass('text-success').addClass('text-danger')
         $('#indicatorIcon i').removeClass('fa-check-circle').addClass('fa-times-circle')
@@ -40,6 +41,20 @@ $ ->
       $(this).removeClass('bg-success bg-warning').addClass('bg-danger text-white')
     else
       $(this).removeClass('bg-success bg-warning bg-danger text-white')
+
+  $(document).on 'click', '.delete-indicator-button', ->
+    indicator_id = $('#indicator_id').val()
+
+    swal {
+      title: I18n.indicators.delete_header
+      text: I18n.indicators.delete_confirm
+      type: 'warning'
+      showCancelButton: true
+      closeOnConfirm: true
+    }, ->
+      $.ajax
+        type: 'delete'
+        url: "/indicators/#{indicator_id}.js"
 
 # Because of the way that JavaScript handles floating point numbers, we have to
 # use some fancy math to convert the numbers into a format that prevents
