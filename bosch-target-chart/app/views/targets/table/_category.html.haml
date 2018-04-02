@@ -1,0 +1,4 @@
+.container.d-flex.justify-content-center.align-items-center.p-0{ id: "target#{target.id}Category" }
+  = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block target-category', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
+  %span.d-md-none
+    = target.category.name

@@ -76,6 +76,21 @@ RSpec.describe Target, type: :model do
   end
 
   describe 'callbacks' do
+    describe '#reset_compare_to_value' do
+      it 'should be called when unit_type is changed' do
+        t = FactoryBot.create(:target)
+        expect(t).to receive(:reset_indicator_values)
+        t.update_attribute(:unit_type, Target::UNIT_TYPES[Target::UNIT_TYPES.index(t.unit_type) + 1 % 2])
+      end
+
+      it 'should reset compare_to_value when target is qualitative' do
+        t = FactoryBot.create(:target, :numerical, compare_to_value: 100.0)
+        t.update_attribute(:unit_type, Target::UNIT_TYPES[1])
+
+        expect(t.reload.compare_to_value).to eq(nil)
+      end
+    end
+
     describe '#reset_indicator_values' do
       it 'should be called when unit_type changed' do
         t = FactoryBot.create(:target)
@@ -84,12 +99,12 @@ RSpec.describe Target, type: :model do
       end
 
       context 'target is numerical' do
-        it 'should reset color and set value to 0 on indicators' do
+        it 'should reset color and value on indicators' do
           t = FactoryBot.create(:target)
           i = FactoryBot.create(:indicator, target: t, value: nil, color: 'Green')
           t.update_attribute(:unit_type, Target::UNIT_TYPES[0])
 
-          expect(i.reload.value).to eq(0)
+          expect(i.reload.value).to eq(nil)
           expect(i.reload.color).to eq(nil)
         end
       end

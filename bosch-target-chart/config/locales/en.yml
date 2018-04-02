@@ -89,7 +89,9 @@ en:
         select: 'N/A'
         greater_than_or_equal: '≥'
         less_than_or_equal: '≤'
-      compare_to_value: "Compare-To Value"
+      compare_to_value:
+        default: "-"
+        field: "Compare-To Value"
       comments: 'Comments'
     table:
       header: "Targets"

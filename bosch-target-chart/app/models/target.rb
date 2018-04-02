@@ -32,6 +32,7 @@ class Target < ApplicationRecord
     where(year: year)
   }
 
+  before_update :reset_compare_to_value, if: :unit_type_changed?
   before_update :reset_indicator_values, if: :unit_type_changed?
 
   def is_numerical?
@@ -48,9 +49,13 @@ class Target < ApplicationRecord
 
   private
 
+  def reset_compare_to_value
+    self.compare_to_value = nil if self.is_qualitative?
+  end
+
   def reset_indicator_values
-    if self.unit_type == Target::UNIT_TYPES[0]
-      self.indicators.update_all(value: 0, color: nil)
+    if self.is_numerical?
+      self.indicators.update_all(value: nil, color: nil)
     else
       self.indicators.update_all(value: nil)
     end

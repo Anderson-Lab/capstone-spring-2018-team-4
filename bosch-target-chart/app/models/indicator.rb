@@ -36,6 +36,6 @@ class Indicator < ApplicationRecord
   end
 
   def difference
-    self.target.compare_to_value - (self.value || 0)
+    (self.target.compare_to_value || 0) - (self.value || 0)
   end
 end

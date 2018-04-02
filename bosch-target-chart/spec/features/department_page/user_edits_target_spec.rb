@@ -10,10 +10,9 @@ RSpec.describe "User edits a target", js: true do
 
     @department = FactoryBot.create(:department)
                   FactoryBot.create(:chart, department: @department)
-    @target     = FactoryBot.create(:target, :numerical, department: @department,
-                    category: FactoryBot.create(:category), name: 'target acquired',
-                    unit: 'hours', compare_to_value: 100,
-                    unit_type: Target::UNIT_TYPES[1],
+    @target     = FactoryBot.create(:target, department: @department,
+                    name: 'target acquired', unit: 'hours',
+                    compare_to_value: 100, unit_type: Target::UNIT_TYPES[0],
                     rule: Target::RULES[0])
   end
 
@@ -65,11 +64,11 @@ RSpec.describe "User edits a target", js: true do
       execute_script("$('.d-none').removeClass('d-none')")
 
       first("a.target-unit").click
-      select Target::UNIT_TYPES[0], from: 'target_unit_type'
+      select Target::UNIT_TYPES[1], from: 'target_unit_type'
       click_button I18n.t(:actions)[:submit]
       wait_for_ajax
 
-      expect(@target.reload.unit_type).to eq(Target::UNIT_TYPES[0])
+      expect(@target.reload.unit_type).to eq(Target::UNIT_TYPES[1])
     end
 
     it 'should reset indicators' do
@@ -80,13 +79,13 @@ RSpec.describe "User edits a target", js: true do
       execute_script("$('.d-none').removeClass('d-none')")
 
       first("a.target-unit").click
-      select Target::UNIT_TYPES[0], from: 'target_unit_type'
+      select Target::UNIT_TYPES[1], from: 'target_unit_type'
       click_button I18n.t(:actions)[:submit]
       wait_for_ajax
 
       first('.indicator').click
 
-      expect(page).to have_selector('.popover input#indicator_value')
+      expect(page).to have_selector('.popover select#indicator_color')
     end
   end
 
