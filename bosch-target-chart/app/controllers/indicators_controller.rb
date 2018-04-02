@@ -19,6 +19,13 @@ class IndicatorsController < ApplicationController
     end
   end
 
+  def destroy
+    @indicator  = Indicator.find(params[:id])
+    @target     = @indicator.target
+
+    @indicator.destroy
+  end
+
   def indicator_params
     params.require(:indicator).permit(
       :name,

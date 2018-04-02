@@ -41,6 +41,20 @@ $ ->
     else
       $(this).removeClass('bg-success bg-warning bg-danger text-white')
 
+  $(document).on 'click', '.delete-indicator-button', ->
+    indicator_id = $('#indicator_id').val()
+
+    swal {
+      title: I18n.indicators.delete_header
+      text: I18n.indicators.delete_confirm
+      type: 'warning'
+      showCancelButton: true
+      closeOnConfirm: true
+    }, ->
+      $.ajax
+        type: 'delete'
+        url: "/indicators/#{indicator_id}.js"
+
 # Because of the way that JavaScript handles floating point numbers, we have to
 # use some fancy math to convert the numbers into a format that prevents
 # weird decimals like 5.00000000001 from displaying.
