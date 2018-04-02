@@ -1,9 +1,11 @@
 .row
   - if show_year_dropdown
     .col-md-3.order-md-last
+      = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right'
+    .col-md-2.order-md-last
       - department ||= nil
       = render 'charts/year_dropdown', year: year, department: department
-    %h1.chart-header.col-md-9
+    %h1.chart-header.col-md-7
       = header
   - else
     %h1.chart-header.col-md-12
@@ -11,12 +13,9 @@
 .card.mb-5
   .card-body.p-0
     .container
-      - Category.all.each_with_index do |category, index|
-        .row.category-row.bg-primary.pt-2.pb-2
+      - Category.all.each do |category|
+        .row.category-row.pt-2.pb-2{ style: "background: #{category.color}" }
           .category-header-container.d-flex.align-self-start.align-items-center
-            - if Rails.application.precompiled_assets.member?("categories/#{category.image_name}.png")
-              = image_tag "categories/#{category.image_name}.png", class: 'category-icon', height: 56, width: 56
-            - else
-              = image_tag '', class: 'category-icon', height: 56, width: 56
+            = image_tag category.icon.url, class: 'category-icon', height: 56, width: 56
             %h6.text-white
               = raw(category.name.gsub(" ", "<br>"))

@@ -17,6 +17,9 @@
 # Ignore local database setup
 /config/database.yml
 
+# Ignore files uploaded to database
+/public/system/*
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

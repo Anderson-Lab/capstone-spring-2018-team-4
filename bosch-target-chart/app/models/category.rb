@@ -1,11 +1,12 @@
 class Category < ApplicationRecord
   has_many :targets
+  has_attached_file :icon, default_url: ActionController::Base.helpers.asset_path("categories/default_category_icon.png")
 
-  validates_presence_of :name
+  COLOR_HEX_VALUES_HASH = HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/colors.yml"))[:chart_colors]
+
+  validates_presence_of :name, :color
+  validates_inclusion_of :color, in: COLOR_HEX_VALUES_HASH.values
+  validates_attachment :icon, content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
 
   # TODO: Before delete, unassign category from targets?
-
-  def image_name
-    self.name.downcase.gsub(" ", "_")
-  end
 end
