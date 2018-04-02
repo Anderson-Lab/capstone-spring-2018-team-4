@@ -5,6 +5,7 @@ $ ->
   $(document).on 'keyup', '#indicator_value:not(.color-select)', ->
     val             = parseFloat($(this).val()) || 0
     compare_to_val  = parseFloat($('#compare_to_value').val())
+    rule            = $('#rule').val()
 
     if Number.isInteger(val)
       val = val.toFixed(1)
@@ -20,7 +21,7 @@ $ ->
       
       $('#indicatorDifference').text(difference)
 
-      if difference > 0
+      if eval("#{difference} #{rule} 0")
         $('#indicatorDifference').removeClass('text-success').addClass('text-danger')
         $('#indicatorIcon').removeClass('text-success').addClass('text-danger')
         $('#indicatorIcon i').removeClass('fa-check-circle').addClass('fa-times-circle')
