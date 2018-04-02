@@ -13,7 +13,7 @@
 .card.mb-5
   .card-body.p-0
     .container
-      - Category.all.each_with_index do |category, index|
+      - Category.all.each do |category|
         .row.category-row.pt-2.pb-2{ style: "background: #{category.color}" }
           .category-header-container.d-flex.align-self-start.align-items-center
             = image_tag category.icon.url, class: 'category-icon', height: 56, width: 56
