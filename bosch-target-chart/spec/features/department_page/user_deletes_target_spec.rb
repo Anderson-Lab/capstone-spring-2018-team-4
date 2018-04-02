@@ -23,5 +23,6 @@ RSpec.describe "User deletes a target", js: true do
     wait_for_ajax
 
     expect(page).to_not have_content(@target.name)
+    expect(Target.count).to eq(0)
   end
 end
