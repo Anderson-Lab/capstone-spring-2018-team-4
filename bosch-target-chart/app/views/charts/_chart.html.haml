@@ -1,7 +1,7 @@
 .row
   - if show_year_dropdown
     .col-md-3.order-md-last
-      = link_to t(:categories)[:manage_categories], categories_path, class: 'btn btn-info float-right'
+      = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right'
     .col-md-2.order-md-last
       - department ||= nil
       = render 'charts/year_dropdown', year: year, department: department

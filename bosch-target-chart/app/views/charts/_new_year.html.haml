@@ -1,6 +1,8 @@
 .row
   .col-md-3.order-md-last
+    = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right'
+  .col-md-2.order-md-last
     = render 'charts/year_dropdown', year: year, department: nil
-  %h1.col-md-9
+  %h1.col-md-7
     = I18n.t('charts.new_year_header', year: year)
 = link_to I18n.t('charts.create', year: year), 'javascript:void(0)', class: 'btn btn-lg btn-block btn-outline-success'
