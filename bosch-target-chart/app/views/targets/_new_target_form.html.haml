@@ -22,7 +22,7 @@
         .form-group
           = f.label :unit_type, t(:targets)[:fields][:unit_type][:field], class: 'required'
           = f.select :unit_type, options_for_select(Target::UNIT_TYPES), { include_blank: t(:targets)[:fields][:unit_type][:select] }, class: 'form-control'
-        .form-group
+        .form-group.d-none
           = f.label :compare_to_value, t(:targets)[:fields][:compare_to_value], class: 'required'
           .input-group
             .input-group-prepend.col-sm-2.px-0
@@ -35,3 +35,12 @@
         %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal' } }
           = t(:actions)[:close]
         = f.submit t(:actions)[:create], class: 'btn btn-success'
+
+  :coffeescript
+    $(document).on 'change', '#target_unit_type', ->
+      value = $('option:selected', this).val()
+
+      if value == "#{Target::UNIT_TYPES[0]}"
+        $('#target_compare_to_value').parents('.form-group').removeClass('d-none')
+      else
+        $('#target_compare_to_value').parents('.form-group').addClass('d-none')

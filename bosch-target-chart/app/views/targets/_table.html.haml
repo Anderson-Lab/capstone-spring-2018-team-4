@@ -23,21 +23,15 @@
       %tbody
         - department.targets.where(year: year).each do |target|
           %tr.d-flex
-            %td.col-3.col-md-2.d-flex.justify-content-center.align-items-center
-              = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block target-name', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
-              %span.d-md-none
-                = target.name
-            %td.col-4.col-md-2.d-flex.justify-content-center.align-items-center
-              = link_to target.category.name, 'javascript:void(0)', class: 'd-none d-md-block target-category', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/category_form', target: target) }
-              %span.d-md-none
-                = target.category.name
-            %td.col-md-2.d-none.d-md-flex.justify-content-center.align-items-center
-              = link_to raw("#{target.unit}<br>(#{target.unit_type})"), 'javascript:void(0)', class: 'text-center target-unit', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
-            %td.col-3.col-md-2.d-flex.justify-content-center.align-items-center
-              = link_to "#{target.rule} #{target.compare_to_value}", 'javascript:void(0)', class: 'd-none d-md-block target-compare-to-value', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/compare_to_value_form', target: target) }
-              %span.d-md-none
-                = "#{target.rule} #{target.compare_to_value}"
-            %td.col-2.col-md-3.d-flex.justify-content-center.align-items-center
+            %td.col-3.col-md-2.d-flex
+              = render 'targets/table/name', target: target
+            %td.col-4.col-md-2.d-flex
+              = render 'targets/table/category', target: target
+            %td.col-md-2.d-none.d-md-flex
+              = render 'targets/table/unit', target: target
+            %td.col-3.col-md-2.d-flex
+              = render 'targets/table/compare_to_value', target: target
+            %td.col-2.col-md-3.d-flex
               = render 'targets/table/indicators', target: target
             %td.col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
               = delete_target_button(target)

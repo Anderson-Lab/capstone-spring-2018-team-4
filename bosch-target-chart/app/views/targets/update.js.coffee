@@ -1,23 +1,16 @@
 <% if @errors %>
 $("#targetErrors").html("<%= j render 'shared/form_errors', errors: @errors %>")
 <% else %>
-id    = $('.popover').prop('id')
-$link = $("[aria-describedby='#{id}']")
-
 <% if @attribute == 'unit' %>
-$link.html('<%= raw("#{@value}<br>(#{@target.unit_type})") %>')
-<% elsif @attribute == 'compare_to_value' %>
-$link.html('<%= "#{@target.rule} #{@value}" %>')
-<% else %>
-$link.text("<%= @value %>")
+$("#target<%= @target.id %>CompareToValue").replaceWith('<%= j render "targets/table/compare_to_value", target: @target %>')
 <% end %>
 
 <% if @attribute == 'unit' || @attribute == 'compare_to_value' %>
 $("#target<%= @target.id %>Indicators").replaceWith("<%= j render 'targets/table/indicators', target: @target %>")
-initializePopovers()
 <% end %>
 
-$link.attr('data-content', '<%= j render "targets/forms/#{@attribute}_form", target: @target %>')
-$link.focus()
-$link.popover('hide')
+$("#target<%= @target.id %><%= @attribute.camelize %>").replaceWith('<%= j render "targets/table/#{@attribute}", target: @target %>')
+initializePopovers()
+$("#target<%= @target.id %><%= @attribute.camelize %> a").focus()
+$('.popover').popover('hide')
 <% end %>
