@@ -5,4 +5,4 @@
     = render 'charts/year_dropdown', year: year, department: nil
   %h1.col-md-7
     = I18n.t('charts.new_year.header', year: year)
-= link_to I18n.t('charts.new_year.start_button', year: year), charts_path, method: :post, class: 'btn btn-lg btn-block btn-outline-success'
+= link_to I18n.t('charts.new_year.start_button', year: year), charts_path(year: year), method: :post, class: 'btn btn-lg btn-block btn-outline-success'
