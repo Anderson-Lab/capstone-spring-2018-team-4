@@ -20,7 +20,7 @@ RSpec.describe ChartsController, type: :controller do
       @target_1.charts << @chart_1
       @target_2.charts << @chart_pm
 
-      post :create, params: {}
+      post :create, params: { year: @year }
     end
 
     it { is_expected.to respond_with(:redirect) }

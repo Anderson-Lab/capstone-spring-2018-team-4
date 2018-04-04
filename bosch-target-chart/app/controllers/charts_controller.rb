@@ -9,7 +9,7 @@ class ChartsController < ApplicationController
   end
 
   def create
-    @year = get_year + 1
+    @year = get_year
 
     create_charts_for_year
 
