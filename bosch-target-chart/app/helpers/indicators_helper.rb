@@ -44,4 +44,16 @@ module IndicatorsHelper
       ''
     end
   end
+
+  def targets_sidebar_indicators(indicator=nil)
+    if indicator.nil?
+      fa_icon('circle', class: 'text-secondary')
+    elsif indicator.is_positive?
+      fa_icon('check-circle', class: 'text-success')
+    elsif indicator.is_neutral?
+      fa_icon('minus-circle', class: 'text-warning')
+    else
+      fa_icon('times-circle', class: 'text-danger')
+    end
+  end
 end

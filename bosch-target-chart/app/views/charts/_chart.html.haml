@@ -1,15 +1,16 @@
-.row
-  - if show_year_dropdown
-    .col-md-3.order-md-last
-      = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right'
-    .col-md-2.order-md-last
-      - department ||= nil
-      = render 'charts/year_dropdown', year: year, department: department
-    %h1.chart-header.col-md-7
-      = header
-  - else
-    %h1.chart-header.col-md-12
-      = link_to header, department_path(chart.department, year: year)
+.container
+  .row
+    - if show_year_dropdown
+      .col-md-3.order-md-last.d-flex.align-items-center.justify-content-end#manageCategoriesContainer
+        = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right'
+      .col-md-2.order-md-last.d-flex.align-items-center.pr-0#yearSelectContainer
+        - department ||= nil
+        = render 'charts/year_dropdown', year: year, department: department
+      %h1.chart-header.col-md-7.pl-0.mb-0
+        = header
+    - else
+      %h1.chart-header.col-md-12.pl-0.mb-0
+        = link_to header, department_path(chart.department, year: year)
 .card.mb-5
   .card-body.p-0
     .container

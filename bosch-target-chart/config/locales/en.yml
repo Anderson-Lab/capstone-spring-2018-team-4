@@ -100,3 +100,8 @@ en:
       unit: "Unit"
       compare_to_value: "Compare-To"
       indicators: "Stop Lights"
+    sidebar:
+      header: "Target List"
+      tooltips:
+        show_list: "Show Target List"
+        hide_list: "Hide Target List"
