@@ -1,6 +1,6 @@
 class Target < ApplicationRecord
   belongs_to :department
-  belongs_to :category
+  belongs_to :category, optional: true
 
   has_many :indicators, dependent: :destroy
   
