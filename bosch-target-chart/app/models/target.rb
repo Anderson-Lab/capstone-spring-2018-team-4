@@ -18,7 +18,7 @@ class Target < ApplicationRecord
     I18n.t(:targets)[:fields][:rule][:less_than_or_equal]
   ]
 
-  validates :name, :department_id, :category_id, :unit, :unit_type, presence: true
+  validates :name, :department_id, :unit, :unit_type, presence: true
   # Skip valiation if updating a different attribute
   validates :compare_to_value, presence: true,
             if: Proc.new{ |t| (t.new_record? && t.is_numerical?) || t.compare_to_value_changed? }
