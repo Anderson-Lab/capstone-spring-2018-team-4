@@ -1,26 +1,19 @@
-- if ENV['banner_image']
-  = image_tag ENV['banner_image'], class: 'banner'
-%nav.navbar.navbar-expand-lg.navbar-light
-  .container
-    %button.navbar-toggler.navbar-toggler-right{ type: 'button', aria: { controls: 'navbarLinks', expanded: 'false', label: 'Toggle navigation' }, data: { toggle: 'collapse', target: '#navbarLinks' } }
-      %span.navbar-toggler-icon
-    = link_to root_path, class: 'navbar-brand display-1', tabindex: -1 do
-      - if ENV['company_logo']
-        = image_tag ENV['company_logo'], class: 'company-logo'
-      = t(:site_header)
-    .collapse.navbar-collapse#navbarLinks
-      %ul.navbar-nav
+%nav.navbar.navbar-expand-lg.navbar-light.container.py-0
+  %button.navbar-toggler.navbar-toggler-right{ type: 'button', aria: { controls: 'navbarLinks', expanded: 'false', label: 'Toggle navigation' }, data: { toggle: 'collapse', target: '#navbarLinks' } }
+    %span.navbar-toggler-icon
+  = link_to root_path, class: 'navbar-brand display-1 pb-0 pt-0', tabindex: -1 do
+    - if ENV['company_logo']
+      = image_tag ENV['company_logo'], class: 'company-logo'
+    = t(:site_header)
+  .collapse.navbar-collapse#navbarLinks
+    %ul.navbar-nav
+      - if current_user
         %li.nav-item
-          = link_to t(:navigation_links)[:about], 'javascript:void(0)', id: 'aboutLink', class: 'nav-link', tabindex: -1
+          = link_to t(:navigation_links)[:dashboard], dashboard_path, id: 'dashboardLink', class: 'nav-link', tabindex: -1
         %li.nav-item
-          = link_to t(:navigation_links)[:contact], 'javascript:void(0)', id: 'contactLink', class: 'nav-link', tabindex: -1
-        - if current_user
-          %li.nav-item
-            = link_to t(:navigation_links)[:dashboard], dashboard_path, id: 'dashboardLink', class: 'nav-link', tabindex: -1
-          %li.nav-item
-            = link_to t(:navigation_links)[:logout], destroy_user_session_path, method: 'delete', id: 'logoutLink', class: 'nav-link text-danger', tabindex: -1
-        - else
-          %li.nav-item
-            = link_to t(:navigation_links)[:login], new_user_session_path, id: 'loginLink', class: 'nav-link', tabindex: -1
-          %li.nav-item
-            = link_to t(:navigation_links)[:register], new_user_registration_path, id: 'registerLink', class: 'nav-link', tabindex: -1
+          = link_to t(:navigation_links)[:logout], destroy_user_session_path, method: 'delete', id: 'logoutLink', class: 'nav-link text-danger', tabindex: -1
+      - else
+        %li.nav-item
+          = link_to t(:navigation_links)[:login], new_user_session_path, id: 'loginLink', class: 'nav-link', tabindex: -1
+        %li.nav-item
+          = link_to t(:navigation_links)[:register], new_user_registration_path, id: 'registerLink', class: 'nav-link', tabindex: -1

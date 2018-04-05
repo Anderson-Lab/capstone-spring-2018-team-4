@@ -10,6 +10,7 @@
     :javascript
       window.I18n = #{current_translations.to_json.html_safe};
   %body
+    = render 'layouts/banner'
     = render 'layouts/navbar'
     %main.container.pb-5.pt-5
       = yield

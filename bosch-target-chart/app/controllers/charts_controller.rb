@@ -1,11 +1,13 @@
 class ChartsController < ApplicationController
 
+  layout 'dashboard'
+
   before_action :authenticate_user!
 
   def index
     @year         = get_year
-    @plant_chart  = Chart.for_plant.for_year(@year).first
-    @dept_charts  = Chart.for_departments.for_year(@year)
+    @plant_chart  = Chart.eager_load(:targets).for_plant.for_year(@year).first
+    @dept_charts  = Chart.eager_load(:targets).for_departments.for_year(@year)
   end
 
   def create

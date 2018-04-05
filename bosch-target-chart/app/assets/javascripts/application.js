@@ -4,6 +4,7 @@
 //= require popper
 //= require bootstrap
 //= require sweetalert
+//= require dashboard
 //= require categories
 //= require targets
 //= require indicators
