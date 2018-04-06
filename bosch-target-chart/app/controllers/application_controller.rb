@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def after_sign_in_path_for(resource)
-    dashboard_path
+    stored_location_for(resource) || super 
   end
 
   def get_year
@@ -12,4 +12,17 @@ class ApplicationController < ActionController::Base
       Time.now.year
     end
   end
+  before_action :store_user_location!, if: :storable_location?
+  before_action :authenticate_user!
+  private 
+
+  def storable_location?
+    request.get? && is_navigational_format? && !devise_controller?
+  end
+
+  def store_user_location!
+    store_location_for(:user, request.fullpath)
+  end
+
+
 end
