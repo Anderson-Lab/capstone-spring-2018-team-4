@@ -8,30 +8,26 @@
     %table.table.table-bordered.table-sm#targetsTable
       %thead.bg-secondary.text-white.text-center
         %tr.d-flex
-          %th.col-3.col-md-2.d-flex.justify-content-center
+          %th.col-4.col-md-3.d-flex.justify-content-center
             = t(:targets)[:table][:name]
-          %th.col-4.col-md-2.d-flex.justify-content-center
-            = t(:targets)[:table][:category]
           %th.col-md-2.d-none.d-md-flex.justify-content-center
             = t(:targets)[:table][:unit]
-          %th.col-3.col-md-2.d-flex.justify-content-center
+          %th.col-4.col-md-2.d-flex.justify-content-center
             = t(:targets)[:table][:compare_to_value]
-          %th.col-2.col-md-3.d-flex.justify-content-center
+          %th.col-4.col-md-4.d-flex.justify-content-center
             = t(:targets)[:table][:indicators]
           %th.col-md-1.d-none.d-md-table-cell
             = t(:actions)[:delete]
       %tbody
         - department.targets.where(year: year).each do |target|
           %tr.d-flex
-            %td.col-3.col-md-2.d-flex
+            %td.col-4.col-md-3.d-flex
               = render 'targets/table/name', target: target
-            %td.col-4.col-md-2.d-flex
-              = render 'targets/table/category', target: target
             %td.col-md-2.d-none.d-md-flex
               = render 'targets/table/unit', target: target
-            %td.col-3.col-md-2.d-flex
+            %td.col-4.col-md-2.d-flex
               = render 'targets/table/compare_to_value', target: target
-            %td.col-2.col-md-3.d-flex
+            %td.col-4.col-md-4.d-flex
               = render 'targets/table/indicators', target: target
             %td.col-md-1.d-none.d-md-flex.justify-content-center.align-items-center
               = delete_target_button(target)

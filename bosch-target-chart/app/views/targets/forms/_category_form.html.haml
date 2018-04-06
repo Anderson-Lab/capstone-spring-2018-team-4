@@ -1,4 +1,0 @@
-= form_for target, url: target_path(target), method: :put, remote: true, html: { id: 'updateForm', autocomplete: 'off' } do |f|
-  #targetErrors
-  .form-group
-    = f.select :category_id, options_for_select(Category.all.map{ |c| [c.name, c.id] },target.category_id), { include_blank: t(:targets)[:fields][:category][:select] }, class: 'form-control'

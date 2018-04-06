@@ -14,9 +14,6 @@
           = f.label :name, t(:targets)[:fields][:name], class: 'required'
           = f.text_field :name, class: 'form-control'
         .form-group
-          = f.label :category_id, t(:targets)[:fields][:category][:field], class: 'required'
-          = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), { include_blank: t(:targets)[:fields][:category][:select] }, class: 'form-control'
-        .form-group
           = f.label :unit, t(:targets)[:fields][:unit], class: 'required'
           = f.text_field :unit, class: 'form-control'
         .form-group

@@ -13,7 +13,6 @@ RSpec.describe TargetsController, type: :controller do
           target: {
             name: @target.name,
             department_id: @target.department_id,
-            category_id: @target.category_id,
             unit: @target.unit,
             unit_type: @target.unit_type,
             rule: @target.rule,
@@ -43,7 +42,6 @@ RSpec.describe TargetsController, type: :controller do
           target: {
             name: nil,
             department_id: nil,
-            category_id: nil,
             unit: nil,
             unit_type: nil,
             rule: nil,

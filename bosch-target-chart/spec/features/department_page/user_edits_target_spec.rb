@@ -29,21 +29,6 @@ RSpec.describe "User edits a target", js: true do
     end
   end
 
-  context 'category' do
-    it 'should update category' do
-      @category = FactoryBot.create(:category)
-
-      visit department_path(@department)
-
-      first("a.target-category").click
-      select @category.name, from: 'target_category_id'
-      click_button I18n.t(:actions)[:submit]
-      wait_for_ajax
-
-      expect(@target.reload.category).to eq(@category)
-    end
-  end
-
   context 'unit and unit type' do
     it 'should update unit' do
       visit department_path(@department)
