@@ -6,13 +6,12 @@
   }
 }
 
+.chart.droppable {
+  box-shadow: 0 ($spacer * .25) ($spacer * .25) rgba(0, 0, 0, 0.075) inset, 0 0 8px $theme_warning;
+}
 .category-row {
   &:not(:last-child) {
     margin-bottom: $spacer * .25;
-  }
-
-  &.droppable {
-    box-shadow: 0 ($spacer * .25) ($spacer * .25) rgba(0, 0, 0, 0.075) inset, 0 0 8px $theme_warning;
   }
 
   .category-icon {

@@ -31,8 +31,10 @@ hideSidebar = () ->
 
   e.dataTransfer.dropEffect = 'copy'
   e.dataTransfer.setData('text/json',
-    "{\"target-id\" : #{target_id},
-      \"department-id\" : #{department_id}}"
+    "{
+      \"target-id\" : #{target_id},
+      \"department-id\" : #{department_id}
+    }"
   )
 
   hideSidebar()
@@ -51,13 +53,12 @@ hideSidebar = () ->
 
   $('.droppable').removeClass('droppable')
 
-  $chart = $(e.target).parents('.chart')
-
-  if !$chart.has(".target-#{target_id}").length && ($chart.data('department-id') == -1 || $chart.data('department-id') == department_id)
-    if $(e.target).is('.category-row')
-      $(e.target).addClass('droppable')
-    else
-      $(e.target).parents('.category-row').addClass('droppable')
+  $chart                  = $(e.target).parents('.chart')
+  target_already_present  = !$chart.has(".target-#{target_id}").length
+  valid_chart_for_target  = $chart.data('department-id') == -1 || $chart.data('department-id') == department_id
+  
+  if target_already_present && valid_chart_for_target
+    $chart.addClass('droppable')
 
 (exports ? this).unhighlightCategoryForDrop = (e) ->
   e.preventDefault()
@@ -67,11 +68,6 @@ hideSidebar = () ->
 (exports ? this).dropTargetOnChart = (e) ->
   e.preventDefault()
 
-  if $(e.target).is('.category-row')
-    category_id = $(e.target).data('category-id')
-  else
-    category_id = $(e.target).parents('.category-row').data('category-id')
-
   chart_id = $(e.target).parents('.chart').data('chart-id')
   target_id = JSON.parse(e.dataTransfer.getData('text/json'))['target-id']
 
@@ -80,5 +76,4 @@ hideSidebar = () ->
     url: "/chart_targets"
     data:
       chart_id: chart_id
-      category_id: category_id
       target_id: target_id
