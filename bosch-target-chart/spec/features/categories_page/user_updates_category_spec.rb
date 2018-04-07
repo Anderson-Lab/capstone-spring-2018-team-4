@@ -9,7 +9,7 @@ RSpec.describe "User views the Categories page", js: true do
     sign_in(current_user)
 
     @category = FactoryBot.create(:category, 
-                                  :fuchsia, :no_icon,
+                                  :fuchsia,
                                   icon: Rack::Test::UploadedFile.new(File.join('spec/example_files', 'category_icon.png'),'image/png'))
 
     visit categories_path

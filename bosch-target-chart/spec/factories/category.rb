@@ -16,7 +16,10 @@ FactoryBot.define do
     color { Category::COLOR_HEX_VALUES_HASH[:fuchsia] }
   end
 
+# Use this in specs where the icon isn't important to the spec (such as other factories). The browser will
+# load the default URL instead of attempting to load a file that might not exist
   trait :no_icon do
+    to_create {|instance| instance.save(validate: false) }
     icon_file_name   { nil }
     icon_content_type{ nil }
     icon_file_size   { nil }
