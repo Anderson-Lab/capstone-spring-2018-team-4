@@ -1,3 +1,25 @@
 .category-row {
   justify-content: space-between;
+
+  &:not(:last-child) {
+    border-bottom: .25rem solid white;
+  }
+}
+
+.category-icon {
+  padding: 8px;
+  height: 56px;
+  width: 56px;
+}
+
+.icon-input-row {
+  justify-content: space-between;
+
+  .category-icon {
+    /* Base CSS taken from Google's image search styling */
+    background: #dcdcdc;
+    background-image: linear-gradient(45deg,#efefef 25%,transparent 25%,transparent 75%,#efefef 75%,#efefef),linear-gradient(45deg,#efefef 25%,transparent 25%,transparent 75%,#efefef 75%,#efefef);
+    background-position: 0 0,5px 5px;
+    background-size: 11px 11px;
+  }
 }

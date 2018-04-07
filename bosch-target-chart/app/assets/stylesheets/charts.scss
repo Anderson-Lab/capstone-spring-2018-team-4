@@ -6,20 +6,6 @@
   }
 }
 
-.category-row {
-  &:not(:last-child) {
-    border-bottom: .25rem solid white;
-  }
-
-  .category-icon {
-    padding: 8px;
-
-    &[src=''] {
-      visibility: hidden;
-    }
-  }
-}
-
 #yearSelectContainer {
   @media(min-width:767px) {
     padding-right: 0;
