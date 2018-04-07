@@ -1,4 +1,4 @@
-%aside.position-absolute.d-none.d-lg-block#targetsSidebar
+%aside.position-fixed.d-none.d-lg-block#targetsSidebar
   %button.btn.btn-light.ml-2.mt-2#openTargetsSidebarButton{ title: t(:targets)[:sidebar][:tooltips][:show_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
     = fa_icon('chevron-right')
   .card.rounded-0#targetsSidebarPanel
@@ -8,7 +8,7 @@
           = t(:targets)[:sidebar][:header]
         %button.btn.btn-light.ml-5#closeTargetsSidebarButton{ title: t(:targets)[:sidebar][:tooltips][:hide_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
           = fa_icon('chevron-left')
-    .card-body.py-2.px-0
+    .card-body.pt-2.px-0
       - Department.all.each do |department|
         .targets-sidebar-department
           .targets-sidebar-department-header.px-2
