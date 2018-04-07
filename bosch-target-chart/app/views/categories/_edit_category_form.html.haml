@@ -1,0 +1,26 @@
+.modal-dialog
+  .modal-content
+    = form_for category, url: category_path(category), method: :put, authenticity_token: true, remote: true do |f|
+      
+      .modal-header
+        %h4.modal-title
+          = t('categories.edit_header', category_name: category.name)
+        %button.close{ type: 'button', aria: { label: 'Close' }, data: { dismiss: 'modal' } }
+          %span{ aria: { hidden: 'true' } } &times;
+      .modal-body
+        #formErrors
+        .form-group
+          = f.label :name, t(:categories)[:fields][:name], class: 'required'
+          = f.text_field :name, class: 'form-control'
+        .form-group
+          = f.label :color, t(:categories)[:fields][:color], class: 'required'
+          = f.select :color, options_for_select(color_select_options, category.color), { include_blank: t(:categories)[:fields][:select] }, class: category.color.nil? ? 'form-control' : 'form-control text-light', style: "background: #{category.color};"
+        .form-group
+          = f.label :icon, t(:categories)[:fields][:icon]
+          = f.file_field :icon, accept: 'image/jpeg,image/jpg,image/png,image/gif', class: 'col-md-12 px-0'
+          %small.form-text.text-muted
+            = t(:categories)[:fields][:icon_help_text]
+      .modal-footer
+        %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal' } }
+          = t(:actions)[:close]
+        = f.submit t(:actions)[:submit], class: 'btn btn-primary'
