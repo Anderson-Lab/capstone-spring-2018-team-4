@@ -25,17 +25,13 @@ hideSidebar = () ->
 ### DRAG EVENTS ###
 ###################
 
+# We cant use dataTransfer because it is not accessible to dragover events.
+target_id = null
+department_id = null
+
 (exports ? this).dragTargetToChart = (e) ->
   target_id     = $(e.target).data('target-id')
   department_id = $(e.target).data('department-id')
-
-  e.dataTransfer.dropEffect = 'copy'
-  e.dataTransfer.setData('text/json',
-    "{
-      \"target-id\" : #{target_id},
-      \"department-id\" : #{department_id}
-    }"
-  )
 
   hideSidebar()
 
@@ -47,17 +43,13 @@ hideSidebar = () ->
 (exports ? this).highlightCategoryForDrop = (e) ->
   e.preventDefault()
 
-  data          = JSON.parse(e.dataTransfer.getData('text/json'))
-  target_id     = data['target-id']
-  department_id = data['department-id']
-
   $('.droppable').removeClass('droppable')
 
   $chart                  = $(e.target).parents('.chart')
-  target_already_present  = !$chart.has(".target-#{target_id}").length
+  target_already_present  = $chart.has(".target-#{target_id}").length
   valid_chart_for_target  = $chart.data('department-id') == -1 || $chart.data('department-id') == department_id
   
-  if target_already_present && valid_chart_for_target
+  if !target_already_present && valid_chart_for_target
     $chart.addClass('droppable')
 
 (exports ? this).unhighlightCategoryForDrop = (e) ->
@@ -68,12 +60,8 @@ hideSidebar = () ->
 (exports ? this).dropTargetOnChart = (e) ->
   e.preventDefault()
 
-  target_id = JSON.parse(e.dataTransfer.getData('text/json'))['target-id']
-
   if $(e.target).is('.chart')
     chart_id = $(e.target).data('chart-id')
-  else
-    chart_id = $(e.target).parents('.chart').data('chart-id')
 
   $.ajax
     method: "POST"

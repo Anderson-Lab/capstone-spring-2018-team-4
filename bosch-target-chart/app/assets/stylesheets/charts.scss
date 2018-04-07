@@ -7,8 +7,9 @@
 }
 
 .chart.droppable {
-  box-shadow: 0 ($spacer * .25) ($spacer * .25) rgba(0, 0, 0, 0.075) inset, 0 0 8px $theme_warning;
+  box-shadow: 0 0 $spacer rgba(0, 0, 0, 0.075) inset, 0 0 $spacer * 3 $theme_warning;
 }
+
 .category-row {
   &:not(:last-child) {
     margin-bottom: $spacer * .25;
@@ -101,4 +102,5 @@
 
 [draggable='true'] {
   -webkit-user-drag: element;
+  cursor: -webkit-grab;
 }
