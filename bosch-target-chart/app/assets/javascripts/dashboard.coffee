@@ -63,13 +63,17 @@ hideSidebar = () ->
 (exports ? this).unhighlightCategoryForDrop = (e) ->
   e.preventDefault()
 
-  $(e.target).removeClass('droppable')
+  $('.droppable').removeClass('droppable')
 
 (exports ? this).dropTargetOnChart = (e) ->
   e.preventDefault()
 
-  chart_id = $(e.target).parents('.chart').data('chart-id')
   target_id = JSON.parse(e.dataTransfer.getData('text/json'))['target-id']
+
+  if $(e.target).is('.chart')
+    chart_id = $(e.target).data('chart-id')
+  else
+    chart_id = $(e.target).parents('.chart').data('chart-id')
 
   $.ajax
     method: "POST"

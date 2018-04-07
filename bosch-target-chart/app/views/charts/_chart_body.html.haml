@@ -1,8 +1,8 @@
-.card.mb-5.chart{ id: "chart#{chart.id}", data: { chart_id: chart.id, department_id: chart.department_id || -1 } }
+.card.mb-5.chart{ id: "chart#{chart.id}", ondragover: "highlightCategoryForDrop(event)", ondragleave: "unhighlightCategoryForDrop(event)", ondrop: "dropTargetOnChart(event)", data: { chart_id: chart.id, department_id: chart.department_id || -1 } }
   .card-body.p-0
     .container
       - Category.all.each do |category|
-        .row.category-row.pt-2.pl-2.align-items-start{ class: "category-#{category.id}", style: "background: #{category.color}", ondragover: "highlightCategoryForDrop(event)", ondragleave: "unhighlightCategoryForDrop(event)", ondrop: "dropTargetOnChart(event)", data: { category_id: category.id } }
+        .row.category-row.pt-2.pl-2.align-items-start{ class: "category-#{category.id}", style: "background: #{category.color}" }
           .category-header-container.col-md-2.d-flex.align-items-center.pl-0.pr-2.pb-2
             = image_tag category.icon.url, class: 'category-icon', height: 56, width: 56
             %h6.text-white.m-0
