@@ -1,6 +1,13 @@
 #targetsTable {
   td {
-    word-break: break-all;
+    /* Thanks to Michael Scharnagl for this solution
+       url: https://justmarkup.com/log/2015/07/dealing-with-long-words-in-css/ */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
   }
 
   .indicator, .delete-target-button {
