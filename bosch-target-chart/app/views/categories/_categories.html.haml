@@ -8,4 +8,4 @@
             %h6.text-white
               = category.name
           .category-buttons-container
-            = link_to t(:actions)[:edit], edit_category_path(category.id), class: 'btn btn-warning mr-2', remote: true
+            = link_to t(:actions)[:edit], edit_category_path(category.id), id: "editCategory#{category.id}", class: 'btn btn-warning mr-2', remote: true

@@ -11,4 +11,15 @@ FactoryBot.define do
     icon_file_size   { Random.rand(100000) }
     icon_updated_at  { Time.now }
   end
+
+  trait :fuchsia do
+    color { Category::COLOR_HEX_VALUES_HASH[:fuchsia] }
+  end
+
+  trait :no_icon do
+    icon_file_name   { nil }
+    icon_content_type{ nil }
+    icon_file_size   { nil }
+    icon_updated_at  { nil }
+  end
 end
