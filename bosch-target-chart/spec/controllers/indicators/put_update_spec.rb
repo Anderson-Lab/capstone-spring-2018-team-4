@@ -6,7 +6,10 @@ RSpec.describe IndicatorsController, type: :controller do
 
   describe "PUT #update" do
     before :each do
-      @indicator = FactoryBot.create(:indicator)
+      @department = FactoryBot.create(:department)
+      @chart      = FactoryBot.create(:chart, department: @department)
+      @target     = FactoryBot.create(:target, department: @department)
+      @indicator  = FactoryBot.create(:indicator, target: @target)
     end
 
     context 'indicator is valid' do
@@ -19,6 +22,14 @@ RSpec.describe IndicatorsController, type: :controller do
 
       it 'should assign @indicator to the indicator' do
         expect(assigns(:indicator)).to eq(@indicator)
+      end
+
+      it 'should assign @target to the target' do
+        expect(assigns(:target)).to eq(@target)
+      end
+
+      it 'should assign @chart to the correct chart' do
+        expect(assigns(:chart)).to eq(@chart)
       end
 
       it 'should update the attribute' do
@@ -42,6 +53,14 @@ RSpec.describe IndicatorsController, type: :controller do
         expect(assigns(:indicator)).to eq(@indicator)
       end
 
+      it 'should assign @target to the target' do
+        expect(assigns(:target)).to eq(@target)
+      end
+
+      it 'should assign @chart to the correct chart' do
+        expect(assigns(:chart)).to eq(@chart)
+      end
+      
       it 'should not update the indicator' do
         name = @indicator.name
         expect(@indicator.reload.name).to eq(name)

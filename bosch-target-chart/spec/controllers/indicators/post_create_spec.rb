@@ -7,7 +7,10 @@ RSpec.describe IndicatorsController, type: :controller do
   describe "POST #create" do
     context 'indicator is valid' do
       before :each do
-        @target = FactoryBot.create(:target)
+        @department = FactoryBot.create(:department)
+        @chart      = FactoryBot.create(:chart, department: @department)
+        @target     = FactoryBot.create(:target, department: @department)
+
         post :create, params: {
           target_id: @target.id,
           indicator: {
@@ -19,6 +22,10 @@ RSpec.describe IndicatorsController, type: :controller do
 
       it 'should assign @target to the target' do
         expect(assigns(:target)).to eq(@target)
+      end
+
+      it 'should assign @chart to the correct chart' do
+        expect(assigns(:chart)).to eq(@chart)
       end
 
       it 'should create a new indicator and assign @indicator' do
@@ -33,7 +40,10 @@ RSpec.describe IndicatorsController, type: :controller do
 
     context 'indicator is invalid' do
       before :each do
-        @target = FactoryBot.create(:target)
+        @department = FactoryBot.create(:department)
+        @chart      = FactoryBot.create(:chart, department: @department)
+        @target     = FactoryBot.create(:target, department: @department)
+
         post :create, params: {
           target_id: @target.id,
           indicator: {
@@ -47,6 +57,10 @@ RSpec.describe IndicatorsController, type: :controller do
         expect(assigns(:target)).to eq(@target)
       end
 
+      it 'should assign @chart to the correct chart' do
+        expect(assigns(:chart)).to eq(@chart)
+      end
+      
       it 'should assign @indicator to a new indicator' do
         expect(assigns(:indicator)).to be_a_new(Indicator)
       end

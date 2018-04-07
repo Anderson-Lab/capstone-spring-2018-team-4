@@ -9,7 +9,7 @@ RSpec.describe "User edits an indicator", js: true do
     sign_in(current_user)
 
     @department = FactoryBot.create(:department)
-                  FactoryBot.create(:chart, department: @department)
+    @chart      = FactoryBot.create(:chart, department: @department)
   end
 
   context 'for a Numerical target' do
@@ -33,7 +33,7 @@ RSpec.describe "User edits an indicator", js: true do
   context 'for a Qualitative target' do
     before :each do
       @target     = FactoryBot.create(:target, department: @department)
-      @indicator  = FactoryBot.create(:indicator, target: @target)
+      @indicator  = FactoryBot.create(:indicator, target: @target, color: Indicator::COLORS[0])
 
       visit department_path(@department)
     end
@@ -45,6 +45,26 @@ RSpec.describe "User edits an indicator", js: true do
       wait_for_ajax
 
       expect(@indicator.reload.color).to eq(Indicator::COLORS[1])
+    end
+  end
+
+  context 'when the target is on department\'s chart' do
+    before :each do
+      @target     = FactoryBot.create(:target, department: @department)
+      @indicator  = FactoryBot.create(:indicator, target: @target, color: Indicator::COLORS[0])
+
+      @chart.targets << @target
+
+      visit department_path(@department)
+    end
+
+    it 'should update the target\'s indicator' do
+      first("#target#{@target.id}Indicators .indicator").click
+      select Indicator::COLORS[1], from: 'indicator_color'
+      click_button I18n.t(:actions)[:submit]
+      wait_for_ajax
+
+      expect(page).to have_selector(".chart-target.target-#{@target.id} .indicator.neutral-indicator")
     end
   end
 end

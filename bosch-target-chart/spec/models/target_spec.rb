@@ -73,6 +73,16 @@ RSpec.describe Target, type: :model do
         expect(Target.for_year(2018).to_a).to eq([tar18])
       end
     end
+
+    describe 'with_indicators' do
+      it 'should return targets with indicators' do
+        tar1 = FactoryBot.create(:target)
+        tar2 = FactoryBot.create(:target)
+               FactoryBot.create(:indicator, target: tar2)
+
+        expect(Target.with_indicators.to_a).to eq([tar2])
+      end
+    end
   end
 
   describe 'callbacks' do
