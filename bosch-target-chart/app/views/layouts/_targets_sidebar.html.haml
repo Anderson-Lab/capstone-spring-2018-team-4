@@ -8,17 +8,17 @@
           = t(:targets)[:sidebar][:header]
         %button.btn.btn-light.ml-5#closeTargetsSidebarButton{ title: t(:targets)[:sidebar][:tooltips][:hide_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
           = fa_icon('chevron-left')
-    .card-body.p-2
+    .card-body.py-2.px-0
       - Department.all.each do |department|
         .targets-sidebar-department
-          .targets-sidebar-department-header
+          .targets-sidebar-department-header.px-2
             %button.btn.btn-link.p-0{ data: { toggle: 'collapse', target: "#department#{department.id}Targets" } }
               %h2.mb-0
                 = department.name
           %ul.collapse.list-unstyled.mb-0{ id: "department#{department.id}Targets" }
-            - department.targets.for_year(year).each do |target|
+            - department.targets.for_year(year).with_indicators.each do |target|
               %li
-                = link_to 'javascript:void(0)', id: "target#{target.id}Draggable", class: 'target-draggable d-flex bg-white', draggable: true, ondragstart: "hideSidebar()", ondragend: "showSidebar()" do
+                = link_to 'javascript:void(0)', id: "target#{target.id}Draggable", class: 'target-draggable d-flex bg-white px-2', draggable: true, ondragstart: "dragTargetToChart(event)", ondragend: "endDragTargetToChart(event)", data: { target_id: target.id, department_id: department.id } do
                   .container
                     .row
                       .col-md-9.pl-0
@@ -26,5 +26,5 @@
                       .col-md-3.text-right.p-0
                         - target.indicators.each do |indicator|
                           = targets_sidebar_indicators(indicator)
-                        - (Target::MAX_INDICATORS - target.indicators.count).times do
+                        - (Target::MAX_INDICATORS - target.indicators.length).times do
                           = targets_sidebar_indicators

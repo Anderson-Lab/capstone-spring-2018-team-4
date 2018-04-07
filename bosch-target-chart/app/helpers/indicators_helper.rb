@@ -9,6 +9,12 @@ module IndicatorsHelper
     )
   end
 
+  def chart_indicator_display(indicator)
+    content_tag(:button, determine_button_icon(indicator),
+      class: determine_button_classes(indicator), role: 'button'
+    )
+  end
+
   def determine_button_icon(indicator)
     if indicator.new_record?
       fa_icon('plus-circle')

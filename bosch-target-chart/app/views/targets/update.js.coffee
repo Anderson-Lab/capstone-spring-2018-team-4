@@ -6,6 +6,7 @@ $("#target<%= @target.id %>CompareToValue").replaceWith('<%= j render "targets/t
 <% end %>
 
 <% if @attribute == 'unit' || @attribute == 'compare_to_value' %>
+$(".chart").replaceWith("<%= j render 'charts/chart_body', chart: @chart %>")
 $("#target<%= @target.id %>Indicators").replaceWith("<%= j render 'targets/table/indicators', target: @target %>")
 <% end %>
 

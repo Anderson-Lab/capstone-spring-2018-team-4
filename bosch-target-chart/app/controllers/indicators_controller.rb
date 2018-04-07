@@ -5,6 +5,7 @@ class IndicatorsController < ApplicationController
   def create
     @target     = Target.find(params[:target_id])
     @indicator  = @target.indicators.new(indicator_params)
+    @chart      = @target.department.charts.for_year(@target.year).first
 
     unless @indicator.save
       @errors = @indicator.errors
@@ -12,7 +13,9 @@ class IndicatorsController < ApplicationController
   end
 
   def update
-    @indicator = Indicator.find(params[:id])
+    @indicator  = Indicator.find(params[:id])
+    @target     = @indicator.target
+    @chart      = @target.department.charts.for_year(@target.year).first
 
     unless @indicator.update_attributes(indicator_params)
       @errors = @indicator.errors
@@ -22,9 +25,12 @@ class IndicatorsController < ApplicationController
   def destroy
     @indicator  = Indicator.find(params[:id])
     @target     = @indicator.target
+    @chart      = @target.department.charts.for_year(@target.year).first
 
     @indicator.destroy
   end
+
+  private
 
   def indicator_params
     params.require(:indicator).permit(

@@ -32,6 +32,10 @@ class Target < ApplicationRecord
     where(year: year)
   }
 
+  scope :with_indicators, -> {
+    joins(:indicators).distinct
+  }
+
   before_update :reset_compare_to_value, if: :unit_type_changed?
   before_update :reset_indicator_values, if: :unit_type_changed?
 

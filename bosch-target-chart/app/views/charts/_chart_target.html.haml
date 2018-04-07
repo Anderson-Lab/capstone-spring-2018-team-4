@@ -1,0 +1,14 @@
+.chart-target.pl-0.pr-2.pb-2{ class: "target-#{target.id}" }
+  .card
+    .card-body.p-1.d-flex.flex-column
+      .target-name
+        %h5.card-title.m-0
+          = target.name
+      .container.target-indicators
+        .row.text-center
+          - target.indicators.each do |indicator|
+            .col-md-4.px-0
+              %span
+                = indicator.name
+              %br
+                = chart_indicator_display(indicator)
