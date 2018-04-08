@@ -63,6 +63,8 @@ department_id = null
 
   if $(e.target).is('.chart')
     chart_id = $(e.target).data('chart-id')
+  else
+    chart_id = $(e.target).parents('.chart').data('chart-id')
 
   $.ajax
     method: "POST"
