@@ -1,0 +1,4 @@
+.modal-dialog
+  .modal-content
+    = form_for category, url: category_path(category), method: :put, authenticity_token: true, remote: true do |f|
+      = render 'categories/form', category: category, f: f, action: 'edit'
