@@ -1,7 +1,7 @@
 #chartDashboard
   - if plant_chart || dept_charts.any?
-    = render 'charts/chart', header: I18n.t('charts.plant_chart.header', chart_name: plant_chart.name, year: year), chart: plant_chart, year: year, show_year_dropdown: true
+    = render 'charts/chart', header: I18n.t('charts.plant_chart.header', chart_name: plant_chart.name, year: year), chart: plant_chart, year: year, header_for: 'plant_chart'
     - dept_charts.each do |chart|
-      = render 'charts/chart', header: I18n.t('charts.department_chart.header', department: chart.department.abbreviation || chart.department.name, chart_name: chart.name, year: year), chart: chart, year: year, show_year_dropdown: false
+      = render 'charts/chart', header: I18n.t('charts.department_chart.header', department: chart.department.abbreviation || chart.department.name, chart_name: chart.name, year: year), chart: chart, year: year, header_for: ''
   - else
     = render 'charts/new_year', year: year

@@ -11,4 +11,12 @@ class DepartmentsController < ApplicationController
     @year       = get_year
     @chart      = @department.charts.find_by_year(@year)
   end
+
+  def edit
+    @department = Department.find(params[:id])
+  end
+
+  def update
+
+  end
 end

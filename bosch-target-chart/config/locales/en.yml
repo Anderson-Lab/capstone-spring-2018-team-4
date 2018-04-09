@@ -55,6 +55,7 @@ en:
 
   departments:
     header: "BOSCH Departments"
+    edit: "Edit Department"
 
   indicators:
     delete_header: "Delete Stop Light"
