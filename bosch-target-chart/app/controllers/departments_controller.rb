@@ -2,10 +2,6 @@ class DepartmentsController < ApplicationController
 
   before_action :authenticate_user!
 
-  def index
-	 @departments = Department.all
-  end
-
   def show
     @department = Department.find(params[:id])
     @year       = get_year
@@ -15,6 +11,7 @@ class DepartmentsController < ApplicationController
   def new
     @department = Department.new
   end
+
   def create
     department = Department.new(department_params)
 
