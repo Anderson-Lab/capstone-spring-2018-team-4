@@ -56,6 +56,11 @@ en:
   departments:
     header: "BOSCH Departments"
     edit: "Edit Department"
+    edit_header: "Edit %{department_name}"
+    new: "Add Department"
+    new_header: "Create a New Department"
+    fields:
+      name: "Name"
 
   indicators:
     delete_header: "Delete Stop Light"

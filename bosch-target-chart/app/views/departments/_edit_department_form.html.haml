@@ -1,3 +1,10 @@
 .modal-dialog
   .modal-content
-    = form_for department, url: department_path(department), method: :post, remote: true do |f|
+    = form_for department, url: department_path(department), method: :put, remote: true do |f|
+      = hidden_field_tag :year, year
+      .modal-header
+        %h4.modal-title
+          = t('departments.edit_header', department_name: department.name)
+        %button.close{ type: 'button', aria: { label: 'Close' }, data: { dismiss: 'modal' } }
+          %span{ aria: { hidden: 'true' } } &times;
+      = render 'departments/form', department: department, f: f
