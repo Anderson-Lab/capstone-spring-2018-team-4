@@ -46,7 +46,7 @@ RSpec.describe "User edits a target", js: true do
 
   context 'category' do
     it 'should update category' do
-      @category = FactoryBot.create(:category)
+      @category = FactoryBot.create(:category, :no_icon)
 
       visit department_path(@department)
 
@@ -60,7 +60,7 @@ RSpec.describe "User edits a target", js: true do
 
     context 'when the target is on department\'s chart' do
       it 'should update the target category' do
-        @category = FactoryBot.create(:category)
+        @category = FactoryBot.create(:category, :no_icon)
         @chart.targets << @target
 
         visit department_path(@department)
