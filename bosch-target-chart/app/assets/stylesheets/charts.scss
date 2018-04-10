@@ -10,23 +10,9 @@
   box-shadow: 0 0 $spacer rgba(0, 0, 0, 0.075) inset, 0 0 $spacer * 3 $theme_warning;
 }
 
-.category-row {
-  &:not(:last-child) {
-    margin-bottom: $spacer * .25;
-  }
-
-  .category-icon {
-    padding: 8px;
-
-    &[src=''] {
-      visibility: hidden;
-    }
-  }
-
-  .chart-target {
-    flex: 0 0 20%;
-    max-width: 20%;
-  }
+.chart-target {
+  flex: 0 0 20%;
+  max-width: 20%;
 }
 
 #yearSelectContainer {

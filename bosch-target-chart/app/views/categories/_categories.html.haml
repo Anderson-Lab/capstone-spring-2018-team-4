@@ -2,8 +2,10 @@
   - Category.all.each do |category|
     .col-md-12.card.mb-2.px-0{ style: "background: #{category.color}" }
       .card-body
-        .row.category-row
-          .category-header-container.d-flex.align-self-start.align-items-center
-            = image_tag category.icon.url, class: 'category-icon', height: 56, width: 56
+        .row.category-row.d-flex.align-items-center.justify-content-between
+          .category-header-container.d-flex.align-items-center
+            = image_tag category.icon.url, class: 'category-icon'
             %h6.text-white
               = category.name
+          .category-buttons-container
+            = link_to t(:actions)[:edit], edit_category_path(category.id), id: "editCategory#{category.id}", class: 'btn btn-warning mr-2', remote: true
