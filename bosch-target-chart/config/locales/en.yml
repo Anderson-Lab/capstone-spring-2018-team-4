@@ -26,6 +26,9 @@ en:
     new_year:
       header: "There are no charts for %{year}"
       start_button: "Create Charts for %{year}"
+    targets:
+      delete_header: "Remove Target from Chart"
+      delete_confirm: "Are you sure?"
 
   categories:
     manage_categories: 'Manage Categories'
@@ -56,6 +59,7 @@ en:
 
   departments:
     header: "BOSCH Departments"
+    no_targets: "No targets to show"
 
   indicators:
     delete_header: "Delete Stop Light"

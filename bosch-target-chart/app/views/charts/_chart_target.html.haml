@@ -4,10 +4,11 @@
       .target-name
         %h5.card-title.m-0
           = target.name
+          %button.btn.btn-link.text-muted.pull-right.font-weight-bold.p-0.remove-chart-target{ data: { target_id: target.id, chart_id: chart.id } } &times;
       .container.target-indicators
         .row.text-center
           - target.indicators.each do |indicator|
-            .col-md-4.px-0
+            .col-4.px-0
               %span
                 = indicator.name
               %br

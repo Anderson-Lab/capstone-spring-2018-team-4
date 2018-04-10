@@ -1,11 +1,9 @@
-.col-md-12.row#categoriesContainer
+.container#categoriesContainer
   - Category.all.each do |category|
-    .col-md-12.card.mb-2.px-0{ style: "background: #{category.color}" }
-      .card-body
-        .row.category-row.d-flex.align-items-center.justify-content-between
-          .category-header-container.d-flex.align-items-center
-            = image_tag category.icon.url, class: 'category-icon'
-            %h6.text-white
-              = category.name
-          .category-buttons-container
-            = link_to t(:actions)[:edit], edit_category_path(category.id), id: "editCategory#{category.id}", class: 'btn btn-warning mr-2', remote: true
+    .row.category-row.align-items-centers.justify-content-between.p-2{ class: "category-#{category.id}", style: "background: #{category.color}" }
+      .category-header-container.col-8.d-flex.align-items-center.p-0
+        = image_tag category.icon.url, class: 'category-icon'
+        %h6.text-white
+          = category.name
+      .category-buttons-container.col-4.d-flex.align-items-center
+        = link_to t(:actions)[:edit], edit_category_path(category.id), id: "editCategory#{category.id}", class: 'btn btn-warning', remote: true, ondragstart: "return false"

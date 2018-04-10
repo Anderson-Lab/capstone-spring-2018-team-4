@@ -4,6 +4,6 @@
   .dropdown-menu{ aria: { labelledby: 'yearSelectButton' } }
     - Chart.years_for_select(department).each do |yr|
       - if controller_name == 'departments'
-        = link_to yr, department_path(department, year: yr), class: ['dropdown-item', yr == year ? 'selected' : '']
+        = link_to yr, department_path(department, year: yr), class: ['dropdown-item', yr == year ? 'selected' : ''], draggable: false
       - else
-        = link_to yr, dashboard_path(year: yr), class: ['dropdown-item', yr == year ? 'selected' : '']
+        = link_to yr, dashboard_path(year: yr), class: ['dropdown-item', yr == year ? 'selected' : ''], tabindex: -1, draggable: false
