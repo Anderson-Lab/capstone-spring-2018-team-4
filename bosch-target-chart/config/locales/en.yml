@@ -26,6 +26,10 @@ en:
     new_year:
       header: "There are no charts for %{year}"
       start_button: "Create Charts for %{year}"
+    fields:
+      name: "Chart Name"
+    errors:
+      name: "Name can't be blank"
 
   categories:
     manage_categories: 'Manage Categories'

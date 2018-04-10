@@ -3,11 +3,7 @@
     = render 'charts/chart', header: I18n.t('charts.plant_chart.header', chart_name: plant_chart.name, year: year), chart: plant_chart, year: year, header_for: 'plant_chart'
     - dept_charts.each do |chart|
       = render 'charts/chart', header: I18n.t('charts.department_chart.header', department: chart.department.abbreviation || chart.department.name, chart_name: chart.name, year: year), chart: chart, year: year, header_for: ''
-    .col-md-12.row
-      .col-md-2.order-md-last.px-0.d-flex.align-items-center
-        = link_to t(:departments)[:new], new_department_path, id:'newDepartment', class: 'btn btn-success btn-block', remote: true
-      .col-md-10.px-0
-        %h1
-          = t(:departments)[:add_new_department]
+    .col-md-12.px-0
+      = link_to t(:departments)[:new], new_department_path(year: year), id:'newDepartment', class: 'btn btn-success btn-block', remote: true
   - else
     = render 'charts/new_year', year: year

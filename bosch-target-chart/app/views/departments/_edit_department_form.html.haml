@@ -7,4 +7,4 @@
           = t('departments.edit_header', department_name: department.name)
         %button.close{ type: 'button', aria: { label: 'Close' }, data: { dismiss: 'modal' } }
           %span{ aria: { hidden: 'true' } } &times;
-      = render 'departments/form', department: department, f: f
+      = render 'departments/form', department: department, chart: chart, f: f
