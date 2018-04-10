@@ -44,7 +44,7 @@ class DepartmentsController < ApplicationController
       @chart = @department.charts.find_by_year(@year)
       #TODO: Add flash message
     else
-      @errors = department.errors
+      @errors = @department.errors
     end
   end
 
