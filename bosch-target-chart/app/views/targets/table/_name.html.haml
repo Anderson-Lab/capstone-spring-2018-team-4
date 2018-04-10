@@ -1,4 +1,4 @@
 .container.d-flex.justify-content-center.align-items-center.p-0{ id: "target#{target.id}Name" }
-  = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block target-name', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
-  %span.d-md-none
+  = link_to target.name, 'javascript:void(0)', class: 'd-none d-md-block target-name text-center', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/name_form', target: target) }
+  %span.d-md-none.text-center
     = target.name

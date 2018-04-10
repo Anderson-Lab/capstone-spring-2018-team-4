@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
 
   resources :charts, only: [:create]
+  resources :chart_targets, only: [:create]
   resources :departments, only: [:index, :show]
   resources :indicators, only: [:create, :update, :destroy]
   resources :targets, only: [:new, :create, :update, :destroy]

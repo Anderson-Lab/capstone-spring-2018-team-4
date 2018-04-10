@@ -1,7 +1,7 @@
 .container.d-flex.justify-content-center.align-items-center.p-0{ id: "target#{target.id}CompareToValue" }
   - if target.is_numerical?
-    = link_to "#{target.rule} #{target.compare_to_value || 0.0}", 'javascript:void(0)', class: 'd-none d-md-block target-compare-to-value', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/compare_to_value_form', target: target) }
-    %span.d-md-none
+    = link_to "#{target.rule} #{target.compare_to_value || 0.0}", 'javascript:void(0)', class: 'd-none d-md-block target-compare-to-value text-center', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/compare_to_value_form', target: target) }
+    %span.d-md-none.text-center
       = "#{target.rule} #{target.compare_to_value}" || 0.0
   - else
     = t(:targets)[:fields][:compare_to_value][:default]

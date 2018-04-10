@@ -9,6 +9,7 @@ $("#target<%= @target.id %>CompareToValue").replaceWith('<%= j render "targets/t
 $("#target<%= @target.id %>Indicators").replaceWith("<%= j render 'targets/table/indicators', target: @target %>")
 <% end %>
 
+$(".chart").replaceWith("<%= j render 'charts/chart_body', chart: @chart %>")
 $("#target<%= @target.id %><%= @attribute.camelize %>").replaceWith('<%= j render "targets/table/#{@attribute}", target: @target %>')
 initializePopovers()
 $("#target<%= @target.id %><%= @attribute.camelize %> a").focus()

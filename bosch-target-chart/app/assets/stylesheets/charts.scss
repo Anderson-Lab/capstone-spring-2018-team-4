@@ -6,6 +6,15 @@
   }
 }
 
+.chart.droppable {
+  box-shadow: 0 0 $spacer rgba(0, 0, 0, 0.075) inset, 0 0 $spacer * 3 $theme_warning;
+}
+
+.chart-target {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
 #yearSelectContainer {
   @media(min-width:767px) {
     padding-right: 0;
@@ -42,7 +51,7 @@
   z-index: 100;
   max-width: 15rem;
   min-width: 15rem;
-  padding-bottom: $spacer * 6;
+  height: 100%;
 
   #targetsSidebarPanel {
     right: 100%;
@@ -55,6 +64,10 @@
       #targetsSidebarHeader {
         font-weight: 200;
       }
+    }
+
+    .card-body {
+      margin-bottom: $spacer * 8;
     }
 
     .card-body {
@@ -79,4 +92,5 @@
 
 [draggable='true'] {
   -webkit-user-drag: element;
+  cursor: -webkit-grab;
 }

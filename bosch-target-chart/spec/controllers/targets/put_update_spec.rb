@@ -6,7 +6,9 @@ RSpec.describe TargetsController, type: :controller do
 
   describe "PUT #update" do
     before :each do
-      @target = FactoryBot.create(:target)
+      @department = FactoryBot.create(:department)
+      @chart      = FactoryBot.create(:chart, department: @department)
+      @target     = FactoryBot.create(:target, department: @department)
     end
 
     context 'target is valid' do
@@ -19,6 +21,10 @@ RSpec.describe TargetsController, type: :controller do
 
       it 'should assign @target to the target' do
         expect(assigns(:target)).to eq(@target)
+      end
+
+      it 'should assign @chart to the correct chart' do
+        expect(assigns(:chart)).to eq(@chart)
       end
 
       it 'should update the attribute' do
@@ -50,6 +56,10 @@ RSpec.describe TargetsController, type: :controller do
         expect(assigns(:target)).to eq(@target)
       end
 
+      it 'should assign @chart to the correct chart' do
+        expect(assigns(:chart)).to eq(@chart)
+      end
+      
       it 'should not update the target' do
         name = @target.name
         expect(@target.reload.name).to eq(name)
