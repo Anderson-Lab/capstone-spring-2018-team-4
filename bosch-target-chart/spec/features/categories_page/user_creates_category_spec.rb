@@ -17,7 +17,7 @@ RSpec.describe "User views the Categories page", js: true do
     fill_in 'category_name', with: 'Cat Category'
     select I18n.t(:categories)[:chart_colors].values.sample, from: 'category_color'
     attach_file I18n.t(:categories)[:fields][:icon], Rails.root + "spec/example_files/default_category_icon.png"
-    click_button 'Submit'
+    click_button I18n.t(:actions)[:submit]
     wait_for_ajax
 
     expect(Category.count).to eq(1)
