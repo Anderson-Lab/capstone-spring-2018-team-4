@@ -1,4 +1,4 @@
-.container{ id: "target#{target.id}Indicators" }
+.container.target-indicators{ id: "target#{target.id}Indicators" }
   .row.text-center
     - target.indicators.each do |indicator|
       = render 'indicators/indicator', indicator: indicator

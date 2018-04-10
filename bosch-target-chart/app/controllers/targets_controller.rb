@@ -22,6 +22,7 @@ class TargetsController < ApplicationController
 
   def update
     @target = Target.find(params[:id])
+    @chart  = @target.department.charts.for_year(@target.year).first
     
     if @target.update_attributes(target_params)
       assign_attribute_and_value
@@ -32,6 +33,7 @@ class TargetsController < ApplicationController
 
   def destroy
     @target     = Target.find(params[:id])
+    @chart      = @target.department.charts.for_year(@target.year).first
     @department = @target.department
     @year       = @target.year
 

@@ -1,2 +1,2 @@
 .container.d-flex.justify-content-center.align-items-center.p-0{ id: "target#{target.id}Unit" }
-  = link_to raw("#{target.unit}<br>(#{target.unit_type})"), 'javascript:void(0)', class: 'text-center target-unit', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }
+  = link_to raw("#{target.unit}<br>(#{target.unit_type})"), 'javascript:void(0)', class: 'text-center target-unit text-center', role: 'button', tabindex: 0, data: { toggle: 'popover', container: 'body', placement: 'top', trigger: 'manual', animation: 'false', html: 'true', content: render('targets/forms/unit_form', target: target) }

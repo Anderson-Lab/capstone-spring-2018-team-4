@@ -6,7 +6,10 @@ RSpec.describe IndicatorsController, type: :controller do
 
   describe "DELETE #destroy" do
     before :each do
-      @indicator = FactoryBot.create(:indicator)
+      @department = FactoryBot.create(:department)
+      @chart      = FactoryBot.create(:chart, department: @department)
+      @target     = FactoryBot.create(:target, department: @department)
+      @indicator  = FactoryBot.create(:indicator, target: @target)
 
       delete :destroy, params: { id: @indicator.id }, format: :js
     end
@@ -19,6 +22,10 @@ RSpec.describe IndicatorsController, type: :controller do
       expect(assigns(:target)).to eq(@indicator.target)
     end
 
+    it 'should assign @chart to the correct chart' do
+      expect(assigns(:chart)).to eq(@chart)
+    end
+      
     it 'should destroy the target' do
       expect(Indicator.count).to eq(0)
     end

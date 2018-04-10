@@ -13,7 +13,7 @@ RSpec.describe "User starts a new year", js: true do
     context 'and user starts the current year' do
       it 'should redirect to the Dashboard for the current year' do
         @year       = Time.now.year
-        @department = FactoryBot.create(:department, name: 'Departed')
+        @department = FactoryBot.create(:department, abbreviation: 'Departed')
 
         visit dashboard_path
 
@@ -21,14 +21,14 @@ RSpec.describe "User starts a new year", js: true do
 
         expect(page).to have_current_path(dashboard_path(year: @year))
         expect(page).to have_content(I18n.t('charts.plant_chart.header', chart_name: I18n.t(:charts)[:plant_chart][:default_name], year: @year))
-        expect(page).to have_content(I18n.t('charts.department_chart.header', department: @department.name, chart_name: I18n.t(:charts)[:department_chart][:default_name], year: @year))
+        expect(page).to have_content(I18n.t('charts.department_chart.header', department: @department.abbreviation, chart_name: I18n.t(:charts)[:department_chart][:default_name], year: @year))
       end
     end
   end
 
   it 'should redirect to the Dashboard for the new year' do
     @year       = Time.now.year
-    @department = FactoryBot.create(:department, name: 'Departed')
+    @department = FactoryBot.create(:department, abbreviation: 'Departed')
                   FactoryBot.create(:chart, name: 'Uncharted', year: @year)
                   FactoryBot.create(:chart, department: @department, name: 'Chartmander', year: @year)
 
@@ -42,6 +42,6 @@ RSpec.describe "User starts a new year", js: true do
 
     expect(page).to have_current_path(dashboard_path(year: @year + 1))
     expect(page).to have_content(I18n.t('charts.plant_chart.header', chart_name: 'Uncharted', year: @year + 1))
-    expect(page).to have_content(I18n.t('charts.department_chart.header', department: @department.name, chart_name: 'Chartmander', year: @year + 1))
+    expect(page).to have_content(I18n.t('charts.department_chart.header', department: @department.abbreviation, chart_name: 'Chartmander', year: @year + 1))
   end
 end
