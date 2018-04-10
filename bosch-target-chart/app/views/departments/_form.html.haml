@@ -8,7 +8,7 @@
     = f.text_field :abbreviation, class: 'form-control'
   = f.fields_for :charts, chart do |chart_form|
     .form-group
-      = chart_form.label :name, t(:charts)[:fields][:name]
+      = chart_form.label :name, t(:charts)[:fields][:name], class: 'required'
       = chart_form.text_field :name, class: 'form-control'
 .modal-footer
   %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal'} }
