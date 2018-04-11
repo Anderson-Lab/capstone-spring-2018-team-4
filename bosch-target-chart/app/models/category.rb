@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   has_many :targets
-  has_attached_file :icon, default_url: ActionController::Base.helpers.asset_path("categories/blank_category_icon.png")
+  has_attached_file :icon, default_url: "categories/blank_category_icon.png"
 
   COLOR_HEX_VALUES_HASH = HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/colors.yml"))[:chart_colors]
 
