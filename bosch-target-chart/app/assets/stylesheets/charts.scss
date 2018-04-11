@@ -11,8 +11,24 @@
 }
 
 .chart-target {
-  flex: 0 0 20%;
-  max-width: 20%;
+  @media(min-width:768px) {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  @media(max-width:767px) {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .remove-chart-target {
+    text-decoration: none !important;
+    line-height: 50%;
+
+    &:focus {
+      outline: 1px dotted theme-color("muted");
+    }
+  }
 }
 
 #yearSelectContainer {

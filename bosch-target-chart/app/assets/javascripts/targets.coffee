@@ -29,7 +29,7 @@ $ ->
       closeOnConfirm: true
     }, ->
       $.ajax
-        type: 'delete'
+        type: 'DELETE'
         url: "/targets/#{target_id}.js"
 
 (exports ? this).initializePopovers = () ->
