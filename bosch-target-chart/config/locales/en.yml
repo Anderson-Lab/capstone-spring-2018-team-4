@@ -27,6 +27,10 @@ en:
       header: "There are no charts for %{year}"
       start_button: "Create Charts for %{year}"
 
+  dropdown:
+    yearSelectButton: "Select a Year"
+
+
   categories:
     manage_categories: 'Manage Categories'
     new: 'New Category'
