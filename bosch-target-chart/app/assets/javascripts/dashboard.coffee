@@ -15,10 +15,12 @@ $ ->
       $('#targetsSidebar').css('top', '')
 
 showSidebar = () ->
+  $('#openTargetsSidebarButton').tooltip('hide')
   $('#openTargetsSidebarButton').fadeOut 'fast', ->
     $('#targetsSidebarPanel').animate {right: '0%'}, 250
 
 hideSidebar = () ->
+  $('#closeTargetsSidebarButton').tooltip('hide')
   $('#targetsSidebarPanel').animate {right: '100%'}, 250, ->
     $('#openTargetsSidebarButton').fadeIn 'fast'
 
