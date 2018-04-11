@@ -1,0 +1,13 @@
+current directory: /home/ec2-user/capstone-spring-2018-team-4/bosch-target-chart/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+/home/ec2-user/.rvm/rubies/ruby-2.4.3/bin/ruby -r ./siteconf20180411-6879-11x8b9x.rb extconf.rb
+creating Makefile
+
+current directory: /home/ec2-user/capstone-spring-2018-team-4/bosch-target-chart/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /home/ec2-user/capstone-spring-2018-team-4/bosch-target-chart/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /home/ec2-user/capstone-spring-2018-team-4/bosch-target-chart/vendor/bundle/ruby/2.4.0/gems/json-2.1.0/ext/json
+make "DESTDIR=" install
