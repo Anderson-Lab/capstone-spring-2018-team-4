@@ -14,6 +14,27 @@ $ ->
     else if $(window).scrollTop() < $('.banner').height()
       $('#targetsSidebar').css('top', '')
 
+  $(document).on 'click', '.remove-chart-target', ->
+    target_id = $(this).data('target-id')
+    chart_id  = $(this).data('chart-id')
+
+    swal {
+      title: I18n.charts.targets.delete_header
+      text: I18n.charts.targets.delete_confirm
+      type: 'warning'
+      showCancelButton: true
+      closeOnConfirm: true
+    }, ->
+      # Have to use POST on a DELETE request for older browsers (including for Specs)
+      # See https://github.com/teampoltergeist/poltergeist/issues/532
+      $.ajax
+        type: "POST"
+        url: "/chart_target.js"
+        data:
+          _method: "DELETE"
+          target_id: target_id
+          chart_id: chart_id
+
 showSidebar = () ->
   $('#openTargetsSidebarButton').tooltip('hide')
   $('#openTargetsSidebarButton').fadeOut 'fast', ->
@@ -70,7 +91,7 @@ department_id = null
 
   $.ajax
     method: "POST"
-    url: "/chart_targets"
+    url: "/chart_target.js"
     data:
       chart_id: chart_id
       target_id: target_id

@@ -1,7 +1,8 @@
-.col-md-12.row
-  .col-md-2.order-md-last.px-0.d-flex.align-items-center
-    = link_to t(:categories)[:new], new_category_path, id: 'newCategory', class: 'btn btn-success btn-block', remote: true
-  .col-md-10.px-0
-    %h1
-      = t(:categories)[:manage_categories]
+.container
+  .row
+    .col-md-2.order-md-last.px-0.d-flex.align-items-center
+      = link_to t(:categories)[:new], new_category_path, id: 'newCategory', class: 'btn btn-success btn-block', remote: true, ondragstart: "return false"
+    .col-md-10.px-0
+      %h1
+        = t(:categories)[:manage_categories]
 = render 'categories/categories'
