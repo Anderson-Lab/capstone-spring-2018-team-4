@@ -1,24 +1,24 @@
 %aside.position-fixed.d-none.d-lg-block#targetsSidebar
-  %button.btn.btn-light.ml-2.mt-2#openTargetsSidebarButton{ title: t(:targets)[:sidebar][:tooltips][:show_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
+  %button.btn.btn-light.ml-2.mt-2#openTargetsSidebarButton{ tabindex: -1, title: t(:targets)[:sidebar][:tooltips][:show_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
     = fa_icon('chevron-right')
   .card.rounded-0#targetsSidebarPanel
     .card-header.rounded-0
       %h2.d-flex.align-items-center.mb-0.p-2#targetsSidebarHeader
         %span.mr-auto
           = t(:targets)[:sidebar][:header]
-        %button.btn.btn-light.ml-5#closeTargetsSidebarButton{ title: t(:targets)[:sidebar][:tooltips][:hide_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
+        %button.btn.btn-light.ml-5#closeTargetsSidebarButton{ tabindex: -1, title: t(:targets)[:sidebar][:tooltips][:hide_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
           = fa_icon('chevron-left')
     .card-body.pt-2.px-0
       - Department.all.each do |department|
         .targets-sidebar-department
           .targets-sidebar-department-header.px-2
-            %button.btn.btn-link.p-0{ data: { toggle: 'collapse', target: "#department#{department.id}Targets" } }
+            %button.btn.btn-link.p-0{ tabindex: -1, data: { toggle: 'collapse', target: "#department#{department.id}Targets" } }
               %h2.mb-0
                 = department.name
           %ul.collapse.list-unstyled.mb-0{ id: "department#{department.id}Targets" }
             - department.targets.for_year(year).with_indicators.each do |target|
               %li
-                = link_to 'javascript:void(0)', id: "target#{target.id}Draggable", class: 'target-draggable d-flex bg-white px-2', draggable: true, ondragstart: "dragTargetToChart(event)", ondragend: "endDragTargetToChart(event)", data: { target_id: target.id, department_id: department.id } do
+                = link_to 'javascript:void(0)', id: "target#{target.id}Draggable", class: 'target-draggable d-flex bg-white pl-3 pr-2', tabindex: -1, draggable: true, ondragstart: "dragTargetToChart(event)", ondragend: "endDragTargetToChart(event)", data: { target_id: target.id, department_id: department.id } do
                   .container
                     .row
                       .col-md-9.pl-0
@@ -28,3 +28,7 @@
                           = targets_sidebar_indicators(indicator)
                         - (Target::MAX_INDICATORS - target.indicators.length).times do
                           = targets_sidebar_indicators
+            - if department.targets.for_year(year).with_indicators.none?
+              %li
+                %span.d-flex.pl-3.pr-2
+                  = t(:departments)[:no_targets]

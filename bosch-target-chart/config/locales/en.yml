@@ -30,6 +30,9 @@ en:
       name: "Chart Name"
     errors:
       name: "Name can't be blank"
+    targets:
+      delete_header: "Remove Target from Chart"
+      delete_confirm: "Are you sure?"
 
   categories:
     manage_categories: 'Manage Categories'
@@ -66,6 +69,7 @@ en:
     new_header: "Create a New Department"
     fields:
       name: "Name"
+    no_targets: "No targets to show"
 
   indicators:
     delete_header: "Delete Stop Light"

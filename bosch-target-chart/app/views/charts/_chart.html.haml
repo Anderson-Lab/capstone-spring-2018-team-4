@@ -6,7 +6,7 @@
           - if header_for == 'show_department'
             = link_to t(:departments)[:edit], edit_department_path(department.id, year: year), id: 'editDepartment', class: 'btn btn-block btn-warning float-right', remote: true
           - else
-            = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-block btn-info float-right'
+            = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-block btn-info float-right', ondragstart: 'return false'
         .col-md-2.order-md-last.d-flex.align-items-center.pr-0#yearSelectContainer
           - department ||= nil
           = render 'charts/year_dropdown', year: year, department: department
