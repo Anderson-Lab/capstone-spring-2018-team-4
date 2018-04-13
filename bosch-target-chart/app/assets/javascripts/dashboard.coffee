@@ -4,6 +4,13 @@ $ ->
   # Toggle tooltips
   $('[data-toggle=tooltip]').tooltip()
 
+  $(window).scroll ->
+    if $(window).scrollTop() > $('.banner').height()
+      $('#targetsSidebar').css('top', 0)
+    else if $(window).scrollTop() < $('.banner').height()
+      $('#targetsSidebar').css('top', '')
+    setSidebarHeight()
+
   $(document).on 'click', '#openTargetsSidebarButton', ->
     showSidebar()
 
@@ -33,16 +40,11 @@ $ ->
 
 (exports ? this).setSidebarHeight = () ->
   # Calculate the height of the Targets sidebar
-  banner_height = $('.banner').height() || 0
-  footer_height = $('.footer').height() || 0
-  $('#targetsSidebar').css('height', "calc(100% - #{banner_height + footer_height}px")
-
-(exports ? this).showSidebar = () ->
-  $(window).scroll ->
-    if $(window).scrollTop() > $('.banner').height()
-      $('#targetsSidebar').css('top', 0)
-    else if $(window).scrollTop() < $('.banner').height()
-      $('#targetsSidebar').css('top', '')
+  if $(window).scrollTop() > $('.banner').height()
+    $('#targetsSidebar').css('height', "100%")
+  else if $(window).scrollTop < $('.banner').height()
+    banner_height = $('.banner').height() || 0
+    $('#targetsSidebar').css('height', "calc(100% - #{banner_height}px")
 
 showSidebar = () ->
   $('#openTargetsSidebarButton').tooltip('hide')

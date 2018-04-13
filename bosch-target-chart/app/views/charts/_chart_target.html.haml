@@ -2,9 +2,9 @@
   .card
     .card-body.p-1.d-flex.flex-column
       .target-name
-        %h5.card-title.m-0
+        %h5.card-title.d-flex.align-items-start.justify-content-between.m-0
           = target.name
-          %button.btn.btn-link.text-muted.pull-right.font-weight-bold.p-0.remove-chart-target{ data: { target_id: target.id, chart_id: chart.id } } &times;
+          %button.btn.btn-link.d-none.d-md-block.d-md-inline.text-muted.pull-right.font-weight-bold.p-0.remove-chart-target{ data: { target_id: target.id, chart_id: chart.id } } &times;
       .container.target-indicators
         .row.text-center
           - target.indicators.each do |indicator|
