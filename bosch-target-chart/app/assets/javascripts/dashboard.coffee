@@ -10,19 +10,6 @@ $ ->
   $(document).on 'click', '#closeTargetsSidebarButton', ->
     hideSidebar()
 
-(exports ? this).setSidebarHeight = () ->
-  # Calculate the height of the Targets sidebar
-  banner_height = $('.banner').height() || 0
-  footer_height = $('.footer').height() || 0
-  $('#targetsSidebar').css('height', "calc(100% - #{banner_height + footer_height}px")
-
-(exports ? this).showSidebar = () ->
-  $(window).scroll ->
-    if $(window).scrollTop() > $('.banner').height()
-      $('#targetsSidebar').css('top', 0)
-    else if $(window).scrollTop() < $('.banner').height()
-      $('#targetsSidebar').css('top', '')
-
   $(document).on 'click', '.remove-chart-target', ->
     target_id = $(this).data('target-id')
     chart_id  = $(this).data('chart-id')
@@ -43,6 +30,19 @@ $ ->
           _method: "DELETE"
           target_id: target_id
           chart_id: chart_id
+
+(exports ? this).setSidebarHeight = () ->
+  # Calculate the height of the Targets sidebar
+  banner_height = $('.banner').height() || 0
+  footer_height = $('.footer').height() || 0
+  $('#targetsSidebar').css('height', "calc(100% - #{banner_height + footer_height}px")
+
+(exports ? this).showSidebar = () ->
+  $(window).scroll ->
+    if $(window).scrollTop() > $('.banner').height()
+      $('#targetsSidebar').css('top', 0)
+    else if $(window).scrollTop() < $('.banner').height()
+      $('#targetsSidebar').css('top', '')
 
 showSidebar = () ->
   $('#openTargetsSidebarButton').tooltip('hide')
