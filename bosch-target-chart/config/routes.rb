@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :charts, only: [:create]
   resource :chart_target, only: [:create, :destroy]
-  resources :departments, only: [:index, :show]
+  resources :departments, only: [:show, :new, :create, :edit, :update]
   resources :indicators, only: [:create, :update, :destroy]
   resources :targets, only: [:new, :create, :update, :destroy]
   resources :categories, only: [:index, :new, :create, :edit, :update]

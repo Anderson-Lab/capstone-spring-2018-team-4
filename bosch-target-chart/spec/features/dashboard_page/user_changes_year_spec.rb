@@ -22,6 +22,14 @@ RSpec.describe "User changes the year", js: true do
 
       expect(page).to have_selector('.chart-header', text: 'Char har hart')
     end
+
+    it 'should not show the Add Department button' do
+      find('#yearSelectButton').click
+      find('a.dropdown-item', text: Time.now.year - 1).click
+      wait_for_ajax
+
+      expect(page).to_not have_selector('#addDepartment')
+    end
   end
 
   context 'to a year with no charts' do
@@ -31,6 +39,14 @@ RSpec.describe "User changes the year", js: true do
       wait_for_ajax
 
       expect(page).to have_content(I18n.t('charts.new_year.header', year: Time.now.year + 1))
+    end
+
+    it 'should not show the Add Department button' do
+      find('#yearSelectButton').click
+      find('a.dropdown-item', text: Time.now.year + 1).click
+      wait_for_ajax
+
+      expect(page).to_not have_selector('#addDepartment')
     end
   end
 end
