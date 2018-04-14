@@ -1,8 +1,6 @@
 en:
   site_header: "Target Charts"
 
-  button: "Close"
-
   navigation_links:
     login: "LOGIN"
     register: "REGISTER"
