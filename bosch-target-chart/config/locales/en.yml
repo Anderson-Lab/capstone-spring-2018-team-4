@@ -26,6 +26,13 @@ en:
     new_year:
       header: "There are no charts for %{year}"
       start_button: "Create Charts for %{year}"
+    fields:
+      name: "Chart Name"
+    errors:
+      name: "Name can't be blank"
+    targets:
+      delete_header: "Remove Target from Chart"
+      delete_confirm: "Are you sure?"
 
   dropdown:
     yearSelectButton: "Select a Year"
@@ -60,6 +67,13 @@ en:
 
   departments:
     header: "BOSCH Departments"
+    edit: "Edit Department"
+    edit_header: "Edit %{department_name}"
+    new: "Add Department"
+    new_header: "Create a New Department"
+    fields:
+      name: "Name"
+    no_targets: "No targets to show"
 
   indicators:
     delete_header: "Delete Stop Light"

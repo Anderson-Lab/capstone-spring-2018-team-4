@@ -1,13 +1,30 @@
+#newCategory {
+  @media(max-width:767px) {
+    margin-bottom: $spacer;
+  }
+}
+
 .category-row {
   &:not(:last-child) {
     border-bottom: .25rem solid white;
   }
-}
 
-.category-icon {
-  padding: 8px;
-  height: 56px;
-  width: 56px;
+  .category-icon {
+    padding: 8px;
+    height: 56px;
+    width: 56px;
+  }
+
+  .category-buttons-container {
+    @media(min-width:768px) {
+      justify-content: flex-end;
+    }
+
+    @media(max-width: 767px) {
+      justify-content: center;
+      padding-right: 0;
+    }
+  }
 }
 
 .icon-input-row {
