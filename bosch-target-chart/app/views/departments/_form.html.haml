@@ -1,0 +1,16 @@
+.modal-body
+  #formErrors
+  .form-group
+    = f.label :name, t(:departments)[:fields][:name], class: 'required'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :abbreviation, t(:departments)[:fields][:abbreviation]
+    = f.text_field :abbreviation, class: 'form-control'
+  = f.fields_for :charts, chart do |chart_form|
+    .form-group
+      = chart_form.label :name, t(:charts)[:fields][:name], class: 'required'
+      = chart_form.text_field :name, class: 'form-control'
+.modal-footer
+  %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal'} }
+    = t(:actions)[:close]
+  = f.submit t(:actions)[:submit], class: 'btn btn-primary'

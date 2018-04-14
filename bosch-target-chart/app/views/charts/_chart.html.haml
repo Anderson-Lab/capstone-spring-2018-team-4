@@ -1,14 +1,18 @@
-.container
-  .row
-    - if show_year_dropdown
-      .col-md-3.order-md-last.d-flex.align-items-center.justify-content-end#manageCategoriesContainer
-        = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right'
-      .col-md-2.order-md-last.d-flex.align-items-center.pr-0#yearSelectContainer
-        - department ||= nil
-        = render 'charts/year_dropdown', year: year, department: department
-      %h1.chart-header.col-md-7.pl-0.mb-0
-        = header
-    - else
-      %h1.chart-header.col-md-12.pl-0.mb-0
-        = link_to header, department_path(chart.department, year: year)
-= render 'charts/chart_body', chart: chart
+.chart-container
+  .container
+    .row
+      - if header_for == 'plant_chart' || header_for == 'show_department'
+        .col-md-2.order-md-last.d-flex.align-items-center.justify-content-end#manageCategoriesContainer
+          - if header_for == 'show_department'
+            = link_to t(:departments)[:edit], edit_department_path(department.id, year: year), id: 'editDepartment', class: 'btn btn-block btn-warning float-right', remote: true
+          - else
+            = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-block btn-info float-right', ondragstart: 'return false'
+        .col-md-2.order-md-last.d-flex.align-items-center.pr-0#yearSelectContainer
+          - department ||= nil
+          = render 'charts/year_dropdown', year: year, department: department
+        %h1.chart-header.col-md-8.pl-0.mb-0
+          = header
+      - else
+        %h1.chart-header.col-md-12.pl-0.mb-0
+          = link_to header, department_path(chart.department, year: year)
+  = render 'charts/chart_body', chart: chart
