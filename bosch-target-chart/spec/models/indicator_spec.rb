@@ -38,6 +38,13 @@ RSpec.describe Indicator, type: :model do
           expect(indicator_1.is_positive?).to eq(false)
           expect(indicator_2.is_positive?).to eq(true)
         end
+
+        it 'should include "="' do
+          target    = FactoryBot.create(:target, :numerical, compare_to_value: 25, rule: Target::RULES[0])
+          indicator = FactoryBot.create(:indicator, target: target, value: 25)
+
+          expect(indicator.is_positive?).to eq(true)
+        end
       end
 
       context 'target is qualitative' do
@@ -97,6 +104,13 @@ RSpec.describe Indicator, type: :model do
 
           expect(indicator_1.is_negative?).to eq(true)
           expect(indicator_2.is_negative?).to eq(false)
+        end
+
+        it 'should include "="' do
+          target    = FactoryBot.create(:target, :numerical, compare_to_value: 25, rule: Target::RULES[1])
+          indicator = FactoryBot.create(:indicator, target: target, value: 25)
+
+          expect(indicator.is_positive?).to eq(true)
         end
       end
 
