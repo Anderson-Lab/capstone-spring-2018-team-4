@@ -6,34 +6,68 @@ RSpec.describe TargetsController, type: :controller do
 
   describe "POST #create" do
     context 'with valid inputs' do
-      before :each do
-        @target = FactoryBot.build(:target, :numerical)
+      context 'on a numerical target' do
+        before :each do
+          @target = FactoryBot.build(:target, :numerical)
 
-        post :create, params: {
-          target: {
-            name: @target.name,
-            department_id: @target.department_id,
-            category_id: @target.category_id,
-            unit: @target.unit,
-            unit_type: @target.unit_type,
-            rule: @target.rule,
-            compare_to_value: @target.compare_to_value,
-            comments: @target.comments,
-            year: @target.year
-          }
-        }, format: :js
+          post :create, params: {
+            target: {
+              name: @target.name,
+              department_id: @target.department_id,
+              category_id: @target.category_id,
+              unit: @target.unit,
+              unit_type: @target.unit_type,
+              rule: @target.rule,
+              compare_to_value: @target.compare_to_value,
+              comments: @target.comments,
+              year: @target.year
+            }
+          }, format: :js
+        end
+
+        it { is_expected.to respond_with :ok }
+
+        it { is_expected.to render_template :create }
+
+        it 'should assign @year' do
+          expect(assigns(:year)).to eq(@target.year)
+        end
+
+        it 'should save the target' do
+          expect(Target.count).to eq(1)
+        end
       end
 
-      it { is_expected.to respond_with :ok }
+      context 'on a qualitative target' do
+        before :each do
+          @target = FactoryBot.build(:target, :qualitative)
 
-      it { is_expected.to render_template :create }
+          post :create, params: {
+            target: {
+              name: @target.name,
+              department_id: @target.department_id,
+              category_id: @target.category_id,
+              unit: @target.unit,
+              unit_type: @target.unit_type,
+              rule: @target.rule,
+              compare_to_value: @target.compare_to_value,
+              comments: @target.comments,
+              year: @target.year
+            }
+          }, format: :js
+        end
 
-      it 'should assign @year' do
-        expect(assigns(:year)).to eq(@target.year)
-      end
+        it { is_expected.to respond_with :ok }
 
-      it 'should save the target' do
-        expect(Target.count).to eq(1)
+        it { is_expected.to render_template :create }
+
+        it 'should assign @year' do
+          expect(assigns(:year)).to eq(@target.year)
+        end
+
+        it 'should save the target' do
+          expect(Target.count).to eq(1)
+        end
       end
     end
 
