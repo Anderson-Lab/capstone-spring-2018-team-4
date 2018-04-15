@@ -8,6 +8,7 @@ end
 gem 'bootstrap', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.2' # Use CoffeeScript for .coffee assets and views
 gem 'devise' # Used for login authentication
+gem 'dotenv-rails' # Used for environment configuration
 gem 'font-awesome-rails' # Replace Bootstrap 4's missing glyphicons
 gem 'haml-rails' # Use HAML for .haml views
 gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease
@@ -18,11 +19,11 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'remotipart'
 gem 'sass-rails', '~> 5.0' # Use SCSS for .scss stylesheets
+gem 'uglifier' # For asset compilation
 gem 'turbolinks', '~> 5'
 
 group :development, :test do
   gem 'faker' # Allow us to create fake data for tests
-  gem 'dotenv-rails'
   gem 'pry-byebug' # Use pry and byebug commands for debugging
   gem 'rspec-rails' # Use the rspec test framework
 end
