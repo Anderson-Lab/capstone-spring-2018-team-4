@@ -15,7 +15,7 @@ class Indicator < ApplicationRecord
     if self.target.is_qualitative?
       self.color == Indicator::COLORS[0]
     else
-      eval("!(#{self.difference} #{self.target.codified_rule} 0)")
+      eval("0 #{self.target.codified_rule} #{self.difference}")
     end
   end
 
