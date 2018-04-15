@@ -50,6 +50,7 @@ RSpec.describe Target, type: :model do
       end
 
       context 'rule changed' do
+        before { allow(subject).to receive(:new_record?).and_return(false) }
         before { allow(subject).to receive(:rule_changed?).and_return(true) }
         it { is_expected.to validate_presence_of(:rule) }
         it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
