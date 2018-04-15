@@ -1,6 +1,6 @@
-%aside.position-fixed.d-none.d-lg-block#targetsSidebar
-  %button.btn.btn-light.ml-2.mt-2#openTargetsSidebarButton{ tabindex: -1, title: t(:targets)[:sidebar][:tooltips][:show_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
-    = fa_icon('chevron-right')
+%button.btn.btn-light.position-fixed.ml-2.mt-2#openTargetsSidebarButton{ tabindex: -1, title: t(:targets)[:sidebar][:tooltips][:show_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
+  = fa_icon('chevron-right')
+%aside.position-fixed#targetsSidebar
   .card.rounded-0#targetsSidebarPanel
     .card-header.rounded-0
       %h2.d-flex.align-items-center.mb-0.p-2#targetsSidebarHeader
