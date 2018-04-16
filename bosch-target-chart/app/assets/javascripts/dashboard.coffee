@@ -6,8 +6,10 @@ $ ->
 
   $(window).scroll ->
     if $(window).scrollTop() > $('.banner').height()
+      $('#openTargetsSidebarButton').css('top', 0)
       $('#targetsSidebar').css('top', 0)
     else if $(window).scrollTop() < $('.banner').height()
+      $('#openTargetsSidebarButton').css('top', '')
       $('#targetsSidebar').css('top', '')
     setSidebarHeight()
 
