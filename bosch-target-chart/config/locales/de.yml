@@ -1,7 +1,7 @@
-en:
+de:
   i18n:
     language:
-      name: "English"
+      name: "Deutsch"
 
   site_header: "Target Charts"
 
@@ -37,7 +37,6 @@ en:
     targets:
       delete_header: "Remove Target from Chart"
       delete_confirm: "Are you sure?"
-    year_select: "Select a Year"
 
   categories:
     manage_categories: 'Manage Categories'
