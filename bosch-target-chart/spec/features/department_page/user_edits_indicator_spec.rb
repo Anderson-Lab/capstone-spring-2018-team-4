@@ -17,7 +17,7 @@ RSpec.describe "User edits an indicator", js: true do
       @target     = FactoryBot.create(:target, :numerical, department: @department, compare_to_value: 50)
       @indicator  = FactoryBot.create(:indicator, target: @target, value: 0)
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should update the value' do
@@ -35,7 +35,7 @@ RSpec.describe "User edits an indicator", js: true do
       @target     = FactoryBot.create(:target, department: @department)
       @indicator  = FactoryBot.create(:indicator, target: @target, color: Indicator::COLORS[0])
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should update the color' do
@@ -55,7 +55,7 @@ RSpec.describe "User edits an indicator", js: true do
 
       @chart.targets << @target
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should update the target\'s indicator' do

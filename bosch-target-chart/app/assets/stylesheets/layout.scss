@@ -44,19 +44,12 @@ html {
         .nav-link {
           font-size: 1.5rem;
           font-weight: 300;
+          padding-top: 0;
+          padding-bottom: 0;
+          padding-right: 0 !important;
 
-          &:not(#selectLocale):not(#logoutLink):not(#loginLink) {
-            padding: 0 1.2rem !important;
-          }
-
-          &#selectLocale {
-            padding-right: 1.2rem !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-          }
-
-          &#logoutLink, &#loginLink {
-            padding: 0 0 0 1.2rem !important;
+          &:not(#selectLocale) {
+            padding-left: 1.2rem !important;
           }
 
           #localesMenu {

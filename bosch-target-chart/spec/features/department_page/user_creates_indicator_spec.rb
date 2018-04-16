@@ -17,7 +17,7 @@ RSpec.describe "User creates an indicator", js: true do
       @target = FactoryBot.create(:target, :numerical, department: @department, 
                                   compare_to_value: 50, rule: Target::RULES[0])
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should create the indicator' do
@@ -38,7 +38,7 @@ RSpec.describe "User creates an indicator", js: true do
     before :each do
       @target = FactoryBot.create(:target, department: @department)
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should create the indicator' do
@@ -62,7 +62,7 @@ RSpec.describe "User creates an indicator", js: true do
 
       @chart.targets << @target
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should update the target with the new indicator' do

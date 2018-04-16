@@ -14,7 +14,7 @@ RSpec.describe "User deletes a target", js: true do
   end
 
   it 'should rerender the targets table' do
-    visit department_path(@department)
+    visit department_path(id: @department.id)
 
     execute_script("$('.d-none').removeClass('d-none')")
 
