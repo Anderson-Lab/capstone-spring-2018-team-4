@@ -23,7 +23,7 @@ RSpec.describe Target, type: :model do
     it { is_expected.to validate_inclusion_of(:unit_type).in_array(Target::UNIT_TYPES) }
 
     describe 'compare_to_value and rule' do
-      context 'is_qualitative' do
+      context 'new_record and is_qualitative' do
         before { allow(subject).to receive(:new_record?).and_return(true) }
         before { allow(subject).to receive(:is_numerical?).and_return(false) }
         it { is_expected.to_not validate_presence_of(:compare_to_value) }
@@ -50,6 +50,7 @@ RSpec.describe Target, type: :model do
       end
 
       context 'rule changed' do
+        before { allow(subject).to receive(:new_record?).and_return(false) }
         before { allow(subject).to receive(:rule_changed?).and_return(true) }
         it { is_expected.to validate_presence_of(:rule) }
         it { is_expected.to validate_inclusion_of(:rule).in_array(Target::RULES) }
