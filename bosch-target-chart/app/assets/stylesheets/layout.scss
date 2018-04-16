@@ -20,11 +20,11 @@ html {
         justify-content: flex-end;
       }
 
-      a {
+      a:not(.dropdown-item) {
         transition: color cubic-bezier(.38,.04,.35,.96) 400ms;
       }
 
-      a:not(#logoutLink):not(:hover):not(:active) {
+      a:not(#logoutLink):not(:hover):not(:active):not(.dropdown-item) {
         color: black !important;
       }
 
@@ -44,7 +44,24 @@ html {
         .nav-link {
           font-size: 1.5rem;
           font-weight: 300;
-          padding: 0 1.2rem !important;
+
+          &:not(#selectLocale):not(#logoutLink):not(#loginLink) {
+            padding: 0 1.2rem !important;
+          }
+
+          &#selectLocale {
+            padding-right: 1.2rem !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+          }
+
+          &#logoutLink, &#loginLink {
+            padding: 0 0 0 1.2rem !important;
+          }
+
+          #localesMenu {
+
+          }
         }
       }
 
@@ -119,7 +136,9 @@ html {
     }
 
     .dropdown-menu {
-      width: 100%;
+      &:not(#localesMenu) {
+        width: 100%;
+      }
 
       .dropdown-item.active, .dropdown-item:active {
         background: $theme_info;

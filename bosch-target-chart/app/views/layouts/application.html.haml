@@ -1,5 +1,5 @@
 !!!
-%html
+%html{ lang: locale }
   %head
     %title
       = t(:site_header)
@@ -7,6 +7,7 @@
     %meta{ name: 'viewport', content: 'width=device-width,initial-scale=1' }
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'application'
+    = favicon_link_tag
     :javascript
       window.I18n = #{current_translations.to_json.html_safe};
   %body
