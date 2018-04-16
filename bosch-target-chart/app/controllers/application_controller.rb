@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def after_sign_in_path_for(resource)
-    stored_location_for(resource) || super 
+    stored_location_for(resource) || dashboard_path
   end
 
   def set_locale
@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   private 
 
   def storable_location?
-    request.get? && is_navigational_format? && !devise_controller?
+    request.get? && is_navigational_format? && !devise_controller? && controller_name != 'home'
   end
 
   def store_user_location!

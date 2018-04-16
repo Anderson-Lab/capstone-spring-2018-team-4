@@ -4,7 +4,7 @@
 
 - unless indicator.new_record?
   = hidden_field_tag :indicator_id, indicator.id
-= hidden_field_tag :compare_to_value, indicator.target.compare_to_value
+= hidden_field_tag :compare_to_value, indicator.target.compare_to_value || 0.0
 = hidden_field_tag :rule, indicator.target.codified_rule
 = form_for indicator, url: path, method: method, remote: true, html: { id: id, autocomplete: 'off' } do |f|
   - if indicator.new_record?

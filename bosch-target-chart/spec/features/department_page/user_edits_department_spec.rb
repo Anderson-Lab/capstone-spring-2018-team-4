@@ -11,7 +11,7 @@ RSpec.describe "User changes the year", js: true do
     @department       = FactoryBot.create(:department)
     @chart            = FactoryBot.create(:chart, department: @department, name: 'Chartmander', year: Time.now.year)
 
-    visit department_path(@department)
+    visit department_path(id: @department.id)
   end
 
   it 'should update the department' do

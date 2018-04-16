@@ -15,7 +15,7 @@ RSpec.describe "User deletes an indicator", js: true do
   end
 
   it 'should delete the target' do
-    visit department_path(@department)
+    visit department_path(id: @department.id)
 
     first('.indicator').click
     find('.delete-indicator-button').click
@@ -30,7 +30,7 @@ RSpec.describe "User deletes an indicator", js: true do
     before :each do
       @chart.targets << @target
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
     end
 
     it 'should update the target\'s indicators' do
