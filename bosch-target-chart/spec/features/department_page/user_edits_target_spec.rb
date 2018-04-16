@@ -18,7 +18,7 @@ RSpec.describe "User edits a target", js: true do
 
   context 'name' do
     it 'should update name' do
-      visit department_path(@department)
+      visit department_path(id: @department.id)
       
       first("a.target-name").click
       fill_in 'target_name', with: 'Targetted'
@@ -32,7 +32,7 @@ RSpec.describe "User edits a target", js: true do
       it 'should update the target name' do
         @chart.targets << @target
 
-        visit department_path(@department)
+        visit department_path(id: @department.id)
 
         first("a.target-name").click
         fill_in 'target_name', with: 'Targetted'
@@ -48,7 +48,7 @@ RSpec.describe "User edits a target", js: true do
     it 'should update category' do
       @category = FactoryBot.create(:category, :no_icon)
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       first("a.target-category").click
       select @category.name, from: 'target_category_id'
@@ -63,7 +63,7 @@ RSpec.describe "User edits a target", js: true do
         @category = FactoryBot.create(:category, :no_icon)
         @chart.targets << @target
 
-        visit department_path(@department)
+        visit department_path(id: @department.id)
 
         first("a.target-category").click
         select @category.name, from: 'target_category_id'
@@ -77,7 +77,7 @@ RSpec.describe "User edits a target", js: true do
 
   context 'unit and unit type' do
     it 'should update unit' do
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       execute_script("$('.d-none').removeClass('d-none')")
 
@@ -90,7 +90,7 @@ RSpec.describe "User edits a target", js: true do
     end
 
     it 'should update unit_type' do
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       execute_script("$('.d-none').removeClass('d-none')")
 
@@ -105,7 +105,7 @@ RSpec.describe "User edits a target", js: true do
     it 'should reset indicators' do
       indicator = FactoryBot.create(:indicator, target: @target)
 
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       execute_script("$('.d-none').removeClass('d-none')")
 
@@ -124,7 +124,7 @@ RSpec.describe "User edits a target", js: true do
         indicator = FactoryBot.create(:indicator, target: @target, value: 200, color: nil)
         @chart.targets << @target
 
-        visit department_path(@department)
+        visit department_path(id: @department.id)
 
         execute_script("$('.d-none').removeClass('d-none')")
 
@@ -140,7 +140,7 @@ RSpec.describe "User edits a target", js: true do
 
   context 'compare_to_value' do
     it 'should update compare_to_value' do
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       execute_script("$('.d-none').removeClass('d-none')")
 
@@ -153,7 +153,7 @@ RSpec.describe "User edits a target", js: true do
     end
 
     it 'should update rule' do
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       execute_script("$('.d-none').removeClass('d-none')")
 
@@ -168,7 +168,7 @@ RSpec.describe "User edits a target", js: true do
     it 'should update indicators' do
       indicator = FactoryBot.create(:indicator, target: @target, value: 20)
       
-      visit department_path(@department)
+      visit department_path(id: @department.id)
 
       execute_script("$('.d-none').removeClass('d-none')")
 
@@ -185,7 +185,7 @@ RSpec.describe "User edits a target", js: true do
         indicator = FactoryBot.create(:indicator, target: @target, value: 20, color: nil)
         @chart.targets << @target
 
-        visit department_path(@department)
+        visit department_path(id: @department.id)
 
         execute_script("$('.d-none').removeClass('d-none')")
 

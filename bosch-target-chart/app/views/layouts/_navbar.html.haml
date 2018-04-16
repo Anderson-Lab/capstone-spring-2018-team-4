@@ -7,6 +7,12 @@
     = t(:site_header)
   .collapse.navbar-collapse#navbarLinks
     %ul.navbar-nav
+      %li.nav-item.dropdown
+        = link_to "#{I18n.name_for_locale(locale)} | #{locale.upcase}", 'javascript:void(0)', id: 'selectLocale', class: 'nav-link dropdown-toggle p-0', role: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }
+        .dropdown-menu#localesMenu{ aria: { labelledby: 'selectLocale' } }
+          - I18n.available_locales.each do |locale|
+            - if locale != I18n.locale
+              = link_to "#{I18n.name_for_locale(locale)} | #{locale.upcase}", { locale: locale }, class: ['dropdown-item', I18n.locale == locale ? 'selected' : ''], draggable: false
       - if current_user
         %li.nav-item
           = link_to t(:navigation_links)[:dashboard], dashboard_path, id: 'dashboardLink', class: 'nav-link', draggable: false

@@ -13,7 +13,7 @@ RSpec.describe "User changes the year", js: true do
     @chart_this_year  = FactoryBot.create(:chart, department: @department, name: 'Chartmander', year: Time.now.year)
     @target           = FactoryBot.create(:target, department: @department, year: @chart_last_year.year)
 
-    visit department_path(@department)
+    visit department_path(id: @department.id)
   end
 
   it 'should load the charts for the year' do

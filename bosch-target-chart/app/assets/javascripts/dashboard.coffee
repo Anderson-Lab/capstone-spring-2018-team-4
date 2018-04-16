@@ -6,8 +6,10 @@ $ ->
 
   $(window).scroll ->
     if $(window).scrollTop() > $('.banner').height()
+      $('#openTargetsSidebarButton').css('top', 0)
       $('#targetsSidebar').css('top', 0)
     else if $(window).scrollTop() < $('.banner').height()
+      $('#openTargetsSidebarButton').css('top', '')
       $('#targetsSidebar').css('top', '')
     setSidebarHeight()
 
@@ -49,11 +51,13 @@ $ ->
 showSidebar = () ->
   $('#openTargetsSidebarButton').tooltip('hide')
   $('#openTargetsSidebarButton').fadeOut 'fast', ->
+    $('#targetsSidebar').show()
     $('#targetsSidebarPanel').animate {right: '0%'}, 250
 
 hideSidebar = () ->
   $('#closeTargetsSidebarButton').tooltip('hide')
   $('#targetsSidebarPanel').animate {right: '100%'}, 250, ->
+    $('#targetsSidebar').hide()
     $('#openTargetsSidebarButton').fadeIn 'fast'
 
 ###################

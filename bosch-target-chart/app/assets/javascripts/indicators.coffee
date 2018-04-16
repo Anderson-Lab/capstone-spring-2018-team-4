@@ -21,14 +21,14 @@ $ ->
       
       $('#indicatorDifference').text(difference)
 
-      if eval("#{difference} #{rule} 0")
-        $('#indicatorDifference').removeClass('text-success').addClass('text-danger')
-        $('#indicatorIcon').removeClass('text-success').addClass('text-danger')
-        $('#indicatorIcon i').removeClass('fa-check-circle').addClass('fa-times-circle')
-      else
+      if eval("0 #{rule} #{difference}")
         $('#indicatorDifference').removeClass('text-danger').addClass('text-success')
         $('#indicatorIcon').removeClass('text-danger').addClass('text-success')
         $('#indicatorIcon i').removeClass('fa-times-circle').addClass('fa-check-circle')
+      else
+        $('#indicatorDifference').removeClass('text-success').addClass('text-danger')
+        $('#indicatorIcon').removeClass('text-success').addClass('text-danger')
+        $('#indicatorIcon i').removeClass('fa-check-circle').addClass('fa-times-circle')
 
   $(document).on 'change', '#indicator_color', ->
     color = $(this).find('option:selected').text()

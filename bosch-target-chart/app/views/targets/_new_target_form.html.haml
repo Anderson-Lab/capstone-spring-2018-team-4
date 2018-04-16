@@ -4,7 +4,7 @@
       .modal-header
         %h4.modal-title
           = t(:targets)[:new_header]
-        %button.close{ type: 'button', aria: { label: 'Close' }, data: { dismiss: 'modal' } }
+        %button.close{ type: 'button', aria: { label: t(:actions)[:close] }, data: { dismiss: 'modal' } }
           %span{ aria: { hidden: 'true' } } &times;
       .modal-body
         #formErrors

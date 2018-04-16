@@ -1,6 +1,6 @@
 .dropdown#yearSelect
   %button.btn.btn-block.btn-primary.dropdown-toggle#yearSelectButton{ type: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } }
-    = "Select a Year"
+    = t(:charts)[:year_select]
   .dropdown-menu{ aria: { labelledby: 'yearSelectButton' } }
     - Chart.years_for_select(department).each do |yr|
       - if controller_name == 'departments'
