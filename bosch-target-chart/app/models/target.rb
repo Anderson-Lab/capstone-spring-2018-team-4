@@ -24,7 +24,7 @@ class Target < ApplicationRecord
             if: Proc.new{ |t| (t.new_record? && t.is_numerical?) || t.compare_to_value_changed? }
   # Skip valiation if updating a different attribute
   validates :rule, presence: true, inclusion: { in: RULES },
-            if: Proc.new{ |t| (t.new_record? && t.is_numerical?) || t.rule_changed? }
+            if: Proc.new{ |t| (t.new_record? && t.is_numerical?) || (!t.new_record? && t.rule_changed?) }
   validates :year, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates_inclusion_of :unit_type, in: UNIT_TYPES
 

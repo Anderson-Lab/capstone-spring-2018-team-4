@@ -14,5 +14,11 @@ FactoryBot.define do
       compare_to_value { Random.rand(100) }
       rule             { Target::RULES.sample }
     end
+
+    trait :qualitative do
+      unit_type        { Target::UNIT_TYPES[1] }
+      compare_to_value { nil }
+      rule             { '' }
+    end
   end
 end
