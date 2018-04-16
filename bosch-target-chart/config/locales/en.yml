@@ -6,12 +6,10 @@ en:
   site_header: "Target Charts"
 
   navigation_links:
-    login: "LOGIN"
-    register: "REGISTER"
-    logout: "LOGOUT"
-    dashboard: "DASHBOARD"
-    about: "ABOUT"
-    contact: "CONTACT"
+    login: "Login"
+    register: "Register"
+    logout: "Logout"
+    dashboard: "Dashboard"
 
   actions:
     close: 'Close'
