@@ -67,4 +67,21 @@ RSpec.describe "User edits an indicator", js: true do
       expect(page).to have_selector(".chart-target.target-#{@target.id} .indicator.neutral-indicator")
     end
   end
+
+  it 'should update the sidebar' do
+    @target     = FactoryBot.create(:target, department: @department)
+    @indicator  = FactoryBot.create(:indicator, target: @target, color: Indicator::COLORS[0])
+
+    visit department_path(id: @department.id)
+
+    first("#target#{@target.id}Indicators .indicator").click
+    select Indicator::COLORS[1], from: 'indicator_color'
+    click_button I18n.t(:actions)[:submit]
+    wait_for_ajax
+
+    find('#openTargetsSidebarButton').click
+    find('.targets-sidebar-department-header h2', text: @department.name).click
+
+    expect(page).to have_selector('.target-draggable .fa-minus-circle')
+  end
 end

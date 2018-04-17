@@ -28,6 +28,22 @@ RSpec.describe "User edits a target", js: true do
       expect(@target.reload.name).to eq('Targetted')
     end
 
+    it 'should update the sidebar' do
+      FactoryBot.create(:indicator, target: @target)
+
+      visit department_path(id: @department.id)
+      
+      first("a.target-name").click
+      fill_in 'target_name', with: 'Targetted'
+      click_button I18n.t(:actions)[:submit]
+      wait_for_ajax
+
+      find('#openTargetsSidebarButton').click
+      find('.targets-sidebar-department-header h2', text: @department.name).click
+
+      expect(page).to have_selector('.target-draggable div', text: 'Targetted')
+    end
+
     context 'when the target is on department\'s chart' do
       it 'should update the target name' do
         @chart.targets << @target

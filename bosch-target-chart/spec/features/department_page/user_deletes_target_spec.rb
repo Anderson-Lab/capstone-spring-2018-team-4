@@ -25,4 +25,21 @@ RSpec.describe "User deletes a target", js: true do
     expect(page).to_not have_content(@target.name)
     expect(Target.count).to eq(0)
   end
+
+  it 'should update the sidebar' do
+    FactoryBot.create(:indicator, target: @target)
+    
+    visit department_path(id: @department.id)
+
+    execute_script("$('.d-none').removeClass('d-none')")
+
+    find('.delete-target-button').click
+    find('.sweet-alert.visible button.confirm').trigger('click')
+    wait_for_ajax
+
+    find('#openTargetsSidebarButton').click
+    find('.targets-sidebar-department-header h2', text: @department.name).click
+    
+    expect(page).to_not have_selector('.target-draggable div', text: @target.name)
+  end
 end
