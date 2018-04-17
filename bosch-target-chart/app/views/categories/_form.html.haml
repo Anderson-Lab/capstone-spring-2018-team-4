@@ -21,7 +21,7 @@
         = f.file_field :icon, accept: 'image/jpeg,image/jpg,image/png,image/gif', id: 'iconInput', class: 'px-0'
         %small.form-text.text-muted
           = t(:categories)[:fields][:icon_help_text]
-      = image_tag category.icon.url, id: 'iconPreview', class: 'category-icon border rounded'
+      = image_tag category.icon.url, id: 'iconPreview', class: 'category-preview border rounded'
 .modal-footer
   %button.btn.btn-secondary{ type: 'button', data: { dismiss: 'modal' } }
     = t(:actions)[:close]
