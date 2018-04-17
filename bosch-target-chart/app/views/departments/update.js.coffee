@@ -7,5 +7,6 @@ $('.chart-container').replaceWith("<%= j render 'charts/chart',
                                   year: @year,
                                   header_for: 'show_department',
                                   department: @department %>")
+$('#targetsSidebar').replaceWith("<%= j render 'layouts/targets_sidebar', year: @year %>")
 $('#modalContainer').modal('hide')
 <% end %>

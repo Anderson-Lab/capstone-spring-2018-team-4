@@ -75,4 +75,22 @@ RSpec.describe "User creates an indicator", js: true do
       expect(page).to have_selector(".chart-target.target-#{@target.id} .indicator", count: 2)
     end
   end
+
+  it 'should update the sidebar' do
+    @target = FactoryBot.create(:target, department: @department)
+
+    visit department_path(id: @department.id)
+
+    first('.new-indicator').click
+    fill_in 'indicator_name', with: 'ASD'
+    select Indicator::COLORS[1], from: 'indicator_color'
+    click_button I18n.t(:actions)[:create]
+    wait_for_ajax
+
+    find('#openTargetsSidebarButton').click
+    find('.targets-sidebar-department-header h2', text: @department.name).click
+    
+    expect(page).to have_selector('.target-draggable div', text: @target.name)
+    expect(page).to have_selector('.target-draggable .fa-minus-circle')
+  end
 end

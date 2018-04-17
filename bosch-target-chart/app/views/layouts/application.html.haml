@@ -12,6 +12,8 @@
       window.I18n = #{current_translations.to_json.html_safe};
   %body
     = render 'layouts/banner'
+    %button.btn.btn-light.position-fixed.ml-2.mt-2#openTargetsSidebarButton{ tabindex: -1, title: t(:targets)[:sidebar][:tooltips][:show_list], data: { toggle: 'tooltip', animation: 'false', placement: 'right' } }
+      = fa_icon('chevron-right')
     = render 'layouts/targets_sidebar', year: @year
     = render 'layouts/navbar'
     %main.container.pb-5.pt-5

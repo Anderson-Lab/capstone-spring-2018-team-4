@@ -10,6 +10,7 @@ $("#target<%= @target.id %>Indicators").replaceWith("<%= j render 'targets/table
 <% end %>
 
 $(".chart").replaceWith("<%= j render 'charts/chart_body', chart: @chart %>")
+$('#targetsSidebar').replaceWith("<%= j render 'layouts/targets_sidebar', year: @target.year %>")
 $("#target<%= @target.id %><%= @attribute.camelize %>").replaceWith('<%= j render "targets/table/#{@attribute}", target: @target %>')
 initializePopovers()
 $("#target<%= @target.id %><%= @attribute.camelize %> a").focus()
