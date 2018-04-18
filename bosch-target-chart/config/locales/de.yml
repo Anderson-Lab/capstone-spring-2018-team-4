@@ -6,12 +6,10 @@ de:
   site_header: "Target Charts"
 
   navigation_links:
-    login: "LOGIN"
-    register: "REGISTER"
-    logout: "LOGOUT"
-    dashboard: "DASHBOARD"
-    about: "ABOUT"
-    contact: "CONTACT"
+    login: "Login"
+    register: "Register"
+    logout: "Logout"
+    dashboard: "Dashboard"
 
   actions:
     close: 'Close'
@@ -37,6 +35,7 @@ de:
     targets:
       delete_header: "Remove Target from Chart"
       delete_confirm: "Are you sure?"
+    year_select: "Select a Year"
 
   categories:
     manage_categories: 'Manage Categories'

@@ -42,4 +42,18 @@ RSpec.describe "User deletes an indicator", js: true do
       expect(page).to_not have_selector(".chart-target.target-#{@target.id} .indicator")
     end
   end
+
+  it 'should update the sidebar' do
+    visit department_path(id: @department.id)
+
+    first('.indicator').click
+    find('.delete-indicator-button').click
+    find('.sweet-alert.visible button.confirm').trigger('click')
+    wait_for_ajax
+
+    find('#openTargetsSidebarButton').click
+    find('.targets-sidebar-department-header h2', text: @department.name).click
+    
+    expect(page).to_not have_selector('.target-draggable div', text: @target.name)
+  end
 end
