@@ -3,10 +3,10 @@
     .container
       - Category.all.each do |category|
         .row.category-row.pt-2.pl-2.align-items-start{ class: "category-#{category.id}", style: "background: #{category.color}" }
-          .category-header-container.col-md-2.d-flex.align-items-center.pl-0.pr-2.pb-2
+          .category-header-container.d-flex.align-items-center.pl-0.pr-2.pb-2
             = image_tag category.icon.url, class: 'category-icon'
             %h6.text-white.m-0
               = raw(category.name.gsub(" ", "<br>"))
-          .chart-targets-container.col-md-10.d-flex.flex-row.flex-wrap.p-0
+          .chart-targets-container.d-flex.flex-row.flex-wrap.p-0
             - chart.targets.where(category: category).eager_load(:indicators).each do |target|
               = render 'charts/chart_target', target: target, chart: chart

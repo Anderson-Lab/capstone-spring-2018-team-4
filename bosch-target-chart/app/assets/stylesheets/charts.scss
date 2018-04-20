@@ -1,42 +1,110 @@
 .chart-header {
   font-weight: 200;
 
+  &:not(:first-child) {
+    @media(max-width:1199px) {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    @media(max-width:767px) {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    @media(min-width:1200px) {
+      flex: 0 0 60%;
+      max-width: 60%;
+    }
+  }
+
   @media(max-width:767px) {
     font-size: 2rem;
   }
 }
 
-.chart.droppable {
-  box-shadow: 0 0 $spacer rgba(0, 0, 0, 0.075) inset, 0 0 $spacer * 3 $theme_warning;
-}
-
-.chart-target {
-  @media(min-width:768px) {
-    flex: 0 0 20%;
-    max-width: 20%;
+.chart {
+  &.droppable {
+    box-shadow: 0 0 $spacer rgba(0, 0, 0, 0.075) inset, 0 0 $spacer * 3 $theme_warning;  
   }
 
-  @media(max-width:767px) {
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
+  .category-row {
+    .category-header-container {
+      @media(min-width:768px) {
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
 
-  .remove-chart-target {
-    text-decoration: none !important;
-    line-height: 50%;
+      @media(min-width:1200px) {
+        flex: 0 0 16.67%;
+        max-width: 16.67%;
+      }
 
-    &:focus {
-      outline: 1px dotted theme-color("muted");
+      @media(max-width:767px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+    }
+
+    .chart-targets-container {
+      @media(min-width:768px) {
+        flex: 0 0 75%;
+        max-width: 75%;
+      }
+
+      @media(min-width:1200px) {
+        flex: 0 0 83.33%;
+        max-width: 83.33%;
+      }
+
+      @media(max-width:767px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
+ 
+      .chart-target {
+        @media(min-width:768px) {
+          flex: 0 0 33%;
+          max-width: 33%;
+        }
+
+        @media(min-width:1200px) {
+          flex: 0 0 20%;
+          max-width: 20%;
+        }
+
+        @media(max-width:767px) {
+          flex: 0 0 50%;
+          max-width: 50%;
+        }
+
+        .remove-chart-target {
+          text-decoration: none !important;
+          line-height: 50%;
+
+          &:focus {
+            outline: 1px dotted theme-color("muted");
+          }
+        }
+      }
     }
   }
 }
 
 #yearSelectContainer {
-  @media(min-width:768px) {
-    padding-right: 0;
+  @media(min-width:1200px) {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  @media(max-width:1199px) {
+    flex: 0 0 25%;
+    max-width: 25%;
   }
 
   @media(max-width:767px) {
+    flex: 0 0 100%;
+    max-width: 100%;
     padding: 0;
     margin-bottom: $spacer;
   }
@@ -47,19 +115,25 @@
 }
 
 #manageCategoriesContainer {
-  @media(min-width:768px) {
-    padding-right: 0;
+  @media(min-width:1200px) {
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+
+  @media(max-width:1199px) {
+    flex: 0 0 25%;
+    max-width: 25%;
   }
 
   @media(max-width:767px) {
-    padding: 0;
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 !important;
     margin-bottom: $spacer * .5;
   }
 
   #manageCategories {
-    @media(max-width:767px) {
-      width: 100%;
-    }
+    width: 100%;
   }
 }
 
