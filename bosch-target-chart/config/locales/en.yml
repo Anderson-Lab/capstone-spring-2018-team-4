@@ -11,6 +11,10 @@ en:
     logout: "Logout"
     dashboard: "Dashboard"
 
+  homepage:
+    title_text: "Clean, Efficient, Responsive"
+    subtitle_text: "Track your plant's yearly targets with ease using Target Charts, whether in the office or on the go."
+
   actions:
     close: 'Close'
     create: "Create"
