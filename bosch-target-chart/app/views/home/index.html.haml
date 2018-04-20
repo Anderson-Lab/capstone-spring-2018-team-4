@@ -1,2 +1,8 @@
-%h1.display-4.text-center
-  = 'Content will be placed here as work progresses on the application!'
+.col-md-8.offset-md-2.text-center
+  %h1.font-weight-light
+    = t(:homepage)[:title_text]
+  %h6.text-muted
+    = t(:homepage)[:subtitle_text]
+
+.col-md-8.offset-md-2.py-5#homeImage
+  = image_tag 'target_charts_home.png', class: 'w-100'
