@@ -3,6 +3,14 @@ en:
     language:
       name: "English"
 
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid_domain: "is not from an approved domain"
+
   site_header: "Target Charts"
 
   navigation_links:
