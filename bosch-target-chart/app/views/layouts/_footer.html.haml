@@ -1,8 +1,8 @@
 %footer.footer
   - if ENV['copyright_nav_links']
     %ul.copyright-navigation.list-unstyled
-      - ENV['copyright_nav_links'].split(', ').each do |hash|
-        - text, url = hash.split(' => ')
+      - ENV['copyright_nav_links'].split(',').each do |hash|
+        - text, url = hash.split('=>').map{ |text, url| text.strip, url.strip }
         %li.copyright-navigation-item.list-inline-item
           = link_to text, url, tabindex: -1
   - if ENV['copyright_statement']

@@ -15,10 +15,6 @@ class User < ApplicationRecord
           :registerable, :trackable, :timeoutable, :lockable,
           :validatable, password_length: Devise.password_length
 
-  VALID_DOMAINS = [
-    'us.bosch.com'
-  ]
-
   validates_presence_of :first_name, :last_name
   
   validates :email,
@@ -40,7 +36,7 @@ class User < ApplicationRecord
   private
 
   def email_domain_valid?
-    if (Rails.env != 'test' && self.email && User::VALID_DOMAINS.any? && User::VALID_DOMAINS.none?{ |domain| self.email.ends_with?(domain) })
+    if (Rails.env != 'test' && self.email && ENV['valid_domains'].present? && ENV['valid_domains'].split(',').none?{ |domain| self.email.ends_with?(domain.strip) })
       errors.add(:email, :invalid_domain)
     end
   end
