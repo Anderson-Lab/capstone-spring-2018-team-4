@@ -23,12 +23,21 @@ class User < ApplicationRecord
             format: { with: Devise::email_regexp }
 
   validates :password,
-            presence: true,
             confirmation: true,
             length: { within: Devise::password_length },
             on: :create
 
+  validate :email_domain_valid?
+
   def full_name
     "#{self.first_name} #{self.last_name}"
+  end
+
+  private
+
+  def email_domain_valid?
+    if (Rails.env != 'test' && self.email && ENV['valid_domains'].present? && ENV['valid_domains'].split(',').none?{ |domain| self.email.ends_with?(domain.strip) })
+      errors.add(:email, :invalid_domain)
+    end
   end
 end
