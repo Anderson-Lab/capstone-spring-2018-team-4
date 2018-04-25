@@ -22,6 +22,13 @@ gem 'sass-rails', '~> 5.0' # Use SCSS for .scss stylesheets
 gem 'uglifier' # For asset compilation
 gem 'turbolinks', '~> 5'
 
+group :production do
+  gem 'capistrano', '~> 3.10', '>= 3.10.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rvm'
+end
+
 group :development, :test do
   gem 'faker' # Allow us to create fake data for tests
   gem 'pry-byebug' # Use pry and byebug commands for debugging
