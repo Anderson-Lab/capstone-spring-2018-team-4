@@ -18,10 +18,10 @@
               %li
                 = link_to 'javascript:void(0)', id: "target#{target.id}Draggable", class: 'target-draggable d-flex bg-white pl-3 pr-2', tabindex: -1, draggable: true, ondragstart: "dragTargetToChart(event)", ondragend: "endDragTargetToChart(event)", data: { target_id: target.id, department_id: department.id } do
                   .container
-                    .row
-                      .col-md-9.pl-0
+                    .row.flex-nowrap.justify-content-between
+                      .pr-2
                         = target.name
-                      .col-md-3.text-right.p-0
+                      .d-flex.align-items-center
                         - target.indicators.each do |indicator|
                           = targets_sidebar_indicators(indicator)
                         - (Target::MAX_INDICATORS - target.indicators.length).times do
