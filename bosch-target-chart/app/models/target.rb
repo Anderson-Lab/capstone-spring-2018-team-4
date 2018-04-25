@@ -18,6 +18,8 @@ class Target < ApplicationRecord
     I18n.t(:targets)[:fields][:rule][:less_than_or_equal]
   ]
 
+  DEFAULT_RULE = RULES[1]
+
   validates :name, :department_id, :category_id, :unit, :unit_type, presence: true
   # Skip valiation if updating a different attribute
   validates :compare_to_value, presence: true,
@@ -36,7 +38,7 @@ class Target < ApplicationRecord
     joins(:indicators).distinct
   }
 
-  before_update :reset_compare_to_value, if: :unit_type_changed?
+  before_update :reset_compare_to_value_and_rule, if: :unit_type_changed?
   before_update :reset_indicator_values, if: :unit_type_changed?
 
   def is_numerical?
@@ -53,8 +55,9 @@ class Target < ApplicationRecord
 
   private
 
-  def reset_compare_to_value
+  def reset_compare_to_value_and_rule
     self.compare_to_value = nil if self.is_qualitative?
+    self.rule = self.is_qualitative? ? nil : DEFAULT_RULE
   end
 
   def reset_indicator_values

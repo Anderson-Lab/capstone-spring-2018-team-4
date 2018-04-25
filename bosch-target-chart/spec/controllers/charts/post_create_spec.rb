@@ -11,8 +11,8 @@ RSpec.describe ChartsController, type: :controller do
       @department_2 = FactoryBot.create(:department)
       @chart_pm     = FactoryBot.create(:chart, year: @year - 1)
       @chart_1      = FactoryBot.create(:chart, department: @department_1, year: @year - 1)
-      @target_1     = FactoryBot.create(:target, department: @department_1, year: @year - 1)
-      @target_2     = FactoryBot.create(:target, department: @department_2, year: @year - 1)
+      @target_1     = FactoryBot.create(:target, :numerical, department: @department_1, year: @year - 1)
+      @target_2     = FactoryBot.create(:target, :qualitative, department: @department_2, year: @year - 1)
       @indicator_1  = FactoryBot.create(:indicator, target: @target_1)
       @indicator_2  = FactoryBot.create(:indicator, target: @target_2)
 
@@ -49,6 +49,14 @@ RSpec.describe ChartsController, type: :controller do
 
     it 'should clone ChartsTargets' do
       expect(Target.for_year(@year).map(&:charts).flatten.uniq.count).to eq(2)
+    end
+
+    it 'should reset numerical target rules to the default rule' do
+      expect(Target.where(year: @year, unit_type: Target::UNIT_TYPES[0]).first.rule).to eq(Target::DEFAULT_RULE)
+    end
+
+    it 'should reset qualitative target rules to nil' do
+      expect(Target.where(year: @year, unit_type: Target::UNIT_TYPES[1]).first.rule).to eq(nil)
     end
   end
 end

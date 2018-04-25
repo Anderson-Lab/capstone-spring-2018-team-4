@@ -4,7 +4,6 @@
 ##########
 # IMAGES #
 ##########
-
 # Optional banner image appears above the Navbar
 banner_image = 'banner.png'
 
@@ -56,3 +55,10 @@ theme_color_muted = '#525f6b'
 
 # White "White" theme
 theme_color_white = '#ffffff'
+
+#########
+# Other #
+#########
+# Restrict which email domains can be used to create an account
+# Format: 'domain 1, domain 2, domain 3'
+valid_domains = 'us.bosch.com'
