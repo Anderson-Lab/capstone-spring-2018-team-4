@@ -45,7 +45,7 @@ class ChartsController < ApplicationController
         unit: target.unit,
         unit_type: target.unit_type,
         compare_to_value: nil,
-        rule: nil,
+        rule: target.is_numerical? ? Target::DEFAULT_RULE : nil,
         comments: target.comments,
         year: @year
       )).save(validate: false)
