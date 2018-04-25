@@ -26,6 +26,7 @@ group :development, :test do
   gem 'faker' # Allow us to create fake data for tests
   gem 'pry-byebug' # Use pry and byebug commands for debugging
   gem 'rspec-rails' # Use the rspec test framework
+  gem 'therubyracer', platforms: :ruby
 end
 
 group :development do
