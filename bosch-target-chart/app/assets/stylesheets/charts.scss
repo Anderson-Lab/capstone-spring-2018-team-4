@@ -188,6 +188,10 @@
 	    text-align: left;
           }
         }
+
+        i:not(:last-child) {
+          margin-right: $spacer * .25;
+        }
       }
     }
   }

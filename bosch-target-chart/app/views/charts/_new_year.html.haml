@@ -1,10 +1,10 @@
 .container
   .row
-    .col-md-3.order-md-last.d-flex.align-items-center.justify-content-end#manageCategoriesContainer
+    .order-md-last.d-flex.align-items-center.justify-content-end.pr-2#manageCategoriesContainer
       = link_to t(:categories)[:manage_categories], categories_path, id: 'manageCategories', class: 'btn btn-info float-right', ondragstart: "return false"
-    .col-md-2.order-md-last.d-flex.align-items-center.pr-0#yearSelectContainer
+    .order-md-last.d-flex.align-items-center.pr-0#yearSelectContainer
       = render 'charts/year_dropdown', year: year, department: nil
-    %h1.col-md-7.pl-0
+    %h1.chart-header.pl-0.mb-0
       = I18n.t('charts.new_year.header', year: year)
   .row
     = link_to I18n.t('charts.new_year.start_button', year: year), charts_path(year: year), method: :post, class: 'btn btn-lg btn-block btn-outline-success'
