@@ -100,6 +100,20 @@ RSpec.describe Target, type: :model do
 
         expect(t.reload.compare_to_value).to eq(nil)
       end
+
+      it 'should reset rule when target is qualitative' do
+        t = FactoryBot.create(:target, :numerical, rule: Target::RULES[0])
+        t.update_attribute(:unit_type, Target::UNIT_TYPES[1])
+
+        expect(t.reload.rule).to eq(nil)
+      end
+
+      it 'should set default rule when target is numerical' do
+        t = FactoryBot.create(:target, :qualitative, rule: nil)
+        t.update_attribute(:unit_type, Target::UNIT_TYPES[0])
+
+        expect(t.reload.rule).to eq(Target::DEFAULT_RULE)
+      end
     end
 
     describe '#reset_indicator_values' do
