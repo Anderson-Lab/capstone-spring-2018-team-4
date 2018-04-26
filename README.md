@@ -3,7 +3,7 @@
 
 Bosch approached our capstone class at the beginning of the semester and asked a team of students to make an application to replace their current system. Their current system was made with applications familiar to Bosch&mdash;Microsoft Excel and PowerPoint. While these applications are great for general purposes, Bosch needed a more specific solution. We designed and built a Ruby on Rails web application that is accessible from any device, allows multiple users to edit their data at once, and is easy to use.
 
-# Target Charts Video:
+# Target Charts Video
 [![Target Charts Video](https://img.youtube.com/vi/ShAVnZbSqfY/0.jpg)](https://www.youtube.com/watch?v=ShAVnZbSqfY&feature=youtu.be)
 
 # Technologies
