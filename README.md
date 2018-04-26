@@ -5,6 +5,14 @@ Bosch approached our capstone class at the beginning of the semester and asked a
 
 # Target Charts Video
 [![Target Charts Video](https://img.youtube.com/vi/ShAVnZbSqfY/0.jpg)](https://www.youtube.com/watch?v=ShAVnZbSqfY&feature=youtu.be)
+<p><sup><small>
+  Please note that we did not take any footage inside any Bosch manufacturing plant. Here are our video sources:
+<br>
+  https://www.youtube.com/watch?v=heF8AtvnU7Q <br>
+  https://www.youtube.com/watch?v=UP-SXdHaZiI <br>
+  http://www.bosch-presse.de/pressportal/de/de/industrie-4-0-fertigung-und-logistik-common-rail-injektor-56131.html <br>
+  http://www.bosch-presse.de/pressportal/de/de/ces-2018-opening-139392.html <br>
+</small></sup></p>
 
 # Technologies
 * **Ruby on Rails** (Rails): A powerful web framework that uses Ruby code on the backend and strictly enforces a model-view controller structure. We chose Rails because it's open-source, robust, and allows us to easily install external libraries, called "gems". We used Rails as a full stack framework, meaning the frontend (views) were within the same framework as the backend (controllers and models) rather than have two separate frameworks where we have to build our own API for those to work togeter.
