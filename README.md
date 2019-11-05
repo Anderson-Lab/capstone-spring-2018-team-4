@@ -44,7 +44,7 @@ Bosch approached our capstone class at the beginning of the semester and asked a
 # About Us
 ### Developers:
 * Sam Word, B.S. Computer Science, College of Charleston
-* Kyle Glick, B.S. Computer Science, College of Charleston
+* Kayla Glick, B.S. Computer Science, College of Charleston
 * Josh Glass, B.A. Computer Science, College of Charleston
 * Omer Omer, B.S. Computer Science, College of Charleston
 
