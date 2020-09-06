@@ -57,6 +57,6 @@ Bosch approached our capstone class at the beginning of the semester and asked a
 We had nine total sprints. Our sprints were only one week long, with the exception of a couple at the beginning of the project and the last sprint. We chose to do weekly sprints so that we could frequently revisit what needs to be completed. Each developer got a chance to be Scrum Master for approximately three weeks:
 1. Josh: Our first Scrum Master. During his time as scrum master we primarily focused on gathering information from Bosch and designing a model for our application.
 2. Omer: Our second Scrum Master who focused on pulling out key features of Target Charts and beginning to implement those features.
-3. Kyle: Our third Scrum Master. During his time as scrum master we focused almost entirely on developing the application. Most of our application was actually coded during these few weeks.
+3. Kayla: Our third Scrum Master. During her time as scrum master we focused almost entirely on developing the application. Most of our application was actually coded during these few weeks.
 4. Sam: Our last Scrum Master. Sam's time as Scrum Master was dedicated to finishing key features of the application, fixing minor bugs that persisted, deploying the application, and thoroughly documenting the application to hand over to Bosch. Coding Target Charts was finished around sprints 7 and 8, and all documentation was done by the end of sprint 9.
 
